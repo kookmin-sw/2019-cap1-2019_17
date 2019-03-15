@@ -50,39 +50,39 @@
 
 - 역할 : TF-IDF 와 TextRank 알고리즘을 이용한 텍스트 요약 기능을 구현.
 
-# E-mail : kimgisuo@gmail.com
+- E-mail : kimgisuo@gmail.com
 
 #### 2. 팀원 : 김윤성
 
-# 학번 : 20133210
+- 학번 : 20133210
 
-# 역할 : TF-IDF 와 TextRank 알고리즘을 이용한 텍스트 요약 기능을 구현.
+- 역할 : TF-IDF 와 TextRank 알고리즘을 이용한 텍스트 요약 기능을 구현.
 
-# E-mail : msmf3@naver.com
+- E-mail : msmf3@naver.com
 
 #### 3. 팀원 : 양성호
 
-# 학번 : 20133235
+- 학번 : 20133235
 
-# 역할 : Google Speech API 호출 및 Time Stamp와 Hash Tag 기능을 구현. Django와 MongoDB를 이용해 서버를 구축하고 데이터를 관리.
+- 역할 : Google Speech API 호출 및 Time Stamp와 Hash Tag 기능을 구현. Django와 MongoDB를 이용해 서버를 구축하고 데이터를 관리.
 
-# E-mail : ysh827@kookmin.ac.kr 
+- E-mail : ysh827@kookmin.ac.kr 
 
 #### 4. 팀원 : 정경진
 
-# 학번 : 20153225
+- 학번 : 20153225
 
-# 역할 : Google Speech API 호출 및 Time Stamp와 Hash Tag 기능을 구현.
+- 역할 : Google Speech API 호출 및 Time Stamp와 Hash Tag 기능을 구현.
 
-# E-mail : okyungjin@gmail.com
+- E-mail : okyungjin@gmail.com
 
 #### 5. 팀원 : 정예원
 
-# 학번 : 20165161
+- 학번 : 20165161
 
-# 역할 : 사용자 인터페이스 설계. Django 와 MongoDB 를 이용해 서버를 구축하고 데이터를 관리.
+- 역할 : 사용자 인터페이스 설계. Django 와 MongoDB 를 이용해 서버를 구축하고 데이터를 관리.
 
-# E-mail : yes3427@gmail.com
+- E-mail : yes3427@gmail.com
 
 ### 4. 사용법
 
