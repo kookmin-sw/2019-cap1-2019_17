@@ -39,7 +39,7 @@
 ### 3. 팀 소개
 
 
-## Professor
+Professor
 
 박수현 교수님
 
