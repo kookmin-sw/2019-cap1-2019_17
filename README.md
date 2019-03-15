@@ -10,7 +10,7 @@
 
 - 수정후 팀페이지 확인하여 점검.
 
-**팀페이지 주소** -> https://kookmin-sw.github.io/ `{{자신의 리파지토리 아이디}}`
+**팀페이지 주소** -> https://kookmin-sw.github.io/ `{{2019-cap1-2019_17}}`
 
 **예시)** 1조  https://kookmin-sw.github.io/2018-cap-1
 
