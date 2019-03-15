@@ -23,6 +23,7 @@
 
 ### 2. 소개 영상
 
+[![Video Label](https://img.youtube.com/vi/UIbcKwdViQM/0.jpg)](https://youtu.be/UIbcKwdViQM)
 
 ---------------------------------------
 
