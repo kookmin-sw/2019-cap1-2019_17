@@ -8,6 +8,53 @@ import numpy as np
 
 
 class SentenceTokenizer(object): # 문장형태소로 토큰화
+      def __init__(self):
+        self.kkma = Kkma()
+        self.twitter = Okt()
+        textfile = open("한국어_불용어_리스트.txt", "r")
+        self.stopwords = []
+        while True:
+            line = textfile.read().splitlines()
+            if not line:
+                break
+            self.stopwords.append(line)
+        self.stopwords = self.stopwords[0]
+        textfile.close()
+    def url2sentences(self, url):
+        # url에서 텍스트 파일로 변환(크롤링)
+        article = Article(url, language='ko')
+        article.download()
+        article.parse()
+        # 텍스트 파일에서 문장 추출.
+        sentences = self.kkma.sentences(article.text)
+    
+        for idx in range(0, len(sentences)):
+            # 문장의 길이가 10이하이면 앞 문장이랑 합침.
+            if len(sentences[idx]) <= 10:
+                sentences[idx-1] += (' ' + sentences[idx])
+                sentences[idx] = ''
+        return sentences
+
+    def text2sentences(self, text):
+        # 텍스트 파일에서 문장 추출.
+        sentences = self.kkma.sentences(text)
+        for idx in range(0, len(sentences)):
+            # 문장의 길이가 10이하이면 앞 문장이랑 합침.
+            if len(sentences[idx]) <= 10:
+                sentences[idx-1] += (' ' + sentences[idx])
+                sentences[idx] = ''
+
+        return sentences
+
+    # 명사, 대명사를 추출하는 함수.
+    def get_nouns(self, sentences):
+        nouns = []
+        for sentence in sentences:
+            if sentence is not '':
+                nouns.append(' '.join([noun for noun in self.twitter.nouns(str(sentence))
+                                        if noun not in self.stopwords and len(noun) > 1]))
+                                        # noun이 불용어가 아니고, noun의 길이가 1보다 클 때 noun으로 받음.
+        return nouns
 
 class GraphMatrix(object): # TF-IDF를 계산후 매트릭스 형태로 값 리턴
 
