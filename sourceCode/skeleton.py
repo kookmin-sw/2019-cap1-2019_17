@@ -8,7 +8,7 @@ import numpy as np
 
 
 class SentenceTokenizer(object): # 문장형태소로 토큰화
-      def __init__(self):
+    def __init__(self):
         self.kkma = Kkma()
         self.twitter = Okt()
         textfile = open("한국어_불용어_리스트.txt", "r")
@@ -20,6 +20,7 @@ class SentenceTokenizer(object): # 문장형태소로 토큰화
             self.stopwords.append(line)
         self.stopwords = self.stopwords[0]
         textfile.close()
+
     def url2sentences(self, url):
         # url에서 텍스트 파일로 변환(크롤링)
         article = Article(url, language='ko')
@@ -56,7 +57,21 @@ class SentenceTokenizer(object): # 문장형태소로 토큰화
                                         # noun이 불용어가 아니고, noun의 길이가 1보다 클 때 noun으로 받음.
         return nouns
 
-class GraphMatrix(object): # TF-IDF를 계산후 매트릭스 형태로 값 리턴
+class GraphMatrix(object):
+    def __init__(self):
+        self.tfidf = TfidfVectorizer()
+        self.cnt_vec = CountVectorizer()
+        self.graph_sentence = []
+
+    def build_sent_graph(self, sentence):
+        tfidf_mat = self.tfidf.fit_transform(sentence).toarray()
+        self.graph_sentence = np.dot(tfidf_mat, tfidf_mat.T)
+        return self.graph_sentence
+
+    def build_words_graph(self, sentence):
+        cnt_vec_mat = normalize(self.cnt_vec.fit_transform(sentence).toarray().astype(float), axis=0)
+        vocab = self.cnt_vec.vocabulary_
+        return np.dot(cnt_vec_mat.T, cnt_vec_mat), {vocab[word] : word for word in vocab}
 
 class Rank(object): # Rank 알고리즘 적용
 
