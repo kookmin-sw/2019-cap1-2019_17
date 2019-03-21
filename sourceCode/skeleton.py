@@ -57,18 +57,18 @@ class SentenceTokenizer(object): # 문장형태소로 토큰화
                                         # noun이 불용어가 아니고, noun의 길이가 1보다 클 때 noun으로 받음.
         return nouns
 
-class GraphMatrix(object):
-    def __init__(self):
+class GraphMatrix(object): # scikit-learn 패키지를 통해 TF-IDF 모델링 하여 결과값을 그래프로 나타냄
+    def __init__(self): # TF-IDF값을 계산하기 위한 벡터화 init 작업
         self.tfidf = TfidfVectorizer()
         self.cnt_vec = CountVectorizer()
         self.graph_sentence = []
 
-    def build_sent_graph(self, sentence):
+    def build_sent_graph(self, sentence): # 명사로 이루어진 문장을 입력받아 sklearn의 TfidfVectorizer.fit_transform을 이용하여 tfidf matrix를 만든 후 Sentence graph를 return 한다.
         tfidf_mat = self.tfidf.fit_transform(sentence).toarray()
         self.graph_sentence = np.dot(tfidf_mat, tfidf_mat.T)
         return self.graph_sentence
 
-    def build_words_graph(self, sentence):
+    def build_words_graph(self, sentence): # 명사로 이루어진 문장을 입력받아 sklearn의 CountVectorizer.fit_transform을 이용하여 matrix를 만든 후 word graph와 {idx: word}형태의 dictionary를 return한다.
         cnt_vec_mat = normalize(self.cnt_vec.fit_transform(sentence).toarray().astype(float), axis=0)
         vocab = self.cnt_vec.vocabulary_
         return np.dot(cnt_vec_mat.T, cnt_vec_mat), {vocab[word] : word for word in vocab}
