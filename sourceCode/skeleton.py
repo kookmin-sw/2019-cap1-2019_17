@@ -74,6 +74,20 @@ class GraphMatrix(object): # scikit-learn 패키지를 통해 TF-IDF 모델링 �
         return np.dot(cnt_vec_mat.T, cnt_vec_mat), {vocab[word] : word for word in vocab}
 
 class Rank(object): # Rank 알고리즘 적용
+    def get_ranks(self, graph, d=0.85): # d = damping factor (해당 페이지를 만족하지 못하고 다른페이지로 이동하는 확률) 여기선 0.85로 설정함
+        A = graph
+        matrix_size = A.shape[0] # shape[0] : 전체 행의 갯수, shape[1] : 전체 열의 개수.
+        for id in range(matrix_size):
+            A[id, id] = 0 # diagonal 부분을 0으로 
+            link_sum = np.sum(A[:,id]) # A[:, id] = A[:][id] ([:] array의 모든 성분을 추출.)
+            if link_sum != 0: 
+                A[:, id] /= link_sum
+            A[:, id] *= -d
+            A[id, id] = 1
+            
+        B = (1-d) * np.ones((matrix_size, 1))
+        ranks = np.linalg.solve(A, B) # 연립방정식 Ax = b
+        return {idx: r[0] for idx, r in enumerate(ranks)}
 
 class TextRank(object):# TF-IDF값을 이어 받아 TextRank알고리즘 적용
 
