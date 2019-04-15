@@ -79,20 +79,26 @@
 		<container class="category text-center">
 			
 		</container>
-       
+		
 		<container class="project_info" style="margin:0 auto;">
 			
-			<div class="project_img" >
+			<!-- <div class="project_img" >
 				flac upload
-			</div>
-			
-			<div class="project_desc" >
+			</div> -->
+			<form action="http://storage.googleapis.com/speech-ysh" method="post" enctype="multipart/form-data">
+	  			<input type="hidden" name="key" value="${filename}" />
+	  			<input type="hidden" name="success_action_status" value="201" />
+	  			<input type="file" name="file">
+	  			<input type="submit" value="Upload">
+  			</form>
+
+			<!-- <div class="project_desc" >
 					<h3 class="mb-4">Text</h3>
 					
                     <div class="text-medium" style="line-height:1.95rem;">
 						key word
 					</div>
-			</div>
+			</div> -->
 
 		</container>
 
