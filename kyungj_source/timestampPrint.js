@@ -22,12 +22,12 @@ async function main(){
    enableWordTimeOffsets: true,
    enableAutomaticPunctuation: true,
 //  encoding: 'LINEAR16',
-   encoding: 'FLAC',
-   sampleRate: 16000,
+   encoding: 'WAV',
+  //  sampleRate: 16000,
     languageCode: 'en-US',
 //   languageCode: 'ko-KR',
 //   model: "default",
-   audioChannelCount: 2,
+   audioChannelCount: 1,
 //  enableSeparateRecognitionPerChannel: true,
 // LINEAR16, FLAC
   };
