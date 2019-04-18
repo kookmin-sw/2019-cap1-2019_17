@@ -19,7 +19,7 @@
 -  가공된 데이터를 다시 가져와서 사용자에게 제공한다.
 
 
-Abstract
+### Abstract
 
 It is difficult for people to absorb and understand many long and long contents through speeches, speeches, announcements, etc. It is important or important, but because the amount of content is getting longer and longer, there is a limit to the amount of time people concentrate on, which can miss important parts. Because of this, the contents are backed up in various ways, such as viewing again via broadcast, recording video, recording audio, etc., and reuse it later. We focused on this part and planned a project that converts voice data to text according to the use purpose and extracts the sentence converted into the text by important sentence unit.
 
