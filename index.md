@@ -79,7 +79,7 @@ The overall structure and development of this project are divided into three mai
 
 - 학번 : 20153225
 
-- 역할 : Google Speech API 호출 및 Time Stamp와 Hash Tag 기능을 구현.
+- 역할 : Google Speech API 호출 및 Time Stamp와 Hash Tag 기능을 구현. 사용자 인터페이스 설계. Django 와 MongoDB 를 이용해 서버를 구축하고 데이터를 관리.
 
 - E-mail : okyungjin@gmail.com
 
@@ -98,11 +98,11 @@ The overall structure and development of this project are divided into three mai
 ### 4. 사용법
 
 
-1. 사용자는 음성파일(flac포맷)을 업로드 버튼 클릭 또는 파일 드래그 & 드랍을 하여서 불러온다.
-1. 파일이 불러와진다면 바로 요약 작업이 시작되고 완료될때까지 로딩창이 나타나는데 다음창으로 넘어갈때까지 기다린다.
-1. 로딩창이 끝나고 다음 창으로 넘어가서 요약된 문장을 modal view형태로 보여주고 점선 버튼을 누르면 전체 텍스트 내용을 확인할 수 있다.
-1. 특정 단어를 search bar에 타이핑한다면 어느 파일에 어느 시간대에 그 단어가 등장했는지에 대한 정보를 확인할 수 있다.
-1. 파일 리스트 우측에 키워드태깅을 통해 그 파일에 대한 내용이 무슨내용인지 대략적으로 파악할 수 있다.
+1) 사용자는 음성파일(flac포맷)을 업로드 버튼 클릭 또는 파일 드래그 & 드랍을 하여서 불러온다.
+2) 파일이 불러와진다면 바로 요약 작업이 시작되고 완료될때까지 로딩창이 나타나는데 다음창으로 넘어갈때까지 기다린다.
+3) 로딩창이 끝나고 다음 창으로 넘어가서 요약된 문장을 modal view형태로 보여주고 점선 버튼을 누르면 전체 텍스트 내용을 확인할 수 있다.
+4) 특정 단어를 search bar에 타이핑한다면 어느 파일에 어느 시간대에 그 단어가 등장했는지에 대한 정보를 확인할 수 있다.
+5) 파일 리스트 우측에 키워드태깅을 통해 그 파일에 대한 내용이 무슨내용인지 대략적으로 파악할 수 있다.
 
 
 ---------------------------------------
