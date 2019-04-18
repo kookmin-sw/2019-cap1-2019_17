@@ -19,6 +19,20 @@
 -  가공된 데이터를 다시 가져와서 사용자에게 제공한다.
 
 
+### Abstract
+
+It is difficult for people to absorb and understand many long and long contents through speeches, presentations, official announcements, etc. Because the amount of content is getting longer and larger, there is a limit to the amount of time people concentrate on, which can miss important parts. But, It is significant or important. Because of this, the contents are backed up in various ways, such as viewing again via broadcast, recording video, recording audio, etc., and reuse it later. We focused on this part and planned a project that converts voice data to text according to the use purpose and extracts the sentence converted into the text by important sentence unit.
+
+The overall structure and development of this project are divided into three main categories.
+
+-  For voice recognition, we use external API (Google Speech API) to convert voice data to text and store the data in server.
+
+-  Apply the summarization algorithm to the text data stored on the server to process the data so that it is summarized as a core sentence only.
+
+
+-  Bring the processed data back to the user.
+
+
 ---------------------------------------
 
 ### 2. 소개 영상
@@ -83,7 +97,11 @@
 ### 4. 사용법
 
 
-소스코드 제출 시 업로드 예정.
+1) 사용자는 음성파일(flac포맷)을 업로드 버튼 클릭 또는 파일 드래그 & 드랍을 하여서 불러온다.
+2) 파일이 불러와진다면 바로 요약 작업이 시작되고 완료될때까지 로딩창이 나타나는데 다음창으로 넘어갈때까지 기다린다.
+3) 로딩창이 끝나고 다음 창으로 넘어가서 요약된 문장을 modal view형태로 보여주고 점선 버튼을 누르면 전체 텍스트 내용을 확인할 수 있다.
+4) 특정 단어를 search bar에 타이핑한다면 어느 파일에 어느 시간대에 그 단어가 등장했는지에 대한 정보를 확인할 수 있다.
+5) 파일 리스트 우측에 키워드태깅을 통해 그 파일에 대한 내용이 무슨내용인지 대략적으로 파악할 수 있다.
 
 
 ---------------------------------------
