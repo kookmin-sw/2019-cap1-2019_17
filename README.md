@@ -70,7 +70,7 @@ The overall structure and development of this project are divided into three mai
 
 - 학번 : 20133235
 
-- 역할 : Google Speech API 호출 및 Time Stamp와 Hash Tag 기능을 구현. Django와 MongoDB를 이용해 서버를 구축하고 데이터를 관리.
+- 역할 : UI설계 및 구현, Google Speech API 호출 및 Time Stamp 와 Hash Tag 기능을 구현. Django와 MongoDB를 이용해 서버를 구축하고 데이터를 관리.
 
 - E-mail : ysh827@kookmin.ac.kr 
 
@@ -79,7 +79,7 @@ The overall structure and development of this project are divided into three mai
 
 - 학번 : 20153225
 
-- 역할 : Google Speech API 호출 및 Time Stamp와 Hash Tag 기능을 구현. 사용자 인터페이스 설계. Django 와 MongoDB 를 이용해 서버를 구축하고 데이터를 관리.
+- 역할 : UI설계 및 구현, Google Speech API 호출 및 Time Stamp 와 Hash Tag 기능을 구현. Django와 MongoDB를 이용해 서버를 구축하고 데이터를 관리.
 
 - E-mail : okyungjin@gmail.com
 
@@ -88,7 +88,7 @@ The overall structure and development of this project are divided into three mai
 
 - 학번 : 20165161
 
-- 역할 : 사용자 인터페이스 설계. Django 와 MongoDB 를 이용해 서버를 구축하고 데이터를 관리.
+- 역할 : UI설계 및 구현, Google Speech API 호출 및 Time Stamp 와 Hash Tag 기능을 구현. Django와 MongoDB를 이용해 서버를 구축하고 데이터를 관리.
 
 - E-mail : yes3427@gmail.com
 
