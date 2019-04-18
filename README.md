@@ -21,7 +21,16 @@
 
 ### Abstract
 
-It is difficult for people to absorb and understand many long and long contents through speeches, speeches, announcements, etc. It is important or important, but because the amount of content is getting longer and longer, there is a limit to the amount of time people concentrate on, which can miss important parts. Because of this, the contents are backed up in various ways, such as viewing again via broadcast, recording video, recording audio, etc., and reuse it later. We focused on this part and planned a project that converts voice data to text according to the use purpose and extracts the sentence converted into the text by important sentence unit.
+It is difficult for people to absorb and understand many long and long contents through speeches, presentations, official announcements, etc. Because the amount of content is getting longer and larger, there is a limit to the amount of time people concentrate on, which can miss important parts. But, It is significant or important. Because of this, the contents are backed up in various ways, such as viewing again via broadcast, recording video, recording audio, etc., and reuse it later. We focused on this part and planned a project that converts voice data to text according to the use purpose and extracts the sentence converted into the text by important sentence unit.
+
+The overall structure and development of this project are divided into three main categories.
+
+-  For voice recognition, we use external API (Google Speech API) to convert voice data to text and store the data in server.
+
+-  Apply the summarization algorithm to the text data stored on the server to process the data so that it is summarized as a core sentence only.
+
+
+-  Bring the processed data back to the user.
 
 
 
