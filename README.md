@@ -79,7 +79,7 @@ The overall structure and development of this project are divided into three mai
 
 - 학번 : 20153225
 
-- 역할 : Google Speech API 호출 및 Time Stamp와 Hash Tag 기능을 구현.
+- 역할 : Google Speech API 호출 및 Time Stamp와 Hash Tag 기능을 구현. 사용자 인터페이스 설계. Django 와 MongoDB 를 이용해 서버를 구축하고 데이터를 관리.
 
 - E-mail : okyungjin@gmail.com
 
