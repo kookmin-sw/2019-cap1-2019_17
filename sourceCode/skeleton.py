@@ -1,17 +1,22 @@
-from newspaper import Article #뉴스를 크롤링하기 위한 패키지
-from konlpy.tag import Kkma # 한국어 형태소분석 패키지
-from konlpy.tag import Twitter  # 한국어 형태소분석 패키지
-from sklearn.feature_extraction.text import TfidfVectorizer # TF-IDF 계산을 위한 머신러닝 패키지
-from sklearn.feature_extraction.text import CountVectorizer # TF-IDF 계산값을 매트릭스화 시키는 패키지
-from sklearn.preprocessing import normalize # 전처리과정을 일반화시키는 패키지
+from newspaper import Article
+from konlpy.tag import Kkma
+from konlpy.tag import Twitter
+from nltk.tokenize import sent_tokenize
+from nltk.tokenize import word_tokenize
+from nltk.tokenize import RegexpTokenizer
+from sklearn.feature_extraction.text import TfidfVectorizer
+from sklearn.feature_extraction.text import CountVectorizer
+from sklearn.preprocessing import normalize
 import numpy as np
 
 
-class SentenceTokenizer(object): # 문장형태소로 토큰화
+class SentenceTokenizer(object):
     def __init__(self):
         self.kkma = Kkma()
         self.twitter = Twitter()
-        textfile = open("한국어_불용어_리스트.txt", "r")
+        self.retokenize = RegexpTokenizer("[\w]+")
+        #self.stopwords = []
+        textfile = open("input3.txt", "r")
         self.stopwords = []
         while True:
             line = textfile.read().splitlines()
@@ -20,60 +25,74 @@ class SentenceTokenizer(object): # 문장형태소로 토큰화
             self.stopwords.append(line)
         self.stopwords = self.stopwords[0]
         textfile.close()
+        #self.stopwords = ['That','This','Those','There','to','as','about','foward','for','myself','It','just','else','ar',"That","it",]#영어전용
+        #self.stopwords = ['중인' ,'만큼', '마찬가지', '꼬집었', "연합뉴스", "데일리", "동아일보", "중앙일보", "조선일보", "기자"
+         #    ,"아", "휴", "아이구", "아이쿠", "아이고", "어", "나", "우리", "저희", "따라", "의해", "을", "를", "에", "의", "가",]
 
-    def url2sentences(self, url):
-        # url에서 텍스트 파일로 변환(크롤링)
-        article = Article(url, language='ko')
+    def url2sentences(self, url): # url에서 텍스트 파일로 변환(크롤링)
+        #article = Article(url, language='ko') #영어전용
+        article = Article(url, language='en')
         article.download()
         article.parse()
-        # 텍스트 파일에서 문장 추출.
-        sentences = self.kkma.sentences(article.text)
-    
-        for idx in range(0, len(sentences)):
-            # 문장의 길이가 10이하이면 앞 문장이랑 합침.
+        #sentences = self.kkma.sentences(article.text) # 텍스트 파일에서 문장 추출.
+        sentences = sent_tokenize(article.text) #영어전용
+
+        for idx in range(0, len(sentences)): # 문장의 길이가 10이하이면 앞 문장이랑 합침.
             if len(sentences[idx]) <= 10:
                 sentences[idx-1] += (' ' + sentences[idx])
                 sentences[idx] = ''
+        
         return sentences
-
+  
     def text2sentences(self, text):
-        # 텍스트 파일에서 문장 추출.
-        sentences = self.kkma.sentences(text)
-        for idx in range(0, len(sentences)):
-            # 문장의 길이가 10이하이면 앞 문장이랑 합침.
+        #sentences = self.kkma.sentences(text) # 텍스트 파일에서 문장 추출.
+        sentences = sent_tokenize(text)      
+        for idx in range(0, len(sentences)): # 문장의 길이가 10이하이면 앞 문장이랑 합침.
             if len(sentences[idx]) <= 10:
                 sentences[idx-1] += (' ' + sentences[idx])
                 sentences[idx] = ''
-
+        
         return sentences
 
-    # 명사, 대명사를 추출하는 함수.
-    def get_nouns(self, sentences):
+    def get_nouns(self, sentences): # 명사, 대명사를 추출하는 함수.
         nouns = []
         for sentence in sentences:
-            if sentence is not '':
-                nouns.append(' '.join([noun for noun in self.twitter.nouns(str(sentence))
-                                        if noun not in self.stopwords and len(noun) > 1]))
-                                        # noun이 불용어가 아니고, noun의 길이가 1보다 클 때 noun으로 받음.
+            if sentence is not '': # noun이 불용어가 아니고, noun의 길이가 1보다 클 때 noun으로 받음.
+                #nouns.append(' '.join([noun for noun in self.twitter.nouns(str(sentence)) 
+                nouns.append(' '.join([noun for noun in self.retokenize.tokenize(str(sentences)) #영어전용
+                                       if noun not in self.stopwords and len(noun) > 1]))
+        
         return nouns
 
-class GraphMatrix(object): # scikit-learn 패키지를 통해 TF-IDF 모델링 하여 결과값을 그래프로 나타냄
-    def __init__(self): # TF-IDF값을 계산하기 위한 벡터화 init 작업
+class GraphMatrix(object):
+    def __init__(self):
         self.tfidf = TfidfVectorizer()
         self.cnt_vec = CountVectorizer()
         self.graph_sentence = []
 
-    def build_sent_graph(self, sentence): # 명사로 이루어진 문장을 입력받아 sklearn의 TfidfVectorizer.fit_transform을 이용하여 tfidf matrix를 만든 후 Sentence graph를 return 한다.
+    def build_sent_graph(self, sentence):
+        # fit_transform() = fit()[변환 계수 추정] + transform()[자료를 변환].
+        # fit_transform() = 문법과 idf를 learn(학습하다?). 단어-문서(여기선 문장?) 매트릭스를 반환함.
+        # (문장 수, feature단어 개수)
+        # toarray()는 전체 매트릭스를 보여줌.
         tfidf_mat = self.tfidf.fit_transform(sentence).toarray()
+        # dot은 내적 연산.
+        # tfidf_mat(sentence-term matrix) 와 그 전치행렬인 tfidf_mat.T 를 내적함.
+        # 내적한 Matrix는 Adjacency Matrix(문장 간 연결관계를 나타내는)로 볼 수 있다. 
+
         self.graph_sentence = np.dot(tfidf_mat, tfidf_mat.T)
         return self.graph_sentence
 
-    def build_words_graph(self, sentence): # 명사로 이루어진 문장을 입력받아 sklearn의 CountVectorizer.fit_transform을 이용하여 matrix를 만든 후 word graph와 {idx: word}형태의 dictionary를 return한다.
+    def build_words_graph(self, sentence):
+        # self.cnt_vec.fit_transform(sentence).toarray().astype(형)[형변환].
+        # normalize(matrix, axis=0[각 특징마다 정규화])
         cnt_vec_mat = normalize(self.cnt_vec.fit_transform(sentence).toarray().astype(float), axis=0)
         vocab = self.cnt_vec.vocabulary_
         return np.dot(cnt_vec_mat.T, cnt_vec_mat), {vocab[word] : word for word in vocab}
 
-class Rank(object): # Rank 알고리즘 적용
+
+
+class Rank(object):
     def get_ranks(self, graph, d=0.85): # d = damping factor (해당 페이지를 만족하지 못하고 다른페이지로 이동하는 확률) 여기선 0.85로 설정함
         A = graph
         matrix_size = A.shape[0] # shape[0] : 전체 행의 갯수, shape[1] : 전체 열의 개수.
@@ -89,7 +108,8 @@ class Rank(object): # Rank 알고리즘 적용
         ranks = np.linalg.solve(A, B) # 연립방정식 Ax = b
         return {idx: r[0] for idx, r in enumerate(ranks)}
 
-class TextRank(object):# TF-IDF값을 이어 받아 TextRank알고리즘 적용
+
+class TextRank(object):
     def __init__(self, text):
         # 분리한 문장들을 토큰화하고 sent_tokenize에 저장.
         self.sent_tokenize = SentenceTokenizer()
@@ -141,10 +161,13 @@ class TextRank(object):# TF-IDF값을 이어 받아 TextRank알고리즘 적용
             keywords.append(self.idx2word[idx])
         
         return keywords
-
-url = 'http://v.media.daum.net/v/20170611192209012?rcmd=r'
-textrank = TextRank(url)
-#textrank = TextRank(a)
+f = open("/Users/macbook/Desktop/학교/졸프/work/Example/input2.txt", 'r')
+a = f.read()
+#url = 'http://v.media.daum.net/v/20170611192209012?rcmd=r'
+#url = 'https://www.theverge.com/2019/3/21/18274477/ipad-mini-2019-review-apple-ios-pencil-lightning-specs-price-tablet'
+#url = 'https://www.itnews.com.au/news/facebook-stored-millions-of-user-passwords-in-plain-text-522782'
+#textrank = TextRank(url)
+textrank = TextRank(a)
 
 for row in textrank.summarize(3):
     print(row)
