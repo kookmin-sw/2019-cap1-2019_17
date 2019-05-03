@@ -1,5 +1,5 @@
 from newspaper import Article
-from konlpy.tag import Kkma
+from konlpy.tag import Kkma # 이것은 한국어 형태분석기 패키지인데 중복인것을 없애줌
 from konlpy.tag import Twitter
 from nltk.tokenize import sent_tokenize
 from nltk.tokenize import word_tokenize
@@ -7,16 +7,25 @@ from nltk.tokenize import RegexpTokenizer
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.feature_extraction.text import CountVectorizer
 from sklearn.preprocessing import normalize
+import spacy
+nlp = spacy.load('en')
+import neuralcoref
+neuralcoref.add_to_pipe(nlp)
+
 import numpy as np
 
 
 class SentenceTokenizer(object):
     def __init__(self):
-        self.kkma = Kkma()
-        self.twitter = Twitter()
+        #self.kkma = Kkma() #한국어 형태분석 패키지 중복제거
+        #self.twitter = Twitter() #한국어 형태분석 패키지
         self.retokenize = RegexpTokenizer("[\w]+")
         #self.stopwords = []
-        textfile = open("input3.txt", "r")
+        #self.stopwords = ['That','This','Those','There','to','as','about','foward','for','myself','It','just','else','ar',"That","it",]#영어전용
+        #self.stopwords = ['중인' ,'만큼', '마찬가지', '꼬집었', "연합뉴스", "데일리", "동아일보", "중앙일보", "조선일보", "기자"
+         #    ,"아", "휴", "아이구", "아이쿠", "아이고", "어", "나", "우리", "저희", "따라", "의해", "을", "를", "에", "의", "가",]
+
+        textfile = open("input3.txt", "r") #불용어처리를 배열로 담아서 처리
         self.stopwords = []
         while True:
             line = textfile.read().splitlines()
@@ -25,10 +34,7 @@ class SentenceTokenizer(object):
             self.stopwords.append(line)
         self.stopwords = self.stopwords[0]
         textfile.close()
-        #self.stopwords = ['That','This','Those','There','to','as','about','foward','for','myself','It','just','else','ar',"That","it",]#영어전용
-        #self.stopwords = ['중인' ,'만큼', '마찬가지', '꼬집었', "연합뉴스", "데일리", "동아일보", "중앙일보", "조선일보", "기자"
-         #    ,"아", "휴", "아이구", "아이쿠", "아이고", "어", "나", "우리", "저희", "따라", "의해", "을", "를", "에", "의", "가",]
-
+        
     def url2sentences(self, url): # url에서 텍스트 파일로 변환(크롤링)
         #article = Article(url, language='ko') #영어전용
         article = Article(url, language='en')
@@ -161,7 +167,7 @@ class TextRank(object):
             keywords.append(self.idx2word[idx])
         
         return keywords
-f = open("/Users/macbook/Desktop/학교/졸프/work/Example/input2.txt", 'r')
+f = open("/Users/macbook/Desktop/학교/졸프/work/Example/test1.txt", 'r')
 a = f.read()
 #url = 'http://v.media.daum.net/v/20170611192209012?rcmd=r'
 #url = 'https://www.theverge.com/2019/3/21/18274477/ipad-mini-2019-review-apple-ios-pencil-lightning-specs-price-tablet'
@@ -171,5 +177,11 @@ textrank = TextRank(a)
 
 for row in textrank.summarize(3):
     print(row)
+    doc = nlp(row)
+    for cluster in doc._.coref_clusters:
+        print(cluster.mentions)
     print()
+
 print('keywords :',textrank.keywords())
+
+
