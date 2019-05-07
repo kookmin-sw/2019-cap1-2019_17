@@ -7,11 +7,8 @@ from nltk.tokenize import RegexpTokenizer
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.feature_extraction.text import CountVectorizer
 from sklearn.preprocessing import normalize
-import spacy
-nlp = spacy.load('en')
+import spacy # 자연어 처리 패키지 nltk와 흡사
 import neuralcoref
-neuralcoref.add_to_pipe(nlp)
-
 import numpy as np
 
 
@@ -70,7 +67,7 @@ class SentenceTokenizer(object):
         
         return nouns
 
-class GraphMatrix(object):
+class MakeWeightedGrpah(object):
     def __init__(self):
         self.tfidf = TfidfVectorizer()
         self.cnt_vec = CountVectorizer()
@@ -96,9 +93,7 @@ class GraphMatrix(object):
         vocab = self.cnt_vec.vocabulary_
         return np.dot(cnt_vec_mat.T, cnt_vec_mat), {vocab[word] : word for word in vocab}
 
-
-
-class Rank(object):
+class GiveScoreEachSentence(object):
     def get_ranks(self, graph, d=0.85): # d = damping factor (해당 페이지를 만족하지 못하고 다른페이지로 이동하는 확률) 여기선 0.85로 설정함
         A = graph
         matrix_size = A.shape[0] # shape[0] : 전체 행의 갯수, shape[1] : 전체 열의 개수.
@@ -114,7 +109,6 @@ class Rank(object):
         ranks = np.linalg.solve(A, B) # 연립방정식 Ax = b
         return {idx: r[0] for idx, r in enumerate(ranks)}
 
-
 class TextRank(object):
     def __init__(self, text):
         # 분리한 문장들을 토큰화하고 sent_tokenize에 저장.
@@ -127,12 +121,12 @@ class TextRank(object):
         
         self.nouns = self.sent_tokenize.get_nouns(self.sentences)
                     
-        self.graph_matrix = GraphMatrix()
+        self.graph_matrix = MakeWeightedGrpah()
         
         self.sent_graph = self.graph_matrix.build_sent_graph(self.nouns) # 문장 가중치 그래프
         self.words_graph, self.idx2word = self.graph_matrix.build_words_graph(self.nouns) # 단어 가중치 그래프
         
-        self.rank = Rank()
+        self.rank = GiveScoreEachSentence()
         self.sent_rank_idx = self.rank.get_ranks(self.sent_graph)
         self.sorted_sent_rank_idx = sorted(self.sent_rank_idx, key=lambda k: self.sent_rank_idx[k], reverse=True)
         
@@ -153,7 +147,7 @@ class TextRank(object):
         return summary
         
     def keywords(self, word_num=10):
-        rank = Rank()
+        rank = GiveScoreEachSentence()
         rank_idx = rank.get_ranks(self.words_graph)
         sorted_rank_idx = sorted(rank_idx, key=lambda k: rank_idx[k], reverse=True)
         
@@ -167,7 +161,9 @@ class TextRank(object):
             keywords.append(self.idx2word[idx])
         
         return keywords
-f = open("/Users/macbook/Desktop/학교/졸프/work/Example/test1.txt", 'r')
+
+
+f = open("/Users/macbook/Desktop/학교/졸프/work/Example/input2.txt", 'r')
 a = f.read()
 #url = 'http://v.media.daum.net/v/20170611192209012?rcmd=r'
 #url = 'https://www.theverge.com/2019/3/21/18274477/ipad-mini-2019-review-apple-ios-pencil-lightning-specs-price-tablet'
@@ -175,11 +171,35 @@ a = f.read()
 #textrank = TextRank(url)
 textrank = TextRank(a)
 
-for row in textrank.summarize(3):
+nlp = spacy.load('en')
+neuralcoref.add_to_pipe(nlp)
+
+#전체 문장에서 대명사처리해보기
+# doc = nlp(a) # doc : token 오브젝트들의 sequence, cluster : 비슷한 데이터 끼리 묶어주는 개념
+# for cluster in doc._.coref_clusters: #doc._.coref_clusters : doc에서 corefering mentions의 모든 cluster들
+#     print('')
+#     print(cluster.mentions) # mentions : cluster 안 모든 mentions들의 리스트 , 리턴타입은 span의 list
+#     print('')
+
+# for token in doc:
+#     if token.pos_ =='PRON' and token._.in_coref: # token._.in_coref : 그 토큰이 적어도 하나의 corefering mention 이 되는지 마는지 , 리턴타입은 boolean
+#         for cluster in token._.coref_clusters: # token._.coref_clusters : 그 토큰을 포함하는 모든 corefering mentions 의 cluster들
+#             print(token.text + "=>" + cluster.main.text) # main : cluster 안에서 가장 대표적인 mention의 span
+
+def pPR(doc):
+    for token in doc:
+        if token.pos_ =='PRON' and token._.in_coref: # token._.in_coref : 그 토큰이 적어도 하나의 corefering mention 이 되는지 마는지 , 리턴타입은 boolean
+            for cluster in token._.coref_clusters: # token._.coref_clusters : 그 토큰을 포함하는 모든 corefering mentions 의 cluster들
+                print(token.text + "=>" + cluster.main.text) # main : cluster 안에서 가장 대표적인 mention의 span
+
+doc = nlp(a)
+
+for row in textrank.summarize(10):
     print(row)
-    doc = nlp(row)
-    for cluster in doc._.coref_clusters:
+    doc1 = nlp(row)
+    for cluster in doc1._.coref_clusters:
         print(cluster.mentions)
+    pPR(doc1)
     print()
 
 print('keywords :',textrank.keywords())
