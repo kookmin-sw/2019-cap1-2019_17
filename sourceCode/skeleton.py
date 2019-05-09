@@ -1,6 +1,4 @@
 from newspaper import Article
-from konlpy.tag import Kkma # 이것은 한국어 형태분석기 패키지인데 중복인것을 없애줌
-from konlpy.tag import Twitter
 from nltk.tokenize import sent_tokenize
 from nltk.tokenize import word_tokenize
 from nltk.tokenize import RegexpTokenizer
@@ -14,13 +12,7 @@ import numpy as np
 
 class SentenceTokenizer(object):
     def __init__(self):
-        #self.kkma = Kkma() #한국어 형태분석 패키지 중복제거
-        #self.twitter = Twitter() #한국어 형태분석 패키지
         self.retokenize = RegexpTokenizer("[\w]+")
-        #self.stopwords = []
-        #self.stopwords = ['That','This','Those','There','to','as','about','foward','for','myself','It','just','else','ar',"That","it",]#영어전용
-        #self.stopwords = ['중인' ,'만큼', '마찬가지', '꼬집었', "연합뉴스", "데일리", "동아일보", "중앙일보", "조선일보", "기자"
-         #    ,"아", "휴", "아이구", "아이쿠", "아이고", "어", "나", "우리", "저희", "따라", "의해", "을", "를", "에", "의", "가",]
 
         textfile = open("input3.txt", "r") #불용어처리를 배열로 담아서 처리
         self.stopwords = []
@@ -33,11 +25,9 @@ class SentenceTokenizer(object):
         textfile.close()
         
     def url2sentences(self, url): # url에서 텍스트 파일로 변환(크롤링)
-        #article = Article(url, language='ko') #영어전용
         article = Article(url, language='en')
         article.download()
         article.parse()
-        #sentences = self.kkma.sentences(article.text) # 텍스트 파일에서 문장 추출.
         sentences = sent_tokenize(article.text) #영어전용
 
         for idx in range(0, len(sentences)): # 문장의 길이가 10이하이면 앞 문장이랑 합침.
@@ -48,7 +38,6 @@ class SentenceTokenizer(object):
         return sentences
   
     def text2sentences(self, text):
-        #sentences = self.kkma.sentences(text) # 텍스트 파일에서 문장 추출.
         sentences = sent_tokenize(text)      
         for idx in range(0, len(sentences)): # 문장의 길이가 10이하이면 앞 문장이랑 합침.
             if len(sentences[idx]) <= 10:
@@ -61,7 +50,6 @@ class SentenceTokenizer(object):
         nouns = []
         for sentence in sentences:
             if sentence is not '': # noun이 불용어가 아니고, noun의 길이가 1보다 클 때 noun으로 받음.
-                #nouns.append(' '.join([noun for noun in self.twitter.nouns(str(sentence)) 
                 nouns.append(' '.join([noun for noun in self.retokenize.tokenize(str(sentences)) #영어전용
                                        if noun not in self.stopwords and len(noun) > 1]))
         
@@ -134,10 +122,11 @@ class TextRank(object):
         self.sorted_word_rank_idx = sorted(self.word_rank_idx, key=lambda k: self.word_rank_idx[k], reverse=True)
         
         
-    def summarize(self, sent_num=3):
+    def summarize(self, ratio = 0.2):
         summary = []
         index=[]
-        for idx in self.sorted_sent_rank_idx[:sent_num]:
+        sent_num = len(self.sentences) * ratio
+        for idx in self.sorted_sent_rank_idx[:int(sent_num)]:
             index.append(idx)
         
         index.sort()
@@ -165,8 +154,6 @@ class TextRank(object):
 
 f = open("/Users/macbook/Desktop/학교/졸프/work/Example/input2.txt", 'r')
 a = f.read()
-#url = 'http://v.media.daum.net/v/20170611192209012?rcmd=r'
-#url = 'https://www.theverge.com/2019/3/21/18274477/ipad-mini-2019-review-apple-ios-pencil-lightning-specs-price-tablet'
 #url = 'https://www.itnews.com.au/news/facebook-stored-millions-of-user-passwords-in-plain-text-522782'
 #textrank = TextRank(url)
 textrank = TextRank(a)
@@ -181,11 +168,6 @@ neuralcoref.add_to_pipe(nlp)
 #     print(cluster.mentions) # mentions : cluster 안 모든 mentions들의 리스트 , 리턴타입은 span의 list
 #     print('')
 
-# for token in doc:
-#     if token.pos_ =='PRON' and token._.in_coref: # token._.in_coref : 그 토큰이 적어도 하나의 corefering mention 이 되는지 마는지 , 리턴타입은 boolean
-#         for cluster in token._.coref_clusters: # token._.coref_clusters : 그 토큰을 포함하는 모든 corefering mentions 의 cluster들
-#             print(token.text + "=>" + cluster.main.text) # main : cluster 안에서 가장 대표적인 mention의 span
-
 def pPR(doc):
     for token in doc:
         if token.pos_ =='PRON' and token._.in_coref: # token._.in_coref : 그 토큰이 적어도 하나의 corefering mention 이 되는지 마는지 , 리턴타입은 boolean
@@ -194,7 +176,8 @@ def pPR(doc):
 
 doc = nlp(a)
 
-for row in textrank.summarize(10):
+ratio = 0.39
+for row in textrank.summarize(ratio):
     print(row)
     doc1 = nlp(row)
     for cluster in doc1._.coref_clusters:
@@ -203,5 +186,3 @@ for row in textrank.summarize(10):
     print()
 
 print('keywords :',textrank.keywords())
-
-
