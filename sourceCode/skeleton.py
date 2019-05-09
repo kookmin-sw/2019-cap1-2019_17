@@ -51,7 +51,7 @@ class SentenceTokenizer(object):
         for sentence in sentences:
             if sentence is not '': # noun이 불용어가 아니고, noun의 길이가 1보다 클 때 noun으로 받음.
                 nouns.append(' '.join([noun for noun in self.retokenize.tokenize(str(sentences)) #영어전용
-                                       if noun not in self.stopwords and len(noun) > 1]))
+                                       if noun.lower() not in self.stopwords and len(noun) > 1])) # 불용어 리스트는 소문자로 되어있음. noun.lower()
         
         return nouns
 
