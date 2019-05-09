@@ -609,9 +609,11 @@
 			<div style="justify-content:center; flex-direction: row; width: 100%; display: flex">	
 			<form action="http://storage.googleapis.com/speech-ysh" method="post" enctype="multipart/form-data" id="form" >
 	  				<input type="hidden" name="key" value="${filename}" id="key" />
-					<!-- <input type="hidden" name="success_action_status" value="201" />  -->
-	  				<input type="file" name="file" id="file" required />
-	  				<input type="submit" value="Upload" id="submit" onclick="Upload()" style="border-radius:5px 5px 5px 5px"/> 
+					  <input type="hidden" name="success_action_status" value="201" /> 
+						<input type="file" name="file" id="file" accept=".flac" required />
+						<input type="hidden" name="success_action_redirect" value="localhost:8000">
+						<!-- redirect problem -->
+	  				<input type="submit" value="Upload" id="submit" style="border-radius:5px 5px 5px 5px"/> 
 			</form>
 			<!-- <input type="Sentence"/> -->
 			<!-- data-toggle="modal" data-target="#modalCart" -->
