@@ -9,11 +9,25 @@ import spacy # 자연어 처리 패키지 nltk와 흡사
 import neuralcoref
 import numpy as np
 
+class CoreferenceResolution(object):
+    def __init__(self):
+        self.nlp = spacy.load('en_core_web_lg')
+        neuralcoref.add_to_pipe(self.nlp)
+
+    def pronoun2reference(self, doc):
+        goc = self.nlp(doc)
+        return goc._.coref_resolved
+    
+    def whatispronoun(self, str):
+        goc = self.nlp(str)
+        pronounlist = []
+        for cluster in goc._.coref_clusters:
+            pronounlist.append(cluster.mentions)
+        return pronounlist
 
 class SentenceTokenizer(object):
     def __init__(self):
         self.retokenize = RegexpTokenizer("[\w]+")
-
         textfile = open("input3.txt", "r") #불용어처리를 배열로 담아서 처리
         self.stopwords = []
         while True:
@@ -105,6 +119,9 @@ class TextRank(object):
         if text[:5] in ('http:', 'https'):
             self.sentences = self.sent_tokenize.url2sentences(text)
         else:
+            self.coref_resolution = CoreferenceResolution()
+            self.resol_text = self.coref_resolution.pronoun2reference(text)
+            self.resol_sentences = self.sent_tokenize.text2sentences(self.resol_text)
             self.sentences = self.sent_tokenize.text2sentences(text)
         
         self.nouns = self.sent_tokenize.get_nouns(self.sentences)
@@ -157,32 +174,12 @@ a = f.read()
 #url = 'https://www.itnews.com.au/news/facebook-stored-millions-of-user-passwords-in-plain-text-522782'
 #textrank = TextRank(url)
 textrank = TextRank(a)
-
-nlp = spacy.load('en')
-neuralcoref.add_to_pipe(nlp)
-
-#전체 문장에서 대명사처리해보기
-# doc = nlp(a) # doc : token 오브젝트들의 sequence, cluster : 비슷한 데이터 끼리 묶어주는 개념
-# for cluster in doc._.coref_clusters: #doc._.coref_clusters : doc에서 corefering mentions의 모든 cluster들
-#     print('')
-#     print(cluster.mentions) # mentions : cluster 안 모든 mentions들의 리스트 , 리턴타입은 span의 list
-#     print('')
-
-def pPR(doc):
-    for token in doc:
-        if token.pos_ =='PRON' and token._.in_coref: # token._.in_coref : 그 토큰이 적어도 하나의 corefering mention 이 되는지 마는지 , 리턴타입은 boolean
-            for cluster in token._.coref_clusters: # token._.coref_clusters : 그 토큰을 포함하는 모든 corefering mentions 의 cluster들
-                print(token.text + "=>" + cluster.main.text) # main : cluster 안에서 가장 대표적인 mention의 span
-
-doc = nlp(a)
-
 ratio = 0.39
+outText = open("abridgement.txt", "w")
 for row in textrank.summarize(ratio):
     print(row)
-    doc1 = nlp(row)
-    for cluster in doc1._.coref_clusters:
-        print(cluster.mentions)
-    pPR(doc1)
     print()
-
-print('keywords :',textrank.keywords())
+    outText.write(row)
+    outText.write('\n')
+print('keywords :',textrank.keywords(5))
+outText.close()
