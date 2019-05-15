@@ -124,7 +124,7 @@ class TextRank(object):
             self.resol_sentences = self.sent_tokenize.text2sentences(self.resol_text)
             self.sentences = self.sent_tokenize.text2sentences(text)
         
-        self.nouns = self.sent_tokenize.get_nouns(self.resol_text)
+        self.nouns = self.sent_tokenize.get_nouns(self.resol_sentences)
                     
         self.graph_matrix = MakeWeightedGrpah()
         
