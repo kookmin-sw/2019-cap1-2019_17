@@ -11,7 +11,8 @@
 			location.href = currentAddress;
 		}
 	</script> -->
-	<script type="text/javascript" id="www-widgetapi-script" src="{% static 'capstone/js/www-widgetapi.js' %}" async=""></script>
+	<script type="text/javascript" id="www-widgetapi-script" src="{% static 'capstone/js/www-widgetapi.js' %}" async="">
+	</script>
 	<title>Capstone 17 Team Summer</title>
 	<meta name="description" content="">
 	<meta name="keywords" content="">
@@ -59,15 +60,13 @@
                   color: #ffffff;
         }
         /*--블록 설정 색상 end--*/
-
-
     </style>
 	
 </head>
 
 <body style="background-color:rgb(247,247,247,1); width:100%; ">
 	<!-- Overall View -->
-	<div class="modal fade" id="modalOverall" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" style="overflow-y:scroll;">
+	<div class="modal fade" id="modalOverall" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" style="overflow-y:scroll; position: absolute; z-index: 10000;" >
 			<div class="modal-dialog" role="document" >
 			<div class="modal-content">
 				<!--Header-->
@@ -215,7 +214,7 @@
 		<div class="modal-content">
 		  <!--Header-->
 		  <div class="modal-header" style="">
-			<h3 class="modal-title" id="myModalLabel">test.flac - Summary View</h3>
+			<h3 class="modal-title" id="myModalLabel">test.flac - Summary View </h3>
 				&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
 				&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
 				&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
@@ -400,15 +399,17 @@
 		</div>
 	  </div>
 	</div>
+
 	<!-- Modal: summary view -->
-	
 
     	<!--  start: PROJECT  -->
 	<section id="project" class="col-12" style="background-color:rgb(247,247,247,1); max-width:100%;">
 
 		<div class="justify-content-center" style="width:80%; margin:0 auto;">
 			<div class="text-center">
-                <h1 class="letter-spacing-1 text-uppercase"> Summer </h1>
+                <h1 class="letter-spacing-1 text-uppercase"class="cursor" style="cursor: default;"> 
+                Summer 
+                </h1>
 			</div>
 		</div> 
 
@@ -417,35 +418,43 @@
 			<!-- <div class="project_img" >
 				flac upload
 			</div> -->
-			<div style="justify-content:center; flex-direction: row; width: 100%; display: flex">	
+			<div style="justify-content:center; flex-direction: row; width: 100%; display: flex; cursor: pointer;">	
+<!--
 			<form action="http://storage.googleapis.com/speech-ysh" method="post" enctype="multipart/form-data" id="form" >
 	  				<input type="hidden" name="key" value="${filename}" id="key" />
-					  <input type="hidden" name="success_action_status" value="201" /> 
-						<input type="file" name="file" id="file" accept=".flac" required />
-						<input type="hidden" name="success_action_redirect" value="localhost:8000">
-						<!-- redirect problem -->
-	  				<input type="submit" value="Upload" id="submit" style="border-radius:5px 5px 5px 5px"/> 
+					 <input type="hidden" name="success_action_status" value="201" />  
+	  				<input type="file" name="file" id="file" required />
+	  				<input type="submit" value="Upload" id="submit" onclick="Upload()" style="border-radius:5px 5px 5px 5px; cursor: pointer;"/> 
 			</form>
+-->
+			{% block content %}
+			<form method="post" enctype="multipart/form-data">
+				{% csrf_token %}
+				<input type="file" accept=".flac" name="file" required>
+				<button type="submit">Upload</button>
+			</form>
+			
+			{% endblock %}
 			<!-- <input type="Sentence"/> -->
 			<!-- data-toggle="modal" data-target="#modalCart" -->
 			</div>
 			<br>
-			<div style="justify-content:center; flex-direction: row; width: 100%; display: flex; padding: 10px">
-				<span>Sentence &emsp;</span>
+			<div style="justify-content:center; flex-direction: row; width: 100%; display: flex; padding: 10px" >
+				<span style="cursor: default;">Sentence &emsp;</span>
 				<select name="Sentence">
 					<option value="30%" selected="selected">30%</option>
 					<option value="20%">20%</option>
 					<option value="10%">10%</option>
 			 </select>
 			 &emsp;
-			 <span>KeyWords &emsp;</span>
+			 <span style="cursor: default;">KeyWords &emsp;</span>
 			 <select name="KeyWords">
 				<option value="3" selected="selected">3</option>
 				<option value="5">5</option>
 				<option value="10">10</option>
 			 </select>
 			 &emsp;
-			 <input type="submit" value="Summary" id="submit" onclick="Summary()" style="border-radius:5px 5px 5px 5px;"/>
+			 <input type="submit" value="Summary" id="submit" onclick="Summary()" style="border-radius:5px 5px 5px 5px; cursor: pointer;"/>
 			</div>
 			<div class="text-center">
 					<h1 class="letter-spacing-1 text-uppercase">&emsp;</h1>
@@ -460,7 +469,7 @@
 					  text-align: left;
 					}
 			</style>
-			<div style="justify-content:center; flex-direction: row; width: 100%; display: flex">	
+			<div style="justify-content:center; flex-direction: row; width: 100%; display: flex; cursor: default;">	
 				<table>
 					<!-- <caption style="text-align:center; caption-side: top;"><h2>List</h2></caption> -->
 					<tr>
@@ -470,7 +479,7 @@
 						<th><h3>KeyWords</h3></th>
 					</tr>
 					<tr>
-						<td style="text-align:center"><a data-toggle="modal" data-target="#modalSummary">test.flac</a></td>
+						<td style="text-align:center"><a data-toggle="modal" data-target="#modalSummary" class="cursor" style="cursor: pointer;">test.flac</a></td>
 						<td style="text-align:center">0:14:37</td>
 						<td style="text-align:center">18 Apr 2019 16:01</td>
 						<td style="text-align:center; flex-direction: row; ">
@@ -529,3 +538,4 @@
 </body>
 
 </html>
+
