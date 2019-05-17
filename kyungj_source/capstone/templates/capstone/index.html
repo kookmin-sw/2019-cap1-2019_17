@@ -5,15 +5,17 @@
 <head>
 	<img src="/static/capstone/logo.png" />
 	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css"
-		integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
-	<script type="text/javascript" id="www-widgetapi-script" src="{% static 'capstone/js/www-widgetapi.js' %}" async=""></script>
+		integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous" />
+	<script type="text/javascript" id="www-widgetapi-script" src="{% static 'capstone/js/www-widgetapi.js' %}"
+		async=""></script>
 	<div class="info">URL을 입력하거나 flac 파일을 넣어주세요.</div>
 	<title>Summer</title>
 
 	<meta name="description" content="">
 	<meta name="keywords" content="">
 	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-sacle=1.0, maximum-scale=1.0, user-scalable=no">
+	<meta name="viewport"
+		content="width=device-width, initial-scale=1.0, minimum-sacle=1.0, maximum-scale=1.0, user-scalable=no">
 	<meta http-equiv="X-UA-Compatible" acontent="IE=edge">
 
 	<link rel="stylesheet" href="/static/capstone/css/main.css">
@@ -26,7 +28,6 @@
 
 <body>
 	<!-- Overall View -->
-
 	<div class="modal fade" id="modalOverall" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
 		aria-hidden="true" style="overflow-y:scroll; position: absolute; z-index: 10000;">
 		<div class="modal-dialog" role="document">
@@ -34,21 +35,16 @@
 				<!--Header-->
 				<div class="modal-header">
 					<h3 class="modal-title" id="myModalLabel">test.flac - Overall View</h3>
-					&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
-					&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
-					&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
-					&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
 					<a href="{% static 'capstone/overallview/overallview.txt' %}" download>
-						<input type="button" class="close" value="Download"
-							style="font-size: 15px; border-radius: 3px 3px 3px 3px; float: right;" /></a>
+						<input type="button" class="close" value="Download" style="font-size: 15px; border-radius: 3px 3px 3px 3px; float: right;" />
+					</a>
 					<button type="button" class="close" data-dismiss="modal" aria-label="Close" style="float:right">
 						<span aria-hidden="true">×</span>
 					</button>
-
 				</div>
+
 				<!--Body-->
 				<div class="modal-body">
-
 					<table class="table table-hover">
 						<thead>
 							<tr>
@@ -63,12 +59,13 @@
 							</tr>
 						</tbody>
 					</table>
-
 				</div>
+			
 			</div>
 		</div>
 	</div>
-	<!-- Overall View -->
+
+	<!-- Summary View -->
 	<!-- Button trigger modal-->
 	<!-- <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalCart">Launch modal</button> -->
 	<div class="modal fade" id="modalSummary" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
@@ -78,10 +75,6 @@
 				<!--Header-->
 				<div class="modal-header">
 					<h3 class="modal-title" id="myModalLabel">test.flac - Summary View</h3>
-					&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
-					&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
-					&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
-					<a data-toggle="modal" data-target="#modalOverall">
 						<input type="button" class="close" value="Overall View"
 							style="font-size: 15px; border-radius: 3px 3px 3px 3px; float: right;" /></a>
 					<a href="{% static 'capstone/summary/summary.txt' %}" download>
@@ -90,11 +83,10 @@
 					<button type="button" class="close" data-dismiss="modal" aria-label="Close" style="float:right">
 						<span aria-hidden="true">×</span>
 					</button>
-
 				</div>
+
 				<!--Body-->
 				<div class="modal-body">
-
 					<table class="table table-hover">
 						<thead>
 							<tr>
@@ -109,16 +101,14 @@
 								<td><a><i class="fas fa-times"></i></a></td>
 							</tr>
 							<tr>
-
 						</tbody>
 					</table>
-
 				</div>
+
 			</div>
 		</div>
 	</div>
 	<!-- Modal: summary view -->
-
 
 	<!--  start: PROJECT  -->
 	<div class="wrapper">
@@ -126,7 +116,6 @@
 		<div style="justify-content:center; flex-direction: row; width: 100%; display: flex">
 			<form action="http://storage.googleapis.com/speech-ysh" method="post" enctype="multipart/form-data" id="form">
 				<input type="file" name="file" id="file" accept=".flac" required />
-
 				<input type="hidden" name="key" value="${filename}" id="key" />
 				<input type="hidden" name="success_action_status" value="201" />
 				<input type="hidden" name="success_action_redirect" value="localhost:8000">
@@ -146,15 +135,13 @@
 				<option value="30%" selected="selected">30%</option>
 				<option value="20%">20%</option>
 				<option value="10%">10%</option>
-			</select>
-			&emsp;
+			</select> &emsp;
 			<span>KeyWords &emsp;</span>
 			<select name="KeyWords">
 				<option value="3" selected="selected">3</option>
 				<option value="5">5</option>
 				<option value="10">10</option>
-			</select>
-			&emsp;
+			</select> &emsp;
 			<input type="submit" value="Summary" id="submit" onclick="Summary()" style="border-radius:5px 5px 5px 5px;" />
 		</div>
 		<div class="text-center">
@@ -199,16 +186,14 @@
 		function Upload() {
 			alert("Upload Success");
 		}
-
-
 	</script>
 	<!-- <div class="project_desc" >
-					<h3 class="mb-4">Text</h3>
-					
-                    <div class="text-medium" style="line-height:1.95rem;">
-						key word
-					</div>
-			</div> -->
+				<h3 class="mb-4">Text</h3>
+				
+									<div class="text-medium" style="line-height:1.95rem;">
+					key word
+				</div>
+		</div> -->
 
 	</container>
 
