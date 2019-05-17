@@ -8,10 +8,7 @@
 }
 
 
-.btn-right {}
-@media (min-width: 1200px){
-    .btn-abs {width:99%!important;}
-}
+
 
 
 /*
@@ -526,9 +523,8 @@ a {
     #team .img-fluid {
         width: 65%;
     }
-    #team .advisors {
         
-    }
+
     
     
     /* CONTACT */
