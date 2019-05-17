@@ -409,7 +409,7 @@
 
 		<div class="justify-content-center" style="width:80%; margin:0 auto;">
 			<div class="text-center">
-                <h1 class="letter-spacing-1 text-uppercase"> Summer </h1>
+                <h1 class="letter-spacing-1 text-uppercase"class="cursor" style="cursor: default;"> Summer </h1>
 			</div>
 		</div> 
 
@@ -418,33 +418,33 @@
 			<!-- <div class="project_img" >
 				flac upload
 			</div> -->
-			<div style="justify-content:center; flex-direction: row; width: 100%; display: flex">	
+			<div style="justify-content:center; flex-direction: row; width: 100%; display: flex; cursor: pointer;">	
 			<form action="http://storage.googleapis.com/speech-ysh" method="post" enctype="multipart/form-data" id="form" >
 	  				<input type="hidden" name="key" value="${filename}" id="key" />
 					<!-- <input type="hidden" name="success_action_status" value="201" />  -->
 	  				<input type="file" name="file" id="file" required />
-	  				<input type="submit" value="Upload" id="submit" onclick="Upload()" style="border-radius:5px 5px 5px 5px"/> 
+	  				<input type="submit" value="Upload" id="submit" onclick="Upload()" style="border-radius:5px 5px 5px 5px; cursor: pointer;"/> 
 			</form>
 			<!-- <input type="Sentence"/> -->
 			<!-- data-toggle="modal" data-target="#modalCart" -->
 			</div>
 			<br>
-			<div style="justify-content:center; flex-direction: row; width: 100%; display: flex; padding: 10px">
-				<span>Sentence &emsp;</span>
+			<div style="justify-content:center; flex-direction: row; width: 100%; display: flex; padding: 10px" >
+				<span style="cursor: default;">Sentence &emsp;</span>
 				<select name="Sentence">
 					<option value="30%" selected="selected">30%</option>
 					<option value="20%">20%</option>
 					<option value="10%">10%</option>
 			 </select>
 			 &emsp;
-			 <span>KeyWords &emsp;</span>
+			 <span style="cursor: default;">KeyWords &emsp;</span>
 			 <select name="KeyWords">
 				<option value="3" selected="selected">3</option>
 				<option value="5">5</option>
 				<option value="10">10</option>
 			 </select>
 			 &emsp;
-			 <input type="submit" value="Summary" id="submit" onclick="Summary()" style="border-radius:5px 5px 5px 5px;"/>
+			 <input type="submit" value="Summary" id="submit" onclick="Summary()" style="border-radius:5px 5px 5px 5px; cursor: pointer;"/>
 			</div>
 			<div class="text-center">
 					<h1 class="letter-spacing-1 text-uppercase">&emsp;</h1>
@@ -459,7 +459,7 @@
 					  text-align: left;
 					}
 			</style>
-			<div style="justify-content:center; flex-direction: row; width: 100%; display: flex">	
+			<div style="justify-content:center; flex-direction: row; width: 100%; display: flex; cursor: default;">	
 				<table>
 					<!-- <caption style="text-align:center; caption-side: top;"><h2>List</h2></caption> -->
 					<tr>
@@ -469,7 +469,7 @@
 						<th><h3>KeyWords</h3></th>
 					</tr>
 					<tr>
-						<td style="text-align:center"><a data-toggle="modal" data-target="#modalSummary">test.flac</a></td>
+						<td style="text-align:center"><a data-toggle="modal" data-target="#modalSummary" class="cursor" style="cursor: pointer;">test.flac</a></td>
 						<td style="text-align:center">0:14:37</td>
 						<td style="text-align:center">18 Apr 2019 16:01</td>
 						<td style="text-align:center; flex-direction: row; ">
