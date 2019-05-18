@@ -1,0 +1,793 @@
+<html lang="ko">
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <title>Summer</title>
+
+    <!-- Favicon 설정
+    <link rel="icon" sizes="32x32" type="image/png" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABGdBTUEAALGPC/xhBQAABJVJREFUWAm9V31ollUU/907nU23lpX7QnPKoCwqSBa1hOyvRWpYgUYfFol9kERmEWEYLYKiiPrDiKKQYpLEyrIx1MyvPrSBRsuBpLbWnDrKua02crv3dM593+fx+bjvu03KC8977z1fv/Oee55z7qMwxkFXoRCncIs1uJ0UrlSEKlaVR0Y307qZ1q4L8AUuxg51EGcyrPy/Kj8boGpU2EGsZbl7CbhwNHnhs9F+nhr1ZDSoDpzIp5PTAarBJPsX1oDwFBGm5DOSi6cU/mZv3tDFeFkdxj8+Oa8D8q/NED5j8Bt8SuOmKewtKMIdvmikHKAyXGOBZg739HED5VFgoC6tcJs6ibaoWMyB7Hm3/tfgAaBzYjJqo5EIHZAzNwPYOVrYldbA9TdB1VwOlE7l5yKg909Q2wHg+90gYwI8/yzHUYL5qZwwFWgYKQPle8zSeqIfviEiy49n/NFD9sVnyMyYlN8OYwXeuQi40A/h8FizXV1WDbVkGdRjq4Fiz5vZth/2gcWgY78HOLFZ3g5dhBo5Co4nIO95LnBVVgG9fGXMAHV2wL7eAFt3BbBzS4znNldfB/35bqhpZWkeUwQrW1t4wxXOlKHPF3ozu4To5wMu1nb1Cm9YTdUEshvXe86DSa3fkqks8OsxpquuVIl6L/j0QqJd284aNiNk7l/kN8Yg1LLprGxkZdc84dURTMEG//t1SQdMuSLb1Bgxk10ODZJZcKPXoKkpJeIkTI3+02RmFft1GFtLY0kelHrhNag770mSgQuKoD/anHkFE1zq7wO991aCytuSUqiFd6XpTBFsne1qoYB+dFUmu0NKYjH1EuiNW6DKKxMMNrjDk5AspeoXpWSFINjyFgQtFaruZqiHHgd+OwoM5+im3fxqcbHRr6yDmjgxbri7K74PdjNnB6vkXCU5MJDMAZcge7anjlMIZt6c2HmaCk32kw+JOo4Qdf7q1aGR4QyfZcx9C0N9xu6XCHQn3ZI9SRR8oyreo8ha0PNPAme4286o9mkABRMAjgI1NYK2fhmVOS5J6Hdg6+aoYLhW8+vDdbCg3lOwd98KnPSacmK04X3YV9cGKhkaY0sStseowWZ7C9BzPNiFs1r2MKQ6Jgd1dWacGOhLsoCvmkFPP5Kiuyucu8OlWHwEw8OghmfTnCkl0O9sgCosTPGovc31AHccAXf/PtgVS7xd0mHnK8UuGb9u8SdW86c5ux4DcsM0REcOkZlzaZh00WSX8u9KsTjKm7ejzOjaVbhDB/1O7NtDZu5ML4BdtZxM7SwvT+wLpmCPqR1LV9MfNPFFZJ7oxMfQIOjdN0Efrwcd/SXOy7GLtuNQZLQLiet6z60kOnHMHw2h/thK5sHFJL0kGsXkWrAC4HO7ktXWQV07F5hWDvSd5qcXXIiA73Z5ky0Ac3PiShY6IEx3MxrEeb2USiUMh8pckRawVzmKeig67oXYdNfyxJdSzAGxqnrwE39S1XJ67h03Si4FtiU2k98EIp5yQIgSCXd11njJfV4J8RyG6Cq24Wwl/nlgLpYDATE6Z/NCivj5/TiNOiFrV7X+h8/zfwERwsDyaEUJ4wAAAABJRU5ErkJggg==">
+    <link rel="icon" sizes="16x16" type="image/png" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAMAAAAoLQ9TAAAA8FBMVEXuVDDuVDDuVDDuVDDuVDDuVDDuVDDuVDDuVDDuVDDuVDDuVDDuVDDuVDDuVDDuVDDuVDDuVDDuVDDuVTDuVDDuVDDuVDDuVDDuVDDuVDDuVDD////uVTDvXjbwe1buWTP50sX51sz99PDuVjHuVzHuVzLuWDLuWjPuWzTuXDTuXDXvXzfvYDjvYjrvZDzvZTzvZz7va0PvbETwdU/xfFjxgF3xg1/xg2DykHHznYL0pIv0qI/1rZb1sJr1sJv1sp31s573w7L4zb/50cT51Mj618363dT75N375d/75uD97ur98Oz98u799PH++fj//Ps1cJaRAAAAGnRSTlMA/QbXlSuUkPksjwkqmI7U+L27APPY/PTW+gH13I8AAAC7SURBVBjTZc9VWsNQAAXhk6RphNIWhzm3qeDu7u6w/93wAF9fmBX8I0lqNJN2e7bZ0G9xPQKAaHRkQlI8ToClBQiMxZJqBLiw744J1KU0CmxvbJ182+eEKFUJ3a8nWHu3KyiVsPpq386zZ/cgUc6p7bfDzv6nBxW5clau7Gpx/cV2n0klcGA/wObAz11aKoFH+xJ2+x3IVEwHlnv2x1kHQlT8wY6u7292CNSGdBjS/81JSrOpuZlWVkjSD0FZGN5mOtb1AAAAAElFTkSuQmCC">
+
+    <link rel="apple-touch-icon-precomposed" sizes="180x180" href="https://static.convertio.co/img/apple-touch-icon-180x180-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="167x167" href="https://static.convertio.co/img/apple-touch-icon-167x167-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="https://static.convertio.co/img/apple-touch-icon-152x152-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="120x120" href="https://static.convertio.co/img/apple-touch-icon-120x120-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="76x76" href="https://static.convertio.co/img/apple-touch-icon-76x76-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" href="https://static.convertio.co/img/apple-touch-icon-180x180-precomposed.png">
+    -->
+
+
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,400i,600,600i,700,700i,800&amp;subset=latin-ext" rel="stylesheet" crossorigin="anonymous">
+    
+    <link rel="stylesheet" href="app.css">
+    <!-- <link rel="app2.css" media="all" rel="stylesheet" type="text/css" crossorigin="anonymous"> -->
+
+<!-- 
+    <script src="https://apis.google.com/_/scs/apps-static/_/js/k=oz.gapi.ko.t7_f2vMC35Q.O/m=picker/exm=auth,client/rt=j/sv=1/d=1/ed=1/am=wQE/rs=AGLTcCMmgf4SDzXS4fPJYmFNyCRjt0SV2A/cb=gapi.loaded_2" async=""></script>
+    <script src="https://apis.google.com/_/scs/apps-static/_/js/k=oz.gapi.ko.t7_f2vMC35Q.O/m=auth/exm=client/rt=j/sv=1/d=1/ed=1/am=wQE/rs=AGLTcCMmgf4SDzXS4fPJYmFNyCRjt0SV2A/cb=gapi.loaded_1" async=""></script>
+    <script src="https://apis.google.com/_/scs/apps-static/_/js/k=oz.gapi.ko.t7_f2vMC35Q.O/m=client/rt=j/sv=1/d=1/ed=1/am=wQE/rs=AGLTcCMmgf4SDzXS4fPJYmFNyCRjt0SV2A/cb=gapi.loaded_0" async=""></script> -->
+    <script type="text/javascript" async="" src="https://www.google-analytics.com/analytics.js"></script><script type="text/javascript" async="" src="https://www.google-analytics.com/analytics.js"></script>
+    <script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-55374714-1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'UA-55374714-1');
+    </script>
+
+    <script>
+        window.onerror = function (msg, url, line, column, errorObj) {
+            var req = new XMLHttpRequest();
+            var params = "msg=" + encodeURIComponent(msg) + '&url=' + encodeURIComponent(url) + "&line=" + line + "&column=" + column + "&err_obj=" + errorObj;
+            req.open("GET", "/js/track?" + params);
+            req.send(null);
+        };
+    </script>
+
+<style type="text/css">  @-webkit-keyframes rotate {
+    from  { -webkit-transform: rotate(0deg); }
+    to   { -webkit-transform: rotate(360deg); }
+  }
+
+  @keyframes rotate {
+    from  { transform: rotate(0deg); }
+    to   { transform: rotate(360deg); }
+  }
+
+    .dropbox-dropin-btn, .dropbox-dropin-btn:link, .dropbox-dropin-btn:hover {
+      display: inline-block;
+      height: 14px;
+      font-family: "Lucida Grande", "Segoe UI", "Tahoma", "Helvetica Neue", "Helvetica", sans-serif;
+      font-size: 11px;
+      font-weight: 600;
+      color: #636363;
+      text-decoration: none;
+      padding: 1px 7px 5px 3px;
+      border: 1px solid #ebebeb;
+      border-radius: 2px;
+      border-bottom-color: #d4d4d4;
+        background: #fcfcfc;
+  background: -moz-linear-gradient(top, #fcfcfc 0%, #f5f5f5 100%);
+  background: -webkit-linear-gradient(top, #fcfcfc 0%, #f5f5f5 100%);
+  background: linear-gradient(to bottom, #fcfcfc 0%, #f5f5f5 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#fcfcfc', endColorstr='#f5f5f5',GradientType=0);  
+    }
+
+    .dropbox-dropin-default:hover, .dropbox-dropin-error:hover {
+      border-color: #dedede;
+      border-bottom-color: #cacaca;
+        background: #fdfdfd;
+  background: -moz-linear-gradient(top, #fdfdfd 0%, #f5f5f5 100%);
+  background: -webkit-linear-gradient(top, #fdfdfd 0%, #f5f5f5 100%);
+  background: linear-gradient(to bottom, #fdfdfd 0%, #f5f5f5 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#fdfdfd', endColorstr='#f5f5f5',GradientType=0);  
+    }
+
+    .dropbox-dropin-default:active, .dropbox-dropin-error:active {
+      border-color: #d1d1d1;
+      box-shadow: inset 0 1px 1px rgba(0,0,0,0.1);
+    }
+
+    .dropbox-dropin-btn .dropin-btn-status {
+      display: inline-block;
+      width: 15px;
+      height: 14px;
+      vertical-align: bottom;
+      margin: 0 5px 0 2px;
+      background: transparent url('https://www.dropbox.com/static/images/widgets/dbx-saver-status.png') no-repeat;
+      position: relative;
+      top: 2px;
+    }
+
+    .dropbox-dropin-default .dropin-btn-status {
+      background-position: 0px 0px;
+    }
+
+    .dropbox-dropin-progress .dropin-btn-status {
+      width: 18px;
+      margin: 0 4px 0 0;
+      background: url('https://www.dropbox.com/static/images/widgets/dbx-progress.png') no-repeat center center;
+        -webkit-animation-name: rotate;
+        -webkit-animation-duration: 1.7s;
+        -webkit-animation-iteration-count: infinite;
+        -webkit-animation-timing-function: linear;
+      animation-name: rotate;
+      animation-duration: 1.7s;
+      animation-iteration-count: infinite;
+      animation-timing-function: linear;
+    }
+
+    .dropbox-dropin-success .dropin-btn-status {
+      background-position: -15px 0px;
+    }
+
+    .dropbox-dropin-disabled {
+      background: #e0e0e0;
+      border: 1px #dadada solid;
+      border-bottom: 1px solid #ccc;
+      box-shadow: none;
+    }
+
+    .dropbox-dropin-disabled .dropin-btn-status {
+      background-position: -30px 0px;
+    }
+
+    .dropbox-dropin-error .dropin-btn-status {
+      background-position: -45px 0px;
+    }
+
+  @media only screen and (-webkit-min-device-pixel-ratio: 1.4) {
+      .dropbox-dropin-btn .dropin-btn-status {
+        background-image: url('https://www.dropbox.com/static/images/widgets/dbx-saver-status-2x.png');
+        background-size: 60px 14px;
+          -webkit-background-size: 60px 14px;
+      }
+
+      .dropbox-dropin-progress .dropin-btn-status {
+        background: url('https://www.dropbox.com/static/images/widgets/dbx-progress-2x.png') no-repeat center center;
+        background-size: 20px 20px;
+          -webkit-background-size: 20px 20px;
+      }
+  }
+
+    .dropbox-saver:hover, .dropbox-chooser:hover {
+      text-decoration: none;
+      cursor: pointer;
+    }
+
+    .dropbox-chooser, .dropbox-dropin-btn {
+      line-height: 11px !important;
+      text-decoration: none !important;
+      box-sizing: content-box !important;
+        -webkit-box-sizing: content-box !important;
+        -moz-box-sizing: content-box !important;
+    }
+     </style><style>.picker-dialog-frame{width:100%;height:100%;border:0;overflow:hidden}.picker-dialog-bg{position:absolute;top:0;left:0;background-color:#fff;z-index:1000}.picker-dialog{position:absolute;top:0;left:0;background-color:#fff;border:1px solid #acacac;width:auto;padding:0;z-index:1001;overflow:auto;-moz-box-shadow:rgba(0,0,0,.2) 0 4px 16px;-webkit-box-shadow:rgba(0,0,0,.2) 0 4px 16px;box-shadow:rgba(0,0,0,.2) 0 4px 16px}.picker-dialog-content{font-size:0;padding:0}.picker-dialog-title,.picker-dialog-buttons{display:none} </style><style type="text/css">.fb_hidden{position:absolute;top:-10000px;z-index:10001}.fb_reposition{overflow:hidden;position:relative}.fb_invisible{display:none}.fb_reset{background:none;border:0;border-spacing:0;color:#000;cursor:auto;direction:ltr;font-family:"lucida grande", tahoma, verdana, arial, sans-serif;font-size:11px;font-style:normal;font-variant:normal;font-weight:normal;letter-spacing:normal;line-height:1;margin:0;overflow:visible;padding:0;text-align:left;text-decoration:none;text-indent:0;text-shadow:none;text-transform:none;visibility:visible;white-space:normal;word-spacing:normal}.fb_reset>div{overflow:hidden}@keyframes fb_transform{from{opacity:0;transform:scale(.95)}to{opacity:1;transform:scale(1)}}.fb_animate{animation:fb_transform .3s forwards}
+.fb_dialog{background:rgba(82, 82, 82, .7);position:absolute;top:-10000px;z-index:10001}.fb_dialog_advanced{border-radius:8px;padding:10px}.fb_dialog_content{background:#fff;color:#373737}.fb_dialog_close_icon{background:url(https://static.xx.fbcdn.net/rsrc.php/v3/yq/r/IE9JII6Z1Ys.png) no-repeat scroll 0 0 transparent;cursor:pointer;display:block;height:15px;position:absolute;right:18px;top:17px;width:15px}.fb_dialog_mobile .fb_dialog_close_icon{left:5px;right:auto;top:5px}.fb_dialog_padding{background-color:transparent;position:absolute;width:1px;z-index:-1}.fb_dialog_close_icon:hover{background:url(https://static.xx.fbcdn.net/rsrc.php/v3/yq/r/IE9JII6Z1Ys.png) no-repeat scroll 0 -15px transparent}.fb_dialog_close_icon:active{background:url(https://static.xx.fbcdn.net/rsrc.php/v3/yq/r/IE9JII6Z1Ys.png) no-repeat scroll 0 -30px transparent}.fb_dialog_iframe{line-height:0}.fb_dialog_content .dialog_title{background:#6d84b4;border:1px solid #365899;color:#fff;font-size:14px;font-weight:bold;margin:0}.fb_dialog_content .dialog_title>span{background:url(https://static.xx.fbcdn.net/rsrc.php/v3/yd/r/Cou7n-nqK52.gif) no-repeat 5px 50%;float:left;padding:5px 0 7px 26px}body.fb_hidden{height:100%;left:0;margin:0;overflow:visible;position:absolute;top:-10000px;transform:none;width:100%}.fb_dialog.fb_dialog_mobile.loading{background:url(https://static.xx.fbcdn.net/rsrc.php/v3/ya/r/3rhSv5V8j3o.gif) white no-repeat 50% 50%;min-height:100%;min-width:100%;overflow:hidden;position:absolute;top:0;z-index:10001}.fb_dialog.fb_dialog_mobile.loading.centered{background:none;height:auto;min-height:initial;min-width:initial;width:auto}.fb_dialog.fb_dialog_mobile.loading.centered #fb_dialog_loader_spinner{width:100%}.fb_dialog.fb_dialog_mobile.loading.centered .fb_dialog_content{background:none}.loading.centered #fb_dialog_loader_close{clear:both;color:#fff;display:block;font-size:18px;padding-top:20px}#fb-root #fb_dialog_ipad_overlay{background:rgba(0, 0, 0, .4);bottom:0;left:0;min-height:100%;position:absolute;right:0;top:0;width:100%;z-index:10000}#fb-root #fb_dialog_ipad_overlay.hidden{display:none}.fb_dialog.fb_dialog_mobile.loading iframe{visibility:hidden}.fb_dialog_mobile .fb_dialog_iframe{position:sticky;top:0}.fb_dialog_content .dialog_header{background:linear-gradient(from(#738aba), to(#2c4987));border-bottom:1px solid;border-color:#1d3c78;box-shadow:white 0 1px 1px -1px inset;color:#fff;font:bold 14px Helvetica, sans-serif;text-overflow:ellipsis;text-shadow:rgba(0, 30, 84, .296875) 0 -1px 0;vertical-align:middle;white-space:nowrap}.fb_dialog_content .dialog_header table{height:43px;width:100%}.fb_dialog_content .dialog_header td.header_left{font-size:12px;padding-left:5px;vertical-align:middle;width:60px}.fb_dialog_content .dialog_header td.header_right{font-size:12px;padding-right:5px;vertical-align:middle;width:60px}.fb_dialog_content .touchable_button{background:linear-gradient(from(#4267B2), to(#2a4887));background-clip:padding-box;border:1px solid #29487d;border-radius:3px;display:inline-block;line-height:18px;margin-top:3px;max-width:85px;padding:4px 12px;position:relative}.fb_dialog_content .dialog_header .touchable_button input{background:none;border:none;color:#fff;font:bold 12px Helvetica, sans-serif;margin:2px -12px;padding:2px 6px 3px 6px;text-shadow:rgba(0, 30, 84, .296875) 0 -1px 0}.fb_dialog_content .dialog_header .header_center{color:#fff;font-size:16px;font-weight:bold;line-height:18px;text-align:center;vertical-align:middle}.fb_dialog_content .dialog_content{background:url(https://static.xx.fbcdn.net/rsrc.php/v3/y9/r/jKEcVPZFk-2.gif) no-repeat 50% 50%;border:1px solid #4a4a4a;border-bottom:0;border-top:0;height:150px}.fb_dialog_content .dialog_footer{background:#f5f6f7;border:1px solid #4a4a4a;border-top-color:#ccc;height:40px}#fb_dialog_loader_close{float:left}.fb_dialog.fb_dialog_mobile .fb_dialog_close_button{text-shadow:rgba(0, 30, 84, .296875) 0 -1px 0}.fb_dialog.fb_dialog_mobile .fb_dialog_close_icon{visibility:hidden}#fb_dialog_loader_spinner{animation:rotateSpinner 1.2s linear infinite;background-color:transparent;background-image:url(https://static.xx.fbcdn.net/rsrc.php/v3/yD/r/t-wz8gw1xG1.png);background-position:50% 50%;background-repeat:no-repeat;height:24px;width:24px}@keyframes rotateSpinner{0%{transform:rotate(0deg)}100%{transform:rotate(360deg)}}
+.fb_iframe_widget{display:inline-block;position:relative}.fb_iframe_widget span{display:inline-block;position:relative;text-align:justify}.fb_iframe_widget iframe{position:absolute}.fb_iframe_widget_fluid_desktop,.fb_iframe_widget_fluid_desktop span,.fb_iframe_widget_fluid_desktop iframe{max-width:100%}.fb_iframe_widget_fluid_desktop iframe{min-width:220px;position:relative}.fb_iframe_widget_lift{z-index:1}.fb_iframe_widget_fluid{display:inline}.fb_iframe_widget_fluid span{width:100%}</style>
+</head>
+
+<body class="">
+
+<svg style="display: none;">
+    <symbol id="from-pc" viewBox="0 0 29 20">
+        <path d="M3,0h23v16H3V0z M5,2v12h19V2H5z M1,18h27v2H1V18z"></path>
+    </symbol>
+    <!-- <symbol id="from-dropbox" viewBox="0 0 34 32">
+        <path d="M17,6.975l-8.5,5.416L0,6.975L8.5,1.56L17,6.975z M25.5,1.56L17,6.975l8.5,5.416L34,6.975L25.5,1.56zM0,17.805l8.5,5.414l8.5-5.414L8.5,12.39L0,17.805z M25.5,12.391L17,17.805l8.5,5.414l8.5-5.414L25.5,12.391z M8.5,25.025L17,30.44l8.5-5.415L17,19.611L8.5,25.025z"></path>
+    </symbol>
+    <symbol id="from-gdrive" viewBox="0 0 26 23">
+        <path d="M17.607,0l8.043,13.798h-8.385L9.223,0H17.607z M25.65,14.768L21.5,22H5.52l4.15-7.232H25.65z M12.667,7.821L4.606,21.634L0.35,14.38L8.411,0.566L12.667,7.821z"></path>
+    </symbol> -->
+    <symbol id="from-url" viewBox="0 0 24 24">
+        <path d="M13.485 15.49c.444.445.487 1.13.093 1.525l-6.59 6.59c-.393.393-1.08.351-1.524-.093l-5.1-5.1c-.445-.446-.487-1.131-.093-1.526l6.59-6.589c.394-.394 1.08-.352 1.524.093.444.443.487 1.13.092 1.524L3.32 17.071c-.393.394-.352 1.08.093 1.525l1.865 1.865c.444.445 1.13.486 1.524.092l5.157-5.156c.394-.395 1.08-.353 1.525.092l.001.002zM23.513 5.465c.444.443.486 1.13.092 1.524l-6.59 6.59c-.393.393-1.08.351-1.524-.093-.444-.445-.487-1.13-.092-1.525l5.156-5.157c.395-.395.353-1.08-.092-1.525l-1.865-1.865c-.445-.444-1.13-.486-1.525-.092l-5.157 5.157c-.393.393-1.08.351-1.524-.093-.445-.444-.486-1.13-.092-1.524L16.889.27c.394-.393 1.08-.352 1.524.093l5.1 5.1zm-6.92 1.818c.445.445.486 1.13.092 1.524l-7.879 7.879c-.394.393-1.08.353-1.524-.092-.445-.445-.486-1.13-.092-1.525l7.879-7.878c.394-.395 1.08-.353 1.524.092z"></path>
+    </symbol>
+    <symbol id="svg-icon-star" viewBox="0 0 12 12">
+        <path d="M6,0L4.375,4.063L0,4.359l3.36,2.813l-1.063,4.234L6,9.078l3.703,2.328L8.641,7.172L12,4.359 L7.625,4.063L6,0z"></path>
+    </symbol>
+    <symbol id="svg-icon-close" viewBox="0 0 16 16">
+        <path d="M.724.118L.118.724 7.395 8 .118 15.276l.606.606L8 8.605l7.276 7.277.606-.606L8.605 8 15.882.724l-.606-.606L8 7.395z"></path>
+    </symbol>
+    <symbol id="svg-icon-process" viewBox="0 0 18 18">
+        <path d="M12.858,10h2.052c-0.478,2.836-2.938,5-5.91,5c-1.657,0-3.152-0.676-4.236-1.764L3,15v-5h5l-1.817,1.817C6.902,12.545,7.895,13,9,13C10.861,13,12.412,11.722,12.858,10z M13.236,4.764C12.152,3.676,10.657,3,9,3C6.028,3,3.567,5.164,3.09,8h2.052C5.588,6.278,7.139,5,9,5c1.106,0,2.098,0.455,2.817,1.183L10,8h5V3L13.236,4.764z"></path>
+    </symbol>
+    <symbol id="svg-arrow-d" viewBox="0 0 13 13">
+        <path d="M6 11.212V1h1v10.212L10.514 7l.486.608L6.5 13 2 7.608 2.486 7 6 11.212z"></path>
+    </symbol>
+    <symbol id="svg-arrow-split" viewBox="0 0 17 13">
+        <path d="M8,0h1v13H8V0z M4.493,2L0,7l4.493,5L5,11.46L0.99,7L5,2.54L4.493,2z M12.507,2L12,2.54L16.01,7L12,11.46L12.507,12L17,7L12.507,2z"></path>
+    </symbol>
+    <symbol id="svg-plus" viewBox="0 0 13 13">
+        <path d="M6 0v6H0v1h6v6h1V7h6V6H7V0z"></path>
+    </symbol>
+    <symbol id="svg-submit-arrow" viewBox="0 0 20 22">
+        <path d="M0,11.959V10.05h16.343l-7.81-7.926c-0.279-0.273-0.359-0.69-0.202-1.047C8.563,0.579,9.152,0.362,9.65,0.593c0.111,0.052,0.213,0.124,0.298,0.212L20,11.005L9.948,21.204c-0.378,0.382-0.991,0.396-1.384,0.03c-0.381-0.352-0.406-0.943-0.055-1.324c0.008-0.009,0.016-0.018,0.024-0.026l7.81-7.925H0L0,11.959z"></path>
+    </symbol>
+    <symbol id="svg-plus2" viewBox="0 0 14 14">
+        <path d="M14,8H8v6H6V8H0V6h6V0h2v6h6V8z"></path>
+    </symbol>
+    <symbol id="svg-download" viewBox="0 0 14 14">
+        <path d="M7,11.147L1.865,5.609l0.674-0.758l0.075,0.081l3.73,4.025V1h1.313v7.957l3.805-4.106l0.673,0.758L7,11.147z M0,13v1h14v-1H0z"></path>
+    </symbol>
+    <symbol id="svg-settings" viewBox="0 0 14 14">
+        <path d="M6.11 0l-.335 2.063a5.08 5.08 0 0 0-1.392.567L2.681 1.418 1.444 2.656 2.63 4.357a5.245 5.245 0 0 0-.567 1.418L0 6.11v1.754l2.063.36c.122.5.306.964.567 1.393l-1.212 1.702 1.238 1.237 1.727-1.186c.429.258.896.445 1.392.567L6.11 14h1.754l.36-2.063a5.139 5.139 0 0 0 1.393-.593l1.727 1.212 1.238-1.237-1.238-1.702c.255-.425.47-.896.593-1.392L14 7.864V6.11l-2.063-.335a5.182 5.182 0 0 0-.593-1.392l1.238-1.727-1.263-1.238-1.702 1.238a5.082 5.082 0 0 0-1.392-.593L7.864 0H6.11zm.903 4.564a2.409 2.409 0 0 1 2.423 2.423c0 1.35-1.073 2.45-2.423 2.45a2.452 2.452 0 0 1-2.45-2.45c0-1.35 1.1-2.423 2.45-2.423z"></path>
+    </symbol>
+    <symbol id="svg-icon-page" viewBox="0 0 11 13">
+        <path d="M1 1v11h9V1H1zM0 0h11v13H0V0zm2 3v1h7V3H2zm0 3v1h7V6H2zm0 3v1h7V9H2z"></path>
+    </symbol>
+    <symbol id="svg-icon-a" viewBox="0 0 13 13">
+        <path d="M8.007 8.465h-5.22L.992 13H0L5.168.098h.571L10.802 13H9.79L8.007 8.465zM3.11 7.656h4.597L5.959 3.024a22.5 22.5 0 0 1-.527-1.511 14.094 14.094 0 0 1-.519 1.529L3.111 7.656z"></path>
+    </symbol>
+</svg>
+
+<div class="main-container full-height ">
+
+    <header class="header">
+
+    <div class="softobar">
+    <div class="softobar-container">
+        <div class="softobar-logo">
+        </div>
+        캡스톤 프로젝트 17조 Summer - 음성 데이터를 텍스트로 변환한 뒤 요약해주는 웹 서비스
+        <!-- bar위에 글자 없애기
+        <nav class="softobar-nav">
+            <ul class="softobar-links">
+
+                                    <li class="nav-item ">
+                        <a href="https://currencio.co/btc/usd/">Bitcoin to USD</a>
+                    </li>
+                                    <li class="nav-item  new-item ">
+                        <a href="https://clideo.com/meme-maker">Meme Maker</a>
+                    </li>
+                                    <li class="nav-item ">
+                        <a href="https://flipvideo.online/">Flip Video</a>
+                    </li>
+                                    <li class="nav-item  new-item ">
+                        <a href="https://cutvideo.online/">Cut Video</a>
+                    </li>
+                                    <li class="nav-item ">
+                        <a href="https://cropvideo.co/">Crop Video</a>
+                    </li>
+                                    <li class="nav-item ">
+                        <a href="https://adjust.video/">Adjust Video</a>
+                    </li>
+                                    <li class="nav-item ">
+                        <a href="https://rotatevideo.online/">Rotate Video</a>
+                    </li>
+                                    <li class="nav-item ">
+                        <a href="https://filter.video/">Filter Video</a>
+                    </li>
+                
+                <li class="softobar-more hidden" style=""><a href="#">더 보기</a>
+                    <ul class="hidden-links"></ul>
+                </li>
+            </ul>
+        </nav>
+        -->
+    </div>
+</div>
+
+    <div class="sticky-wrapper" style="min-height: 70px;"><div class="sticky-wrapper" style="min-height: 75px;"><div class="header-main sticky-header">
+        <div class="container">
+            <div class="header-wrapper">
+
+                <div class="logo">
+                  <!-- <a herf="convert3.html">
+                    <img src="icon.png">
+                  
+                  </a> -->
+                  <a herf="convert3.html">
+                      <img src="logo2.png" width="150px">
+</a>
+
+
+                    <!-- 메인 페이지 로고 
+                      
+                      <a href="https://convertio.co/kr/" aria-label="Go to index page">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="147" height="30" viewBox="0 0 147 30">
+        <path fill="#fc1600" d="M15.047 30C6.737 30 0 23.284 0 15 0 6.716 6.737 0 15.047 0s15.047 6.716 15.047 15c0 8.284-6.736 15-15.047 15zM24.3 15.111c.028-2.353-1.332-4.866-3.121-6.667-3.121-3.088-7.558-2.923-10.924-1.333 2.898.242 4.58 1.214 6.242 #fc16002.889 1.696 1.673 2.229 2.95 2.23 5.111h-2.899l5.574 6.222 5.573-6.222h-2.675zM5.796 14.89c-.029 2.353 1.332 4.866 3.12 6.667 3.122 3.088 7.558 2.923 10.924 1.333-2.898-.242-4.579-1.214-6.242-2.889-1.695-1.673-2.229-2.95-2.229-5.111h2.898L8.694 8.667l-5.573 6.222h2.675z"></path>
+        <path fill="#282828" d="M52.587 21.09c-.798.914-1.783 1.637-2.954 2.17-1.172.533-2.521.8-4.05.8-1.391 0-2.677-.228-3.857-.685a9.066 9.066 0 0 1-3.068-1.942 8.992 8.992 0 0 1-2.038-3.008c-.492-1.168-.738-2.454-.738-3.859 0-1.438.25-2.741.751-3.91a8.696 8.696 0 0 1 2.075-2.982 9.197 9.197 0 0 1 3.107-1.89c1.188-.44 2.47-.66 3.845-.66 1.274 0 2.526.223 3.756.672 1.231.448 2.228 1.104 2.992 1.967l-2.953 2.945a3.654 3.654 0 0 0-1.605-1.244 5.335 5.335 0 0 0-2.037-.406c-.764 0-1.464.14-2.1.419a4.928 4.928 0 0 0-1.643 1.155A5.259 5.259 0 0 0 41 12.37a6.12 6.12 0 0 0-.382 2.196c0 .812.128 1.557.382 2.234a5.199 5.199 0 0 0 1.057 1.739c.45.482.989.859 1.617 1.13.628.27 1.316.406 2.063.406.865 0 1.62-.17 2.266-.508a4.39 4.39 0 0 0 1.553-1.32l3.03 2.843zm13.662-3.884c0 1.032-.187 1.967-.56 2.805a6.29 6.29 0 0 1-1.528 2.132 6.998 6.998 0 0 1-2.241 1.359 7.627 7.627 0 0 1-2.725.482c-.95 0-1.854-.16-2.712-.482a6.819 6.819 0 0 1-2.24-1.359 6.375 6.375 0 0 1-1.516-2.132c-.373-.838-.56-1.773-.56-2.805 0-1.032.187-1.963.56-2.792a6.27 6.27 0 0 1 1.515-2.107 6.593 6.593 0 0 1 2.241-1.32 8.04 8.04 0 0 1 2.712-.457c.968 0 1.876.152 2.725.457a6.759 6.759 0 0 1 2.24 1.32 6.188 6.188 0 0 1 1.529 2.107c.373.83.56 1.76.56 2.792zm-4.023 0c0-.406-.068-.804-.204-1.193a3.152 3.152 0 0 0-.586-1.028 2.976 2.976 0 0 0-.942-.723c-.374-.187-.806-.28-1.299-.28-.492 0-.925.093-1.298.28a2.832 2.832 0 0 0-.93.723 3.096 3.096 0 0 0-.56 1.028 3.814 3.814 0 0 0 0 2.386c.127.39.318.74.573 1.054.254.313.569.562.942.749.374.186.806.279 1.299.279.492 0 .925-.093 1.298-.28.374-.186.688-.435.943-.748.254-.313.445-.665.573-1.054.127-.389.19-.787.19-1.193zm13.891 6.372v-6.905c0-.355-.03-.694-.09-1.015a2.793 2.793 0 0 0-.292-.85 1.516 1.516 0 0 0-.573-.585c-.246-.143-.556-.215-.93-.215-.373 0-.7.072-.98.215-.28.144-.513.343-.7.597a2.706 2.706 0 0 0-.42.876c-.094.33-.14.672-.14 1.028v6.854H67.79V10.936h4.049v1.752h.05c.154-.271.353-.538.6-.8.245-.262.534-.486.865-.673a5.396 5.396 0 0 1 1.082-.457c.39-.118.807-.177 1.248-.177.849 0 1.57.152 2.165.457a4.133 4.133 0 0 1 1.438 1.18 4.64 4.64 0 0 1 .79 1.663c.161.626.242 1.252.242 1.878v7.819h-4.202zm14.095 0h-4.507l-4.991-12.642h4.609l2.674 8.2h.076l2.674-8.2h4.456l-4.99 12.642zm14.223-7.768c0-.66-.208-1.227-.624-1.7-.416-.475-1.04-.712-1.872-.712-.407 0-.78.064-1.12.19-.34.128-.637.301-.892.521-.254.22-.458.478-.61.774a2.261 2.261 0 0 0-.255.927h5.373zm3.845 1.6v.507c0 .17-.009.33-.026.482h-9.192c.034.356.14.677.318.965.178.288.407.537.688.749.28.211.594.376.942.495.348.118.708.177 1.082.177.662 0 1.222-.122 1.68-.368a3.322 3.322 0 0 0 1.121-.952l2.903 1.828a5.869 5.869 0 0 1-2.355 1.993c-.977.465-2.11.698-3.4.698-.95 0-1.85-.148-2.7-.444a6.56 6.56 0 0 1-2.227-1.295 5.996 5.996 0 0 1-1.503-2.094c-.365-.83-.547-1.777-.547-2.843 0-1.033.178-1.968.535-2.805a6.34 6.34 0 0 1 1.451-2.133 6.473 6.473 0 0 1 2.164-1.358 7.423 7.423 0 0 1 2.7-.482c.933 0 1.79.157 2.572.47a5.6 5.6 0 0 1 2.011 1.358c.56.592.998 1.311 1.312 2.157.314.847.47 1.811.47 2.894zm9.715-3.072a3.262 3.262 0 0 0-.547-.102 5.523 5.523 0 0 0-.522-.025c-.56 0-1.032.101-1.414.304a2.876 2.876 0 0 0-.916.737c-.23.287-.395.6-.497.939a3.143 3.143 0 0 0-.153.888v6.499h-4.176V10.936h4.023v1.828h.051a4.107 4.107 0 0 1 1.376-1.574c.594-.406 1.281-.61 2.062-.61.17 0 .335.01.497.026.161.017.293.042.394.076l-.178 3.656zm4.979-.28v4.824c0 .592.115 1.036.344 1.332.229.296.64.444 1.235.444.204 0 .42-.016.65-.05.228-.034.42-.085.572-.153l.051 3.047c-.289.101-.654.19-1.095.266a7.775 7.775 0 0 1-1.324.114c-.849 0-1.562-.105-2.14-.317-.576-.212-1.039-.516-1.387-.914a3.58 3.58 0 0 1-.751-1.421 6.872 6.872 0 0 1-.23-1.84v-5.332l-.697.289v-3.462l.672.051V7.611h4.1v3.325h2.98v3.122h-2.98zM131.34 6.9c0 .322-.064.622-.191.901-.128.28-.297.52-.51.724a2.487 2.487 0 0 1-1.693.66c-.679 0-1.248-.225-1.706-.673a2.176 2.176 0 0 1-.688-1.612c0-.305.06-.597.179-.876.118-.279.288-.52.509-.723.22-.203.475-.368.764-.495.288-.127.602-.19.942-.19a2.487 2.487 0 0 1 1.693.66c.213.202.382.444.51.723.127.28.19.58.19.901zm-4.482 16.678V10.936h4.176v12.642h-4.176zm19.825-6.372c0 1.032-.187 1.967-.56 2.805a6.29 6.29 0 0 1-1.528 2.132 6.998 6.998 0 0 1-2.241 1.359 7.627 7.627 0 0 1-2.725.482c-.95 0-1.855-.16-2.712-.482a6.819 6.819 0 0 1-2.24-1.359 6.375 6.375 0 0 1-1.516-2.132c-.374-.838-.56-1.773-.56-2.805 0-1.032.186-1.963.56-2.792a6.27 6.27 0 0 1 1.515-2.107 6.593 6.593 0 0 1 2.241-1.32 8.04 8.04 0 0 1 2.712-.457c.968 0 1.876.152 2.725.457a6.759 6.759 0 0 1 2.24 1.32 6.188 6.188 0 0 1 1.528 2.107c.374.83.56 1.76.56 2.792zm-4.024 0c0-.406-.068-.804-.203-1.193a3.152 3.152 0 0 0-.586-1.028 2.976 2.976 0 0 0-.942-.723c-.374-.187-.807-.28-1.299-.28-.492 0-.925.093-1.299.28a2.832 2.832 0 0 0-.93.723 3.096 3.096 0 0 0-.56 1.028 3.814 3.814 0 0 0 0 2.386c.128.39.319.74.574 1.054.254.313.568.562.942.749.373.186.806.279 1.298.279.493 0 .926-.093 1.3-.28.373-.186.687-.435.941-.748.255-.313.446-.665.573-1.054.128-.389.191-.787.191-1.193z"></path>
+    </svg> -->
+
+                    
+                </div>
+
+                
+                                <!-- <div class="mobile-tools">
+                    <a href="#" class="menu-toggle" data-toggle-nav=".navigation-wrapper" data-close-widget=".user-nav" aria-label="Toggle mobile navigation menu"><i></i></a>
+                </div> -->
+                
+                <div class="navigation-wrapper">
+                    <div class="navigation">
+
+                        
+                                                    <div class="guest-nav">
+                                <!-- <ul>
+                                    <li><a href="https://convertio.co/kr/pricing/?utm_source=header" class="btn btn-outline-primary">회원 가입</a></li>
+                                    <li><a href="#" class="btn btn-outline-dark" data-toggle-widget=".login-form-wrapper">로그인</a></li>
+                                </ul> -->
+                                <div class="login-form-wrapper">
+                                    <form id="login_form" class="login-form" autocomplete="off">
+                                        <div class="form-group">
+                                            <input type="email" class="form-control" placeholder="이메일">
+                                        </div>
+                                        <div class="form-group">
+                                            <span class="input-question-mark" data-open-widget="#recovery_form" data-close-widget="#login_form"></span>
+                                            <input type="password" class="form-control" id="password" placeholder="암호">
+                                        </div>
+                                        <div class="d-flex flex-column flex-sm-row align-items-sm-center">
+                                            <div class="flex-grow-1 text-center text-sm-left">
+                                                <div class="buttons buttons-spacing-md">
+                                                    <button type="submit" class="btn btn-outline-blue">로그인</button>
+                                                    <button type="button" class="btn btn-outline-dark mobile-only" data-close-widget=".login-form-wrapper">취소하다</button>
+                                                </div>
+                                            </div>
+                                            <div class="flex-grow-0 text-center">
+                                                <div class="buttons buttons-spacing-md buttons-soc">
+                                                    <span data-action="fb_login">
+                                                        <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 22 22">
+                                                            <path fill="#4267B2" d="M20,0H2C0.896,0,0,0.896,0,2v18c0,1.104,0.896,2,2,2h9v-9H9v-3h2V8.545C11,6,12,4,15.257,4H19v3h-2.289C15,7,15,8,15,9v1h4l-1,3h-3v9h5c1.104,0,2-0.896,2-2V2C22,0.896,21.104,0,20,0z"></path>
+                                                        </svg>
+                                                    </span>
+                                                    <span data-action="google_login">
+                                                        <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 22 22">
+                                                            <g>
+                                                                <path fill="#4285F4" d="M20.801,11.223c0-0.822-0.067-1.423-0.212-2.044H11.2v3.709h5.512C16.6,13.812,16,15.2,14.666,16.134l-0.018,0.123l2.969,2.301l0.206,0.021C19.711,16.833,20.801,14.268,20.801,11.223"></path>
+                                                                <path fill="#34A853" d="M11.2,21c2.7,0,4.967-0.889,6.624-2.422l-3.157-2.444c-0.844,0.589-1.978,1-3.466,1c-2.645,0-4.889-1.745-5.689-4.155l-0.117,0.011l-3.087,2.388L2.266,15.49C3.911,18.756,7.289,21,11.2,21"></path>
+                                                                <path fill="#FBBC05" d="M5.511,12.979C5.3,12.356,5.178,11.689,5.178,11S5.3,9.645,5.5,9.022L5.494,8.89L2.369,6.463L2.266,6.512C1.589,7.867,1.2,9.389,1.2,11c0,1.611,0.389,3.134,1.066,4.49L5.511,12.979"></path>
+                                                                <path fill="#EB4335" d="M11.2,4.867c1.878,0,3.144,0.811,3.867,1.489L17.888,3.6C16.155,1.989,13.899,1,11.2,1C7.289,1,3.911,3.245,2.266,6.512L5.5,9.022C6.311,6.611,8.555,4.867,11.2,4.867"></path>
+                                                            </g>
+                                                        </svg>
+                                                    </span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </form>
+                                    <form id="recovery_form" class="login-form text-center" autocomplete="off">
+                                        <p>아래에 이메일 주소를 입력하고 우리는 당신에게 암호 재설정 지침을 보내드립니다.</p>
+                                        <div class="form-group">
+                                            <input type="email" class="form-control" placeholder="이메일">
+                                        </div>
+                                        <div class="buttons buttons-spacing-md">
+                                            <button type="submit" class="btn btn-outline-blue">Send</button>
+                                            <button type="button" class="btn btn-outline-dark" data-close-widget="#recovery_form" data-open-widget="#login_form">취소하다</button>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        
+                        <!-- <div class="main-nav  main-nav-home ">
+
+                                                            <ul>
+                                                                        <li><a href="https://convertio.co/kr/pricing/?utm_source=header_pricing">가격</a></li>
+                                </ul>
+                            
+                        </div> -->
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div></div></div>
+
+</header>
+    <div class="main-content">
+
+            <div class="container">
+        <div class="content-area">
+
+            <div class="hero-wrapper">
+                <div class="hero text-center" style="height: 797px;">
+                    <h1>음성 데이터 요약</h1>
+                    <div class="converter-container">
+                        <div class="file-source-button-wrapper file-source-button-resizable">
+                            <div class="file-source-title d-none d-md-block">
+                                Select files to convert or drag &amp; drop                            </div>
+                            <div class="file-source-button">
+                              <label for="pc-upload-add" class="action-label"><span>From Computer</span></label> <div class="menu-wrapper"><label for="pc-upload-add" class="file-source-btn"><span>Select files</span> <i data-toggle-widget=".file-source-nav" data-toggle="dropdown"></i></label> <div class="dropdown-menu file-source-nav" style="display: none;"><input type="file" id="pc-upload-add" name="pc-upload" multiple="multiple" class="file-input"> <label for="pc-upload-add" data-action-label="From Computer" class="nav-item from-pc"><i><svg width="28" height="19"><use xlink:href="#from-pc"></use></svg></i></label> <!----> <!----> <!----><!----> <span data-action-label="From Dropbox" class="nav-item from-dropbox"><i><svg width="26" height="24"><use xlink:href="#from-dropbox"></use></svg></i></span> <!----> <!----><!----> <!----> 
+                              <span data-action-label="From Google Drive" class="nav-item from-drive"><i><svg width="24" height="21"><use xlink:href="#from-gdrive"></use></svg></i></span> <!----><!----> <!----> <!----> <span data-action-label="URL" class="nav-item from-url"><i><svg width="24" height="24"><use xlink:href="#from-url"></use></svg></i></span></div></div></div>
+
+
+                        </div><!----><!----><!----><!---->
+                    </div>
+                </div>
+            </div>
+
+            <div class="convert-tools-wrapper" id="convertTools">
+                <div class="convert-tools">
+                    <div class="row no-gutters">
+                                                    <div class="col-md-4">
+                                <div class="card">
+                                    <div class="card-content">
+                                        <a href="https://convertio.co/kr/font-converter/">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" viewBox="0 0 50 50">
+        <path d="M28.475,26.295h-6.961l-2.391,6.047h-1.324l6.891-17.203h0.762l6.75,17.203h-1.348L28.475,26.295zM21.947,25.217h6.129l-2.332-6.176c-0.195-0.484-0.43-1.156-0.703-2.016c-0.211,0.75-0.441,1.43-0.691,2.039L21.947,25.217z"></path>
+        <path d="M25,50C11.215,50,0,38.785,0,25S11.215,0,25,0s25,11.215,25,25S38.785,50,25,50z M25,1C11.767,1,1,11.767,1,25s10.767,24,24,24s24-10.767,24-24S38.233,1,25,1z"></path>
+    </svg>
+
+                                            <b>글꼴 변환기</b>
+                                            <span>969 가 지원되는 다른 변환을 거라고</span>
+                                        </a>
+                                                                            </div>
+                                </div>
+                                <div class="card-hover" style="width: 377.656px; height: 231px; top: -21px; left: -21px;"></div>
+                            </div>
+                                                    <div class="col-md-4">
+                                <div class="card">
+                                    <div class="card-content">
+                                        <a href="https://convertio.co/kr/video-converter/">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="56" height="50" viewBox="0 0 56 50">
+        <path d="M24,15.641v16.719L34.957,24L24,15.641z"></path>
+        <path d="M0,5v38h56V5H0z M55,42H1V6h54V42z M14,45h27v1H14V45z"></path>
+    </svg>
+
+                                            <b>비디오 컨버터</b>
+                                            <span>3024 가 지원되는 다른 변환을 거라고</span>
+                                        </a>
+                                                                            </div>
+                                </div>
+                                <div class="card-hover" style="width: 377.656px; height: 231px; top: -21px; left: 355.656px;"></div>
+                            </div>
+                                                    <div class="col-md-4">
+                                <div class="card">
+                                    <div class="card-content">
+                                        <a href="https://convertio.co/kr/audio-converter/">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" viewBox="0 0 50 50">
+        <path d="M32.857,13.667c-0.121-0.098-0.281-0.132-0.43-0.09l-10.877,3.178c-0.221,0.07-0.37,0.278-0.365,0.51V30.23c-0.623-0.484-1.493-0.78-2.471-0.78c-1.94,0-3.46,1.163-3.46,2.647c0,1.486,1.52,2.649,3.46,2.649s3.46-1.163,3.46-2.649V17.67l9.888-2.89v13.33c-0.625-0.482-1.494-0.779-2.473-0.779c-1.939,0-3.46,1.163-3.46,2.648s1.521,2.648,3.46,2.648s3.46-1.163,3.46-2.648V14.088C33.052,13.926,32.98,13.771,32.857,13.667z"></path>
+        <path d="M25,50C11.215,50,0,38.785,0,25S11.215,0,25,0s25,11.215,25,25S38.785,50,25,50z M25,1C11.767,1,1,11.767,1,25s10.767,24,24,24s24-10.767,24-24S38.233,1,25,1z"></path>
+    </svg>
+
+                                            <b>오디오 변환기</b>
+                                            <span>3074 가 지원되는 다른 변환을 거라고</span>
+                                        </a>
+                                                                            </div>
+                                </div>
+                                <div class="card-hover" style="width: 377.656px; height: 231px; top: -21px; left: 732.312px;"></div>
+                            </div>
+                                                    <div class="col-md-4">
+                                <div class="card">
+                                    <div class="card-content">
+                                        <a href="https://convertio.co/kr/presentation-converter/">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="56" height="50" viewBox="0 0 56 50">
+        <path d="M29.996,33.814l-9.998-12.997l-6.604,8.489l-0.789-0.613l7.396-9.511l10.002,13.003l10.603-13.495l0.787,0.618L29.996,33.814z"></path>
+        <path d="M56,47H0V4h56V47z M1,46h54V5H1V46z"></path>
+    </svg>
+
+                                            <b>프리젠 테이션 변환기</b>
+                                            <span>830 가 지원되는 다른 변환을 거라고</span>
+                                        </a>
+                                                                            </div>
+                                </div>
+                                <div class="card-hover" style="width: 377.656px; height: 231px; top: 209px; left: -21px;"></div>
+                            </div>
+                                                    <div class="col-md-4">
+                                <div class="card">
+                                    <div class="card-content">
+                                        <a href="https://convertio.co/kr/ocr/">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" viewBox="0 0 50 50">
+        <path d="M24.475,22.156h-6.961l-2.391,6.047h-1.324L20.689,11h0.762l6.75,17.203h-1.348L24.475,22.156zM17.947,21.078h6.129l-2.332-6.176c-0.195-0.484-0.43-1.156-0.703-2.016c-0.211,0.75-0.441,1.43-0.691,2.039L17.947,21.078z"></path>
+        <path d="M49.354,48.646L36.179,35.472C39.775,31.701,42,26.61,42,21C42,9.42,32.579,0,21,0C9.42,0,0,9.42,0,21c0,11.579,9.42,21,21,21c5.61,0,10.701-2.225,14.472-5.821l13.175,13.175L49.354,48.646z M21,41C9.972,41,1,32.028,1,21C1,9.972,9.972,1,21,1c11.028,0,20,8.972,20,20C41,32.028,32.028,41,21,41z"></path>
+    </svg>
+
+                                            <b>텍스트 인식</b>
+                                            <span>OCR (광학 문자 인식)</span>
+                                        </a>
+                                                                            </div>
+                                </div>
+                                <div class="card-hover" style="width: 377.656px; height: 231px; top: 209px; left: 355.656px;"></div>
+                            </div>
+                                                    <div class="col-md-4">
+                                <div class="card">
+                                    <div class="card-content">
+                                        <a href="https://convertio.co/kr/archive-converter/">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="44" height="50" viewBox="0 0 44 50">
+        <path d="M30,11v1H14v-1H30z M14,26h16v-1H14V26z M14,40h16v-1H14V40z"></path>
+        <path d="M0,4v43h44V4H0z M43,46H1V33h42V46z M43,32H1V19h42V32z M43,18H1V5h42V18z"></path>
+    </svg>
+
+                                            <b>아카이브 변환기</b>
+                                            <span>374 가 지원되는 다른 변환을 거라고</span>
+                                        </a>
+                                                                            </div>
+                                </div>
+                                <div class="card-hover" style="width: 377.656px; height: 231px; top: 209px; left: 732.312px;"></div>
+                            </div>
+                                                    <div class="col-md-4">
+                                <div class="card">
+                                    <div class="card-content">
+                                        <a href="https://convertio.co/kr/document-converter/">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="36" height="50" viewBox="0 0 36 50">
+        <path d="M8,22h20v1H8V22z M8,29h16v1H8V29z M8,36h20v1H8V36z"></path>
+        <path d="M30.38,10.273L24.21,4H0v43h36V15.79L30.38,10.273z M29.673,10.981L34.786,16H24V5.213L29.673,10.981z M1,46V5h22v12h12v29H1z"></path>
+    </svg>
+
+                                            <b>문서 변환기</b>
+                                            <span>2024 가 지원되는 다른 변환을 거라고</span>
+                                        </a>
+                                                                            </div>
+                                </div>
+                                <div class="card-hover" style="width: 377.656px; height: 231px; top: 439px; left: -21px;"></div>
+                            </div>
+                                                    <div class="col-md-4">
+                                <div class="card">
+                                    <div class="card-content">
+                                        <a href="https://convertio.co/kr/image-converter/">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="56" height="50" viewBox="0 0 56 50">
+        <path d="M40,15.5c0-1.38,1.119-2.5,2.501-2.5C43.881,13,45,14.119,45,15.5c0,1.381-1.119,2.5-2.499,2.5C41.119,18,40,16.88,40,15.5z M55.148,37.097l0.703-0.711l-11.81-11.661l-9.698,9.698L16.998,17.295L0.146,34.146l0.707,0.707l16.149-16.148l28.509,28.15l0.703-0.711l-11.16-11.019l8.991-8.991L55.148,37.097z"></path>
+        <path d="M56,47H0V4h56V47z M1,46h54V5H1V46z"></path>
+    </svg>
+
+                                            <b>이미지 변환기</b>
+                                            <span>7753 가 지원되는 다른 변환을 거라고</span>
+                                        </a>
+                                                                            </div>
+                                </div>
+                                <div class="card-hover" style="width: 377.656px; height: 231px; top: 439px; left: 355.656px;"></div>
+                            </div>
+                                                    <div class="col-md-4">
+                                <div class="card">
+                                    <div class="card-content">
+                                        <a href="https://convertio.co/kr/ebook-converter/">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="40" height="50" viewBox="0 0 40 50">
+        <path d="M34,22H6V12h28V22z M7,21h26v-8H7V21z"></path>
+        <path d="M4.5,4C2.019,4,0,6.019,0,8.5v34C0,44.981,2.019,47,4.5,47H40v-1H4.5C2.57,46,1,44.43,1,42.5S2.57,39,4.5,39H40V4H4.5z M4.5,38c-1.421,0-2.675,0.675-3.5,1.706V8.5C1,6.57,2.57,5,4.5,5H39v33H4.5z"></path>
+    </svg>
+
+                                            <b>전자 책 변환기</b>
+                                            <span>830 가 지원되는 다른 변환을 거라고</span>
+                                        </a>
+                                                                            </div>
+                                </div>
+                                <div class="card-hover" style="width: 377.656px; height: 231px; top: 439px; left: 732.312px;"></div>
+                            </div>
+                                            </div>
+                </div>
+            </div>
+
+            <div class="api-cta">
+                <div class="row align-items-lg-center">
+                    <div class="col-12 mb-4 text-center text-sm-left">
+                        <div class="d-sm-flex flex-sm-row align-items-sm-center justify-content-sm-center">
+                            <div class="api-cta-icon mb-2 mb-sm-0">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="42" height="42" viewBox="0 0 42 42">
+        <path fill="#2fbf5b" d="M21,28c-3.86,0-7-3.141-7-7c0-3.86,3.14-7,7-7c3.859,0,7,3.14,7,7C28,24.859,24.859,28,21,28z M21,15 c-3.309,0-6,2.691-6,6s2.691,6,6,6s6-2.691,6-6S24.309,15,21,15z"></path>
+        <path id="coganim" fill="#333333" d="M41.595,17.918l-5.882-0.96l-0.08-0.271c-0.306-1.036-0.724-2.044-1.242-2.996l-0.133-0.244l3.432-4.889
+		c0.136-0.192,0.113-0.453-0.054-0.621l-3.63-3.626c-0.158-0.157-0.441-0.181-0.622-0.05l-4.823,3.468l-0.249-0.137
+		c-0.959-0.526-1.975-0.95-3.02-1.257l-0.268-0.078L24,0.4C23.959,0.168,23.758,0,23.523,0h-5.13c-0.237,0-0.438,0.17-0.478,0.406
+		l-0.953,5.833L16.69,6.317c-1.048,0.305-2.065,0.723-3.021,1.242l-0.247,0.134L8.61,4.256C8.427,4.124,8.144,4.148,7.988,4.307
+		L4.36,7.932C4.195,8.099,4.172,8.358,4.307,8.551l3.384,4.842l-0.135,0.245C7.027,14.6,6.601,15.624,6.29,16.68L6.21,16.951
+		l-5.808,0.965C0.169,17.955,0,18.156,0,18.394v5.13c0,0.235,0.167,0.437,0.398,0.478l5.808,1.028l0.078,0.267
+		c0.313,1.062,0.738,2.085,1.263,3.043l0.136,0.247l-3.427,4.797c-0.138,0.192-0.117,0.454,0.051,0.621l3.626,3.629
+		c0.158,0.157,0.437,0.182,0.618,0.055l4.851-3.394l0.244,0.133c0.956,0.521,1.976,0.942,3.03,1.251l0.271,0.079l0.969,5.839
+		C17.956,41.83,18.157,42,18.396,42h5.128c0.235,0,0.438-0.168,0.479-0.398l1.037-5.856l0.267-0.08
+		c1.039-0.309,2.055-0.734,3.017-1.265l0.245-0.136l4.883,3.425c0.08,0.057,0.175,0.086,0.275,0.086c0.13,0,0.255-0.051,0.344-0.14
+		l3.625-3.63c0.168-0.168,0.189-0.432,0.051-0.625l-3.482-4.832l0.135-0.248c0.517-0.947,0.934-1.957,1.239-3l0.078-0.268
+		l5.888-1.031C41.833,23.961,42,23.76,42,23.524v-5.128C42,18.158,41.829,17.957,41.595,17.918z M33.345,28.932l3.375,4.682
+		l-3.049,3.051l-4.73-3.319c-0.149-0.105-0.369-0.112-0.53-0.017c-1.217,0.741-2.538,1.294-3.926,1.645
+		c-0.185,0.048-0.326,0.2-0.359,0.386l-1.007,5.674h-4.314l-0.941-5.654c-0.032-0.19-0.173-0.344-0.361-0.391
+		c-1.395-0.344-2.725-0.894-3.953-1.632c-0.156-0.095-0.376-0.088-0.525,0.019l-4.695,3.289l-3.05-3.053l3.322-4.642
+		c0.113-0.157,0.12-0.366,0.02-0.533c-0.746-1.23-1.301-2.563-1.648-3.96c-0.045-0.186-0.196-0.327-0.384-0.36l-5.621-0.998v-4.313
+		l5.623-0.936c0.19-0.032,0.343-0.172,0.39-0.359c0.348-1.397,0.903-2.731,1.648-3.964c0.1-0.165,0.093-0.372-0.017-0.529
+		L5.332,8.33l3.049-3.05l4.659,3.329c0.15,0.105,0.371,0.114,0.53,0.02c1.229-0.736,2.559-1.283,3.951-1.623
+		c0.189-0.046,0.331-0.2,0.361-0.392l0.923-5.648h4.311l0.994,5.673c0.033,0.188,0.175,0.34,0.36,0.387
+		c1.386,0.344,2.71,0.896,3.937,1.638c0.158,0.096,0.382,0.086,0.534-0.021l4.674-3.359l3.048,3.049l-3.324,4.736
+		c-0.11,0.156-0.118,0.363-0.02,0.529c0.731,1.217,1.278,2.535,1.623,3.917c0.047,0.187,0.2,0.327,0.391,0.358l5.699,0.933v4.31
+		l-5.704,1.001c-0.188,0.033-0.34,0.175-0.386,0.361c-0.342,1.38-0.887,2.698-1.619,3.918
+		C33.224,28.564,33.232,28.772,33.345,28.932z"></path>
+    </svg>
+
+                            </div>
+                            <div class="api-cta-title">
+                                <h2>Conversion API</h2>
+                                <p>With passion to Developers</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 text-center api-cta-buttons">
+                        <p class="buttons buttons-spacing-md">
+                            <a href="https://developers.convertio.co/api/docs/" target="_blank" rel="noopener noreferrer" class="btn btn-outline-secondary btn-sm">API Documentation</a>
+                            <a href="https://github.com/convertio/convertio-php#quickstart" target="_blank" rel="noopener noreferrer" class="btn btn-outline-secondary btn-sm">PHP Example</a>
+                            <a href="https://developers.convertio.co/user/registration/api?utm_source=api_convertio_btn" target="_blank" rel="noopener noreferrer" class="btn btn-outline-secondary btn-sm">Get an API Key</a>
+                        </p>
+                    </div>
+                </div>
+                <a href="https://developers.convertio.co/" target="_blank" rel="noopener noreferrer" class="api-hover-link" aria-label="Go to Convertio API web page"></a>
+            </div>
+
+        </div>
+    </div>
+
+    </div>
+
+    <footer class="footer">
+    <div class="container">
+
+        
+            <div class="footer-mobile-nav">
+                <div class="row">
+                    <div class="col">
+                        <ul class="nav flex-column">
+                            <li><a href="https://convertio.co/kr/ocr/">OCR</a></li>
+                            <li><a href="https://convertio.co/kr/formats/">형식</a></li>
+                            <li><a href="https://support.convertio.co" target="_blank" rel="noopener noreferrer">Help</a></li>
+                            <li><a href="https://convertio.co/kr/terms/">Terms of Use</a></li>
+                            <li><a href="https://convertio.co/kr/privacy/">Privacy Policy</a></li>
+                            <li><a href="https://convertio.co/kr/imprint/">Imprint</a></li>
+                        </ul>
+                    </div>
+                    <div class="col">
+                        <ul class="nav flex-column">
+                            <li><a href="https://developers.convertio.co/" target="_blank" rel="noopener noreferrer">Developers API</a></li>
+                            <li><a href="https://developers.convertio.co/api/docs/" target="_blank" rel="noopener noreferrer">API Docs</a></li>
+                            <li><a href="https://developers.convertio.co/cli/" target="_blank" rel="noopener noreferrer">CLI Docs</a></li>
+                            <li><a href="https://developers.convertio.co/api/pricing/" target="_blank" rel="noopener noreferrer">API Pricing</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            
+            <div class="footer-sitemap">
+                <div class="row">
+                    <div class="col-lg-6">
+                        <h6>변환된 파일:</h6>
+                        <div class="counter footer-counter">
+                            <span>265,411,781</span>
+                            <span>3,316 TB</span>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="row">
+                            <div class="col">
+                                <ul class="nav flex-column">
+                                    <li><a href="https://convertio.co/kr/video-converter/">비디오 컨버터</a></li>
+                                    <li><a href="https://convertio.co/kr/audio-converter/">오디오 변환기</a></li>
+                                    <li><a href="https://convertio.co/kr/document-converter/">문서 변환기</a></li>
+                                    <li><a href="https://convertio.co/kr/image-converter/">이미지 변환기</a></li>
+                                </ul>
+                            </div>
+                            <div class="col">
+                                <ul class="nav flex-column">
+                                    <li><a href="https://convertio.co/kr/ocr/">OCR</a></li>
+                                    <li><a href="https://convertio.co/kr/formats/">형식</a></li>
+                                    <li><a href="https://support.convertio.co" target="_blank" rel="noopener noreferrer">Help</a></li>
+                                </ul>
+                            </div>
+                            <div class="col">
+                                <ul class="nav flex-column">
+                                    <li><a href="https://developers.convertio.co/" target="_blank" rel="noopener noreferrer">Developers API</a></li>
+                                    <li><a href="https://developers.convertio.co/api/docs/" target="_blank" rel="noopener noreferrer">API Docs</a></li>
+                                    <li><a href="https://developers.convertio.co/cli/" target="_blank" rel="noopener noreferrer">CLI Docs</a></li>
+                                    <li><a href="https://developers.convertio.co/api/pricing/" target="_blank" rel="noopener noreferrer">API Pricing</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        
+        <div class="footer-bottom">
+            <div class="row align-items-center">
+
+                <div class="col-md-auto language-select-wrapper">
+    <select class="language-select" name="language-select" title="Language select" style="display: none;">
+        <option value="한국어">한국어</option>
+                    <option data-hreflang="id" value="https://convertio.co/id/">Bahasa Indonesia</option>
+                    <option data-hreflang="de" value="https://convertio.co/de/">Deutsch</option>
+                    <option data-hreflang="en" value="https://convertio.co/">English</option>
+                    <option data-hreflang="es" value="https://convertio.co/es/">Español</option>
+                    <option data-hreflang="fr" value="https://convertio.co/fr/">Français</option>
+                    <option data-hreflang="it" value="https://convertio.co/it/">Italiano</option>
+                    <option data-hreflang="nl" value="https://convertio.co/nl/">Nederlands</option>
+                    <option data-hreflang="pl" value="https://convertio.co/pl/">Polski</option>
+                    <option data-hreflang="pt" value="https://convertio.co/pt/">Português</option>
+                    <option data-hreflang="vn" value="https://convertio.co/vn/">Tiếng Việt</option>
+                    <option data-hreflang="tr" value="https://convertio.co/tr/">Türkçe</option>
+                    <option data-hreflang="ru" value="https://convertio.co/ru/">Русский</option>
+                    <option data-hreflang="ar" value="https://convertio.co/ar/">العربية</option>
+                    <option data-hreflang="th" value="https://convertio.co/th/">ไทย</option>
+                    <option data-hreflang="ja" value="https://convertio.co/ja/">日本語</option>
+                    <option data-hreflang="zh" value="https://convertio.co/zh/">简体中文</option>
+                    <option data-hreflang="kr" value="https://convertio.co/kr/">한국어</option>
+            </select><span id="" class="selectboxit-container selectboxit-container" aria-autocomplete="list" aria-haspopup="true" aria-expanded="false"><span id="" class="selectboxit language-select selectboxit-enabled selectboxit-btn" name="language-select" tabindex="0" unselectable="on" title="Language select"><span class="selectboxit-option-icon-container"><i id="" class="selectboxit-default-icon selectboxit-option-icon selectboxit-container" unselectable="on"><svg xmlns="http://www.w3.org/2000/svg" width="19" height="19" viewBox="0 0 19 19"><path d="M9.5 0C4.258 0 0 4.258 0 9.5S4.258 19 9.5 19 19 14.742 19 9.5 14.742 0 9.5 0zm-.412.871v4.09A16.555 16.555 0 0 1 6.1 4.622c.163-.494.349-.953.555-1.365.68-1.361 1.543-2.19 2.433-2.387zm.824 0c.89.198 1.753 1.026 2.433 2.387.207.413.393.874.556 1.37-.925.192-1.931.308-2.99.332V.871zm-2.81.29c-.448.468-.846 1.053-1.183 1.728-.236.47-.442.99-.622 1.543a11.459 11.459 0 0 1-2.17-.81A8.656 8.656 0 0 1 7.101 1.16zm4.797 0a8.656 8.656 0 0 1 3.97 2.457c-.621.325-1.351.602-2.164.82a11.224 11.224 0 0 0-.624-1.549c-.337-.675-.735-1.26-1.182-1.728zm4.51 3.1a8.625 8.625 0 0 1 1.757 4.827h-3.721a16.972 16.972 0 0 0-.509-3.855c.924-.25 1.756-.578 2.472-.971zm-13.822.007c.724.384 1.558.708 2.479.958a16.968 16.968 0 0 0-.511 3.862H.834a8.625 8.625 0 0 1 1.753-4.82zm3.28 1.151c1.002.213 2.084.34 3.221.365v3.304h-3.71c.03-1.322.204-2.567.49-3.669zm7.267.006c.285 1.1.457 2.343.488 3.663h-3.71V5.784a17.487 17.487 0 0 0 3.222-.36zM.834 9.912h3.721c.03 1.382.207 2.686.509 3.855-.924.25-1.756.578-2.472.971A8.625 8.625 0 0 1 .834 9.912zm4.544 0h3.71v3.304a17.487 17.487 0 0 0-3.222.36 16.207 16.207 0 0 1-.488-3.664zm4.534 0h3.71a16.203 16.203 0 0 1-.49 3.669 17.356 17.356 0 0 0-3.22-.365V9.912zm4.533 0h3.721a8.625 8.625 0 0 1-1.753 4.82 11.985 11.985 0 0 0-2.479-.958c.304-1.17.48-2.478.511-3.862zM9.088 14.04v4.089c-.89-.198-1.753-1.026-2.433-2.387a10.26 10.26 0 0 1-.556-1.37 16.685 16.685 0 0 1 2.99-.332zm.824 0c1.056.025 2.061.143 2.988.337-.163.494-.349.953-.555 1.365-.68 1.361-1.543 2.19-2.433 2.387v-4.09zm-4.617.522c.18.555.387 1.077.624 1.549.337.675.735 1.26 1.182 1.728a8.656 8.656 0 0 1-3.97-2.457 10.736 10.736 0 0 1 2.164-.82zm8.408.006c.808.218 1.539.492 2.17.81a8.656 8.656 0 0 1-3.974 2.461c.447-.468.845-1.053 1.182-1.728.236-.47.442-.99.622-1.543z"></path></svg><svg xmlns="http://www.w3.org/2000/svg" width="19" height="19" viewBox="0 0 19 19"><path d="M9.5 0C4.258 0 0 4.258 0 9.5S4.258 19 9.5 19 19 14.742 19 9.5 14.742 0 9.5 0zm-.412.871v4.09A16.555 16.555 0 0 1 6.1 4.622c.163-.494.349-.953.555-1.365.68-1.361 1.543-2.19 2.433-2.387zm.824 0c.89.198 1.753 1.026 2.433 2.387.207.413.393.874.556 1.37-.925.192-1.931.308-2.99.332V.871zm-2.81.29c-.448.468-.846 1.053-1.183 1.728-.236.47-.442.99-.622 1.543a11.459 11.459 0 0 1-2.17-.81A8.656 8.656 0 0 1 7.101 1.16zm4.797 0a8.656 8.656 0 0 1 3.97 2.457c-.621.325-1.351.602-2.164.82a11.224 11.224 0 0 0-.624-1.549c-.337-.675-.735-1.26-1.182-1.728zm4.51 3.1a8.625 8.625 0 0 1 1.757 4.827h-3.721a16.972 16.972 0 0 0-.509-3.855c.924-.25 1.756-.578 2.472-.971zm-13.822.007c.724.384 1.558.708 2.479.958a16.968 16.968 0 0 0-.511 3.862H.834a8.625 8.625 0 0 1 1.753-4.82zm3.28 1.151c1.002.213 2.084.34 3.221.365v3.304h-3.71c.03-1.322.204-2.567.49-3.669zm7.267.006c.285 1.1.457 2.343.488 3.663h-3.71V5.784a17.487 17.487 0 0 0 3.222-.36zM.834 9.912h3.721c.03 1.382.207 2.686.509 3.855-.924.25-1.756.578-2.472.971A8.625 8.625 0 0 1 .834 9.912zm4.544 0h3.71v3.304a17.487 17.487 0 0 0-3.222.36 16.207 16.207 0 0 1-.488-3.664zm4.534 0h3.71a16.203 16.203 0 0 1-.49 3.669 17.356 17.356 0 0 0-3.22-.365V9.912zm4.533 0h3.721a8.625 8.625 0 0 1-1.753 4.82 11.985 11.985 0 0 0-2.479-.958c.304-1.17.48-2.478.511-3.862zM9.088 14.04v4.089c-.89-.198-1.753-1.026-2.433-2.387a10.26 10.26 0 0 1-.556-1.37 16.685 16.685 0 0 1 2.99-.332zm.824 0c1.056.025 2.061.143 2.988.337-.163.494-.349.953-.555 1.365-.68 1.361-1.543 2.19-2.433 2.387v-4.09zm-4.617.522c.18.555.387 1.077.624 1.549.337.675.735 1.26 1.182 1.728a8.656 8.656 0 0 1-3.97-2.457 10.736 10.736 0 0 1 2.164-.82zm8.408.006c.808.218 1.539.492 2.17.81a8.656 8.656 0 0 1-3.974 2.461c.447-.468.845-1.053 1.182-1.728.236-.47.442-.99.622-1.543z"></path></svg></i></span><span id="" class="selectboxit-text" unselectable="on" data-val="한국어" aria-live="polite" style="max-width: 51.1406px;">한국어</span><span id="" class="selectboxit-arrow-container" unselectable="on"><i id="" class="selectboxit-arrow selectboxit-default-arrow" unselectable="on"></i></span></span><i class="selectboxit-opts-arrow"></i><i class="selectboxit-opts-arrow"></i><ul class="selectboxit-options selectboxit-list" tabindex="-1" role="listbox" aria-hidden="true"><li data-id="0" data-val="한국어" data-disabled="false" class="selectboxit-option selectboxit-option-first selectboxit-selected" role="option"><a class="selectboxit-option-anchor"><span class="selectboxit-option-icon-container"><i class="selectboxit-option-icon  selectboxit-container"></i></span>한국어</a></li><li data-id="1" data-val="https://convertio.co/id/" data-disabled="false" class="selectboxit-option" data-hreflang="id" role="option"><a class="selectboxit-option-anchor"><span class="selectboxit-option-icon-container"><i class="selectboxit-option-icon  selectboxit-container"></i></span>Bahasa Indonesia</a></li><li data-id="2" data-val="https://convertio.co/de/" data-disabled="false" class="selectboxit-option" data-hreflang="de" role="option"><a class="selectboxit-option-anchor"><span class="selectboxit-option-icon-container"><i class="selectboxit-option-icon  selectboxit-container"></i></span>Deutsch</a></li><li data-id="3" data-val="https://convertio.co/" data-disabled="false" class="selectboxit-option" data-hreflang="en" role="option"><a class="selectboxit-option-anchor"><span class="selectboxit-option-icon-container"><i class="selectboxit-option-icon  selectboxit-container"></i></span>English</a></li><li data-id="4" data-val="https://convertio.co/es/" data-disabled="false" class="selectboxit-option" data-hreflang="es" role="option"><a class="selectboxit-option-anchor"><span class="selectboxit-option-icon-container"><i class="selectboxit-option-icon  selectboxit-container"></i></span>Español</a></li><li data-id="5" data-val="https://convertio.co/fr/" data-disabled="false" class="selectboxit-option" data-hreflang="fr" role="option"><a class="selectboxit-option-anchor"><span class="selectboxit-option-icon-container"><i class="selectboxit-option-icon  selectboxit-container"></i></span>Français</a></li><li data-id="6" data-val="https://convertio.co/it/" data-disabled="false" class="selectboxit-option" data-hreflang="it" role="option"><a class="selectboxit-option-anchor"><span class="selectboxit-option-icon-container"><i class="selectboxit-option-icon  selectboxit-container"></i></span>Italiano</a></li><li data-id="7" data-val="https://convertio.co/nl/" data-disabled="false" class="selectboxit-option" data-hreflang="nl" role="option"><a class="selectboxit-option-anchor"><span class="selectboxit-option-icon-container"><i class="selectboxit-option-icon  selectboxit-container"></i></span>Nederlands</a></li><li data-id="8" data-val="https://convertio.co/pl/" data-disabled="false" class="selectboxit-option" data-hreflang="pl" role="option"><a class="selectboxit-option-anchor"><span class="selectboxit-option-icon-container"><i class="selectboxit-option-icon  selectboxit-container"></i></span>Polski</a></li><li data-id="9" data-val="https://convertio.co/pt/" data-disabled="false" class="selectboxit-option" data-hreflang="pt" role="option"><a class="selectboxit-option-anchor"><span class="selectboxit-option-icon-container"><i class="selectboxit-option-icon  selectboxit-container"></i></span>Português</a></li><li data-id="10" data-val="https://convertio.co/vn/" data-disabled="false" class="selectboxit-option" data-hreflang="vn" role="option"><a class="selectboxit-option-anchor"><span class="selectboxit-option-icon-container"><i class="selectboxit-option-icon  selectboxit-container"></i></span>Tiếng Việt</a></li><li data-id="11" data-val="https://convertio.co/tr/" data-disabled="false" class="selectboxit-option" data-hreflang="tr" role="option"><a class="selectboxit-option-anchor"><span class="selectboxit-option-icon-container"><i class="selectboxit-option-icon  selectboxit-container"></i></span>Türkçe</a></li><li data-id="12" data-val="https://convertio.co/ru/" data-disabled="false" class="selectboxit-option" data-hreflang="ru" role="option"><a class="selectboxit-option-anchor"><span class="selectboxit-option-icon-container"><i class="selectboxit-option-icon  selectboxit-container"></i></span>Русский</a></li><li data-id="13" data-val="https://convertio.co/ar/" data-disabled="false" class="selectboxit-option" data-hreflang="ar" role="option"><a class="selectboxit-option-anchor"><span class="selectboxit-option-icon-container"><i class="selectboxit-option-icon  selectboxit-container"></i></span>العربية</a></li><li data-id="14" data-val="https://convertio.co/th/" data-disabled="false" class="selectboxit-option" data-hreflang="th" role="option"><a class="selectboxit-option-anchor"><span class="selectboxit-option-icon-container"><i class="selectboxit-option-icon  selectboxit-container"></i></span>ไทย</a></li><li data-id="15" data-val="https://convertio.co/ja/" data-disabled="false" class="selectboxit-option" data-hreflang="ja" role="option"><a class="selectboxit-option-anchor"><span class="selectboxit-option-icon-container"><i class="selectboxit-option-icon  selectboxit-container"></i></span>日本語</a></li><li data-id="16" data-val="https://convertio.co/zh/" data-disabled="false" class="selectboxit-option" data-hreflang="zh" role="option"><a class="selectboxit-option-anchor"><span class="selectboxit-option-icon-container"><i class="selectboxit-option-icon  selectboxit-container"></i></span>简体中文</a></li><li data-id="17" data-val="https://convertio.co/kr/" data-disabled="false" class="selectboxit-option selectboxit-option-last" data-hreflang="kr" role="option"><a class="selectboxit-option-anchor"><span class="selectboxit-option-icon-container"><i class="selectboxit-option-icon  selectboxit-container"></i></span>한국어</a></li></ul></span>
+</div>
+                <div class="col copyright">
+                    <p>© 2014–2019 Softo ltd. 판권 소유.</p>
+
+                    
+                        <ul class="nav">
+                            <li><a href="https://convertio.co/kr/terms/">Terms of Use</a></li>
+                            <li><a href="https://convertio.co/kr/privacy/">Privacy Policy</a></li>
+                            <li><a href="https://convertio.co/kr/imprint/">Imprint</a></li>
+                        </ul>
+
+                    
+                    <p class="logo"><a href="https://softo.co/" aria-label="Go to softo.co company web page">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="44" height="17" viewBox="0 0 44 17">
+                                <path d="M25.654 6.14v-.008h1.572V3.447h3.2v2.651h2.332v2.466h-2.332v3.854c-.026.377.07.753.273 1.07.25.265.608.396.967.353.168.012.336.012.504 0a1.72 1.72 0 0 0 .447-.118v2.424a5.942 5.942 0 0 1-1.86.303 4.8 4.8 0 0 1-1.654-.253 2.586 2.586 0 0 1-1.084-.732 2.879 2.879 0 0 1-.587-1.136 5.613 5.613 0 0 1-.182-1.473V8.598h-.306v.008h-2.207v7.574H21.47V8.606h-1.81V6.14h1.81V5.13a7.642 7.642 0 0 1 .199-1.767 3.85 3.85 0 0 1 .686-1.473c.35-.442.801-.79 1.315-1.01a5 5 0 0 1 2.05-.378c.277 0 .553.017.827.05.252.03.501.081.745.152l-.207 2.626a2.803 2.803 0 0 0-.422-.101 2.925 2.925 0 0 0-.48 0 1.459 1.459 0 0 0-.735.16 1.184 1.184 0 0 0-.439.437 1.83 1.83 0 0 0-.215.614c-.039.228-.058.46-.057.69v1.01h.917zM7.388 9.07a3.67 3.67 0 0 0-.934-.648 2.559 2.559 0 0 0-1.133-.26 1.972 1.972 0 0 0-.827.184.64.64 0 0 0-.389.623.622.622 0 0 0 .43.606c.45.17.911.306 1.381.404.383.084.76.2 1.125.345.368.143.714.342 1.025.589.304.242.554.546.736.892.195.388.292.819.281 1.254a3.028 3.028 0 0 1-1.364 2.668c-.417.276-.88.475-1.365.589a6.506 6.506 0 0 1-1.513.185 7.383 7.383 0 0 1-2.398-.43A4.941 4.941 0 0 1 .5 14.936l1.827-1.961c.304.346.669.631 1.075.841a2.95 2.95 0 0 0 1.357.32c.273-.002.541-.068.785-.193a.692.692 0 0 0 .389-.682.723.723 0 0 0-.48-.69c-.481-.2-.98-.355-1.488-.463a7.617 7.617 0 0 1-1.034-.328 3.229 3.229 0 0 1-.926-.547 2.701 2.701 0 0 1-.67-.842 2.622 2.622 0 0 1-.256-1.212 2.978 2.978 0 0 1 .38-1.548c.245-.417.578-.774.976-1.044a4.32 4.32 0 0 1 1.323-.597c.47-.126.953-.191 1.439-.194.739 0 1.473.12 2.175.354a4.693 4.693 0 0 1 1.81 1.043L7.388 9.07zm12.767 2.028c.01.767-.139 1.527-.438 2.23a5.048 5.048 0 0 1-1.19 1.683 5.439 5.439 0 0 1-1.754 1.06 6.068 6.068 0 0 1-4.283 0 5.31 5.31 0 0 1-1.753-1.085 5.048 5.048 0 0 1-1.182-1.683 5.52 5.52 0 0 1-.439-2.23 5.451 5.451 0 0 1 .439-2.222 4.998 4.998 0 0 1 1.182-1.683A5.139 5.139 0 0 1 12.49 6.14a6.384 6.384 0 0 1 4.25 0 5.265 5.265 0 0 1 1.753 1.052 4.93 4.93 0 0 1 1.191 1.683c.312.698.472 1.456.471 2.222zm-3.142 0c.001-.324-.052-.645-.157-.95a2.538 2.538 0 0 0-.455-.842 2.337 2.337 0 0 0-.736-.573 2.441 2.441 0 0 0-2.026 0c-.279.137-.527.332-.727.573a2.489 2.489 0 0 0-.438.841 3.106 3.106 0 0 0 0 1.902c.096.306.247.592.446.842.2.25.451.455.736.597a2.441 2.441 0 0 0 2.026 0c.285-.142.536-.346.736-.597.199-.25.35-.536.446-.842.1-.307.15-.628.15-.95zm26.486 0c.01.767-.14 1.527-.438 2.23a5.048 5.048 0 0 1-1.191 1.683 5.439 5.439 0 0 1-1.753 1.06 6.068 6.068 0 0 1-4.25 0 5.31 5.31 0 0 1-1.753-1.085 5.048 5.048 0 0 1-1.183-1.683 5.52 5.52 0 0 1-.438-2.23 5.451 5.451 0 0 1 .438-2.222 4.998 4.998 0 0 1 1.183-1.683 5.141 5.141 0 0 1 1.753-1.052 6.384 6.384 0 0 1 4.25 0 5.265 5.265 0 0 1 1.753 1.052 4.93 4.93 0 0 1 1.19 1.683c.304.708.454 1.475.439 2.247zm-3.142 0c0-.324-.053-.645-.157-.95a2.538 2.538 0 0 0-.455-.842 2.337 2.337 0 0 0-.736-.573 2.441 2.441 0 0 0-2.026 0c-.28.137-.527.332-.728.573a2.489 2.489 0 0 0-.438.841 3.106 3.106 0 0 0 0 1.902c.096.306.248.592.447.842.2.25.45.455.736.597a2.441 2.441 0 0 0 2.025 0c.285-.142.536-.346.736-.597.2-.25.35-.536.447-.842.099-.307.15-.628.149-.95z"></path>
+                            </svg>
+                        </a></p>
+
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+
+    <div class="chrome-app d-none" style="display: none;">
+        <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" viewBox="0 0 50 50">
+            <g fill="none" fill-rule="nonzero">
+                <path fill="#4caf50" d="M50 25c0 13.805-11.195 25-25 25S0 38.805 0 25 11.195 0 25 0s25 11.195 25 25z"></path>
+                <path fill="#ffc107" d="M25 0v25l10 5-11.054 20H25c13.816 0 25-11.184 25-25S38.816 0 25 0z"></path>
+                <path fill="#f44336" d="M47.3 13.75H25V30l-3.75-1.25-17.3-17.175h-.025C8.35 4.613 16.137 0 25 0c9.75 0 18.188 5.6 22.3 13.75z"></path>
+                <path fill="#ffffff" d="M36.25 25c0 6.211-5.039 11.25-11.25 11.25S13.75 31.211 13.75 25 18.789 13.75 25 13.75 36.25 18.789 36.25 25z"></path>
+                <path fill="#2196f3" d="M33.75 25A8.748 8.748 0 0 1 25 33.75 8.748 8.748 0 0 1 16.25 25 8.748 8.748 0 0 1 25 16.25 8.748 8.748 0 0 1 33.75 25z"></path>
+            </g>
+        </svg>
+        <div>
+            <h5>크롬 확장 프로그램에 Convertio를 설치합니까?</h5>
+            <p>
+                <button class="btn-cancel">아뇨, 괜찮습니다</button>
+                <button class="btn-install">설치</button>
+            </p>
+        </div>
+    </div>
+
+    <div class="rate-us" style="margin-bottom: -300px;">
+        <span class="close"></span>
+        <div class="rate">
+            <h5>요금 변환 품질!</h5>
+            <div class="stars" data-score="3">
+                <i class="star on" title="" data-original-title="아주 싫어요">
+                    <svg>
+                        <use xlink:href="#svg-icon-star"></use>
+                    </svg>
+                </i>
+                <i class="star on" title="" data-original-title="싫어요">
+                    <svg>
+                        <use xlink:href="#svg-icon-star"></use>
+                    </svg>
+                </i>
+                <i class="star on" title="" data-original-title="보통">
+                    <svg>
+                        <use xlink:href="#svg-icon-star"></use>
+                    </svg>
+                </i>
+                <i class="star" title="" data-original-title="좋아요">
+                    <svg>
+                        <use xlink:href="#svg-icon-star"></use>
+                    </svg>
+                </i>
+                <i class="star" title="" data-original-title="아주 좋아요">
+                    <svg>
+                        <use xlink:href="#svg-icon-star"></use>
+                    </svg>
+                </i>
+            </div>
+
+        </div>
+        <div class="rated d-none">
+            <h5>고맙습니다!</h5>
+            <p>
+                <button class="btn-cancel" data-action="changeScore">점수 변경</button>
+                <button class="btn-install" data-action="close">닫기</button>
+            </p>
+        </div>
+    </div>
+</footer>
+</div>
+
+<script src="https://static.convertio.co/js/app.js?v=6" crossorigin="anonymous" gapi_processed="true"></script><div tabindex="-1" role="dialog" class="modal fade invert-colors" style="display: none;" aria-hidden="true"><div role="document" class="modal-dialog modal-dialog-centered"><div class="modal-content"><div class="modal-header text-center"><button type="button" data-dismiss="modal" aria-label="Close" class="close"></button> <h5 class="modal-title">Add website or file by URL</h5></div> <div class="modal-body text-center"><form><div class="form-group"><div class="form-group"><input type="text" data-input-id="0" name="url[]" placeholder="http://" class="form-control"></div></div> <p class="form-group"><button type="button" class="btn btn-sm btn-outline-light text-uppercase"><svg width="13" height="13" class="text-primary"><use xlink:href="#svg-plus"></use></svg>
+                            add one more url
+                        </button></p> <p class="buttons buttons-spacing-md text-center pt-2 pt-md-3"><button type="submit" class="btn btn-lg btn-light2">Submit</button></p></form></div></div></div></div><div class="drag-drop-bg d-none"></div><div id="dropboxjs" data-app-key="bjssm5b21rgfbyw"></div><div tabindex="-1" role="dialog" aria-hidden="true" class="modal fade invert-colors"><div role="document" class="modal-dialog modal-dialog-centered"><div class="modal-content"><div class="modal-header text-center"><button type="button" data-dismiss="modal" aria-label="Close" class="close"></button> <h5 class="modal-title">Add website or file by URL</h5></div> <div class="modal-body text-center"><form><div class="form-group"><div class="form-group"><input type="text" data-input-id="0" name="url[]" placeholder="http://" class="form-control"></div></div> <p class="form-group"><button type="button" class="btn btn-sm btn-outline-light text-uppercase"><svg width="13" height="13" class="text-primary"><use xlink:href="#svg-plus"></use></svg>
+                            add one more url
+                        </button></p> <p class="buttons buttons-spacing-md text-center pt-2 pt-md-3"><button type="submit" class="btn btn-lg btn-light2">Submit</button></p></form></div></div></div></div><div class="drag-drop-bg d-none"></div><div id="dropbox`" data-app-key="bjssm5b21rgfbyw"></div>
+
+<div id="fb-root" class=" fb_reset"><div style="position: absolute; top: -10000px; width: 0px; height: 0px;"><div><iframe name="fb_xdm_frame_https" frameborder="0" allowtransparency="true" allowfullscreen="true" scrolling="no" allow="encrypted-media" id="fb_xdm_frame_https" aria-hidden="true" title="Facebook Cross Domain Communication Frame" tabindex="-1" src="https://staticxx.facebook.com/connect/xd_arbiter/r/d_vbiawPdxB.js?version=44#channel=f8e3aa71536bc&amp;origin=https%3A%2F%2Fconvertio.co" style="border: none;"></iframe></div><div></div></div></div>
+</body>
+</html>
