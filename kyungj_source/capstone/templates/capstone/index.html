@@ -1,55 +1,63 @@
-<html lang="ko">
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="en">
 
 <head>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- <script language="JavaScript" type="text/javascript">
+        var host = location.host.toLowerCase();
+        var currentAddress = location.href;
+        if (host.indexOf("www") == -1 && host.indexOf("kr") == -1 && host.indexOf("en") == -1) {
+            currentAddress = currentAddress.replace("//", "//www.");
+            location.href = currentAddress;
+        }
+    </script> -->
+    <script type="text/javascript" id="www-widgetapi-script" src="{% static 'capstone/js/www-widgetapi.js' %}" async="">
+    </script>
+    <title>Capstone 17 Team Summer</title>
+    <meta name="description" content="">
+    <meta name="keywords" content="">
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-sacle=1.0, maximum-scale=1.0, user-scalable=no">
+    <!-- <meta http-equiv="refresh" content="0; url=http://localhost:8000"/> -->
+    <meta http-equiv="X-UA-Compatible" acontent="IE=edge">
+    <!--파비콘-->
+    <link rel="shortcut icon" type="image/png" href="{% static 'capstone/img/favicon.png' %}" />
+    <!-- Bootstrap CSS -->
+    <link href="{% static 'capstone/css/bootstrap.css' %}" rel="stylesheet" type="text/css">
+    <link href="{% static 'capstone/css/app.css' %}" rel="stylesheet" type="text/css">
+    <!-- Font Awesome CSS -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,400i,600,600i,700,700i,800&amp;subset=latin-ext" rel="stylesheet" crossorigin="anonymous">
 
-    <title>Summer</title>
+    <!-- Include all css plugins (below), or include individual files as needed -->
+    <link href="{% static 'capstone/css/magnific-popup.css' %}" rel="stylesheet" type="text/css">
+    <!--    <link href="{% static 'capstone/css/commonv7.css' %}" rel="stylesheet" type="text/css">-->
+    <!-- Theme CSS -->
+    <link href="{% static 'capstone/css/theme.css' %}" rel="stylesheet" type="text/css">
+    <link href="{% static 'capstone/css/styles.css' %}" rel="stylesheet" type="text/css">
 
-    <!-- Favicon 설정
-    <link rel="icon" sizes="32x32" type="image/png" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABGdBTUEAALGPC/xhBQAABJVJREFUWAm9V31ollUU/907nU23lpX7QnPKoCwqSBa1hOyvRWpYgUYfFol9kERmEWEYLYKiiPrDiKKQYpLEyrIx1MyvPrSBRsuBpLbWnDrKua02crv3dM593+fx+bjvu03KC8977z1fv/Oee55z7qMwxkFXoRCncIs1uJ0UrlSEKlaVR0Y307qZ1q4L8AUuxg51EGcyrPy/Kj8boGpU2EGsZbl7CbhwNHnhs9F+nhr1ZDSoDpzIp5PTAarBJPsX1oDwFBGm5DOSi6cU/mZv3tDFeFkdxj8+Oa8D8q/NED5j8Bt8SuOmKewtKMIdvmikHKAyXGOBZg739HED5VFgoC6tcJs6ibaoWMyB7Hm3/tfgAaBzYjJqo5EIHZAzNwPYOVrYldbA9TdB1VwOlE7l5yKg909Q2wHg+90gYwI8/yzHUYL5qZwwFWgYKQPle8zSeqIfviEiy49n/NFD9sVnyMyYlN8OYwXeuQi40A/h8FizXV1WDbVkGdRjq4Fiz5vZth/2gcWgY78HOLFZ3g5dhBo5Co4nIO95LnBVVgG9fGXMAHV2wL7eAFt3BbBzS4znNldfB/35bqhpZWkeUwQrW1t4wxXOlKHPF3ozu4To5wMu1nb1Cm9YTdUEshvXe86DSa3fkqks8OsxpquuVIl6L/j0QqJd284aNiNk7l/kN8Yg1LLprGxkZdc84dURTMEG//t1SQdMuSLb1Bgxk10ODZJZcKPXoKkpJeIkTI3+02RmFft1GFtLY0kelHrhNag770mSgQuKoD/anHkFE1zq7wO991aCytuSUqiFd6XpTBFsne1qoYB+dFUmu0NKYjH1EuiNW6DKKxMMNrjDk5AspeoXpWSFINjyFgQtFaruZqiHHgd+OwoM5+im3fxqcbHRr6yDmjgxbri7K74PdjNnB6vkXCU5MJDMAZcge7anjlMIZt6c2HmaCk32kw+JOo4Qdf7q1aGR4QyfZcx9C0N9xu6XCHQn3ZI9SRR8oyreo8ha0PNPAme4286o9mkABRMAjgI1NYK2fhmVOS5J6Hdg6+aoYLhW8+vDdbCg3lOwd98KnPSacmK04X3YV9cGKhkaY0sStseowWZ7C9BzPNiFs1r2MKQ6Jgd1dWacGOhLsoCvmkFPP5Kiuyucu8OlWHwEw8OghmfTnCkl0O9sgCosTPGovc31AHccAXf/PtgVS7xd0mHnK8UuGb9u8SdW86c5ux4DcsM0REcOkZlzaZh00WSX8u9KsTjKm7ejzOjaVbhDB/1O7NtDZu5ML4BdtZxM7SwvT+wLpmCPqR1LV9MfNPFFZJ7oxMfQIOjdN0Efrwcd/SXOy7GLtuNQZLQLiet6z60kOnHMHw2h/thK5sHFJL0kGsXkWrAC4HO7ktXWQV07F5hWDvSd5qcXXIiA73Z5ky0Ac3PiShY6IEx3MxrEeb2USiUMh8pckRawVzmKeig67oXYdNfyxJdSzAGxqnrwE39S1XJ67h03Si4FtiU2k98EIp5yQIgSCXd11njJfV4J8RyG6Cq24Wwl/nlgLpYDATE6Z/NCivj5/TiNOiFrV7X+h8/zfwERwsDyaEUJ4wAAAABJRU5ErkJggg==">
-    <link rel="icon" sizes="16x16" type="image/png" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAMAAAAoLQ9TAAAA8FBMVEXuVDDuVDDuVDDuVDDuVDDuVDDuVDDuVDDuVDDuVDDuVDDuVDDuVDDuVDDuVDDuVDDuVDDuVDDuVDDuVTDuVDDuVDDuVDDuVDDuVDDuVDDuVDD////uVTDvXjbwe1buWTP50sX51sz99PDuVjHuVzHuVzLuWDLuWjPuWzTuXDTuXDXvXzfvYDjvYjrvZDzvZTzvZz7va0PvbETwdU/xfFjxgF3xg1/xg2DykHHznYL0pIv0qI/1rZb1sJr1sJv1sp31s573w7L4zb/50cT51Mj618363dT75N375d/75uD97ur98Oz98u799PH++fj//Ps1cJaRAAAAGnRSTlMA/QbXlSuUkPksjwkqmI7U+L27APPY/PTW+gH13I8AAAC7SURBVBjTZc9VWsNQAAXhk6RphNIWhzm3qeDu7u6w/93wAF9fmBX8I0lqNJN2e7bZ0G9xPQKAaHRkQlI8ToClBQiMxZJqBLiw744J1KU0CmxvbJ182+eEKFUJ3a8nWHu3KyiVsPpq386zZ/cgUc6p7bfDzv6nBxW5clau7Gpx/cV2n0klcGA/wObAz11aKoFH+xJ2+x3IVEwHlnv2x1kHQlT8wY6u7292CNSGdBjS/81JSrOpuZlWVkjSD0FZGN5mOtb1AAAAAElFTkSuQmCC">
-
-    <link rel="apple-touch-icon-precomposed" sizes="180x180" href="https://static.convertio.co/img/apple-touch-icon-180x180-precomposed.png">
-    <link rel="apple-touch-icon-precomposed" sizes="167x167" href="https://static.convertio.co/img/apple-touch-icon-167x167-precomposed.png">
-    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="https://static.convertio.co/img/apple-touch-icon-152x152-precomposed.png">
-    <link rel="apple-touch-icon-precomposed" sizes="120x120" href="https://static.convertio.co/img/apple-touch-icon-120x120-precomposed.png">
-    <link rel="apple-touch-icon-precomposed" sizes="76x76" href="https://static.convertio.co/img/apple-touch-icon-76x76-precomposed.png">
-    <link rel="apple-touch-icon-precomposed" href="https://static.convertio.co/img/apple-touch-icon-180x180-precomposed.png">
-    -->
-
-
-    <link
-        href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,400i,600,600i,700,700i,800&amp;subset=latin-ext"
-        rel="stylesheet" crossorigin="anonymous">
-
-    <link rel="stylesheet" href="app.css">
-    <!-- <link rel="app2.css" media="all" rel="stylesheet" type="text/css" crossorigin="anonymous"> -->
-
-    <!-- 
-    <script src="https://apis.google.com/_/scs/apps-static/_/js/k=oz.gapi.ko.t7_f2vMC35Q.O/m=picker/exm=auth,client/rt=j/sv=1/d=1/ed=1/am=wQE/rs=AGLTcCMmgf4SDzXS4fPJYmFNyCRjt0SV2A/cb=gapi.loaded_2" async=""></script>
-    <script src="https://apis.google.com/_/scs/apps-static/_/js/k=oz.gapi.ko.t7_f2vMC35Q.O/m=auth/exm=client/rt=j/sv=1/d=1/ed=1/am=wQE/rs=AGLTcCMmgf4SDzXS4fPJYmFNyCRjt0SV2A/cb=gapi.loaded_1" async=""></script>
-    <script src="https://apis.google.com/_/scs/apps-static/_/js/k=oz.gapi.ko.t7_f2vMC35Q.O/m=client/rt=j/sv=1/d=1/ed=1/am=wQE/rs=AGLTcCMmgf4SDzXS4fPJYmFNyCRjt0SV2A/cb=gapi.loaded_0" async=""></script> -->
+    <!-- js  -->
     <script type="text/javascript" async="" src="https://www.google-analytics.com/analytics.js"></script>
     <script type="text/javascript" async="" src="https://www.google-analytics.com/analytics.js"></script>
     <script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-55374714-1"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag() { dataLayer.push(arguments); }
-        gtag('js', new Date());
-        gtag('config', 'UA-55374714-1');
-    </script>
 
-    <script>
-        window.onerror = function (msg, url, line, column, errorObj) {
-            var req = new XMLHttpRequest();
-            var params = "msg=" + encodeURIComponent(msg) + '&url=' + encodeURIComponent(url) + "&line=" + line + "&column=" + column + "&err_obj=" + errorObj;
-            req.open("GET", "/js/track?" + params);
-            req.send(null);
-        };
-    </script>
+    <!-- Main JS -->
+    <script src="{% static 'capstone/js/jquery.js' %}"></script>
+    <script src="{% static 'capstone/js/popper.js' %}"></script>
+    <script src="{% static 'capstone/js/bootstrap.js' %}"></script>
 
+    <!-- Include all js plugins (below) -->
+    <script src="{% static 'capstone/js/pace.js' %}"></script>
+    <script src="{% static 'capstone/js/jquery.easing.js' %}"></script>
+    <script src="{% static 'capstone/js/jquery.matchHeight.js' %}"></script>
+    <script src="{% static 'capstone/js/jquery.inview.js' %}"></script>
+    <script src="{% static 'capstone/js/jquery.countTo.js' %}"></script>
+    <script src="{% static 'capstone/js/imagesloaded.pkgd.js' %}"></script>
+    <script src="{% static 'capstone/js/isotope.pkgd.js' %}"></script>
+    <script src="{% static 'capstone/js/jquery.magnific-popup.js' %}"></script>
+    <script src="{% static 'capstone/js/jquery.validate.js' %}"></script>
+
+    <!-- Theme JS -->
+    <script src="{% static 'capstone/js/theme.js' %}"></script>
     <style type="text/css">
         @-webkit-keyframes rotate {
             from {
@@ -464,123 +472,439 @@
             width: 100%
         }
     </style>
+
 </head>
 
-<body class="">
+<body>
+    <header class="header">
 
-    <svg style="display: none;">
-        <symbol id="from-pc" viewBox="0 0 29 20">
-            <path d="M3,0h23v16H3V0z M5,2v12h19V2H5z M1,18h27v2H1V18z"></path>
-        </symbol>
-        <!-- <symbol id="from-dropbox" viewBox="0 0 34 32">
-        <path d="M17,6.975l-8.5,5.416L0,6.975L8.5,1.56L17,6.975z M25.5,1.56L17,6.975l8.5,5.416L34,6.975L25.5,1.56zM0,17.805l8.5,5.414l8.5-5.414L8.5,12.39L0,17.805z M25.5,12.391L17,17.805l8.5,5.414l8.5-5.414L25.5,12.391z M8.5,25.025L17,30.44l8.5-5.415L17,19.611L8.5,25.025z"></path>
-    </symbol>
-    <symbol id="from-gdrive" viewBox="0 0 26 23">
-        <path d="M17.607,0l8.043,13.798h-8.385L9.223,0H17.607z M25.65,14.768L21.5,22H5.52l4.15-7.232H25.65z M12.667,7.821L4.606,21.634L0.35,14.38L8.411,0.566L12.667,7.821z"></path>
-    </symbol> -->
-        <symbol id="from-url" viewBox="0 0 24 24">
-            <path
-                d="M13.485 15.49c.444.445.487 1.13.093 1.525l-6.59 6.59c-.393.393-1.08.351-1.524-.093l-5.1-5.1c-.445-.446-.487-1.131-.093-1.526l6.59-6.589c.394-.394 1.08-.352 1.524.093.444.443.487 1.13.092 1.524L3.32 17.071c-.393.394-.352 1.08.093 1.525l1.865 1.865c.444.445 1.13.486 1.524.092l5.157-5.156c.394-.395 1.08-.353 1.525.092l.001.002zM23.513 5.465c.444.443.486 1.13.092 1.524l-6.59 6.59c-.393.393-1.08.351-1.524-.093-.444-.445-.487-1.13-.092-1.525l5.156-5.157c.395-.395.353-1.08-.092-1.525l-1.865-1.865c-.445-.444-1.13-.486-1.525-.092l-5.157 5.157c-.393.393-1.08.351-1.524-.093-.445-.444-.486-1.13-.092-1.524L16.889.27c.394-.393 1.08-.352 1.524.093l5.1 5.1zm-6.92 1.818c.445.445.486 1.13.092 1.524l-7.879 7.879c-.394.393-1.08.353-1.524-.092-.445-.445-.486-1.13-.092-1.525l7.879-7.878c.394-.395 1.08-.353 1.524.092z">
-            </path>
-        </symbol>
-        <symbol id="svg-icon-star" viewBox="0 0 12 12">
-            <path
-                d="M6,0L4.375,4.063L0,4.359l3.36,2.813l-1.063,4.234L6,9.078l3.703,2.328L8.641,7.172L12,4.359 L7.625,4.063L6,0z">
-            </path>
-        </symbol>
-        <symbol id="svg-icon-close" viewBox="0 0 16 16">
-            <path
-                d="M.724.118L.118.724 7.395 8 .118 15.276l.606.606L8 8.605l7.276 7.277.606-.606L8.605 8 15.882.724l-.606-.606L8 7.395z">
-            </path>
-        </symbol>
-        <symbol id="svg-icon-process" viewBox="0 0 18 18">
-            <path
-                d="M12.858,10h2.052c-0.478,2.836-2.938,5-5.91,5c-1.657,0-3.152-0.676-4.236-1.764L3,15v-5h5l-1.817,1.817C6.902,12.545,7.895,13,9,13C10.861,13,12.412,11.722,12.858,10z M13.236,4.764C12.152,3.676,10.657,3,9,3C6.028,3,3.567,5.164,3.09,8h2.052C5.588,6.278,7.139,5,9,5c1.106,0,2.098,0.455,2.817,1.183L10,8h5V3L13.236,4.764z">
-            </path>
-        </symbol>
-        <symbol id="svg-arrow-d" viewBox="0 0 13 13">
-            <path d="M6 11.212V1h1v10.212L10.514 7l.486.608L6.5 13 2 7.608 2.486 7 6 11.212z"></path>
-        </symbol>
-        <symbol id="svg-arrow-split" viewBox="0 0 17 13">
-            <path
-                d="M8,0h1v13H8V0z M4.493,2L0,7l4.493,5L5,11.46L0.99,7L5,2.54L4.493,2z M12.507,2L12,2.54L16.01,7L12,11.46L12.507,12L17,7L12.507,2z">
-            </path>
-        </symbol>
-        <symbol id="svg-plus" viewBox="0 0 13 13">
-            <path d="M6 0v6H0v1h6v6h1V7h6V6H7V0z"></path>
-        </symbol>
-        <symbol id="svg-submit-arrow" viewBox="0 0 20 22">
-            <path
-                d="M0,11.959V10.05h16.343l-7.81-7.926c-0.279-0.273-0.359-0.69-0.202-1.047C8.563,0.579,9.152,0.362,9.65,0.593c0.111,0.052,0.213,0.124,0.298,0.212L20,11.005L9.948,21.204c-0.378,0.382-0.991,0.396-1.384,0.03c-0.381-0.352-0.406-0.943-0.055-1.324c0.008-0.009,0.016-0.018,0.024-0.026l7.81-7.925H0L0,11.959z">
-            </path>
-        </symbol>
-        <symbol id="svg-plus2" viewBox="0 0 14 14">
-            <path d="M14,8H8v6H6V8H0V6h6V0h2v6h6V8z"></path>
-        </symbol>
-        <symbol id="svg-download" viewBox="0 0 14 14">
-            <path
-                d="M7,11.147L1.865,5.609l0.674-0.758l0.075,0.081l3.73,4.025V1h1.313v7.957l3.805-4.106l0.673,0.758L7,11.147z M0,13v1h14v-1H0z">
-            </path>
-        </symbol>
-        <symbol id="svg-settings" viewBox="0 0 14 14">
-            <path
-                d="M6.11 0l-.335 2.063a5.08 5.08 0 0 0-1.392.567L2.681 1.418 1.444 2.656 2.63 4.357a5.245 5.245 0 0 0-.567 1.418L0 6.11v1.754l2.063.36c.122.5.306.964.567 1.393l-1.212 1.702 1.238 1.237 1.727-1.186c.429.258.896.445 1.392.567L6.11 14h1.754l.36-2.063a5.139 5.139 0 0 0 1.393-.593l1.727 1.212 1.238-1.237-1.238-1.702c.255-.425.47-.896.593-1.392L14 7.864V6.11l-2.063-.335a5.182 5.182 0 0 0-.593-1.392l1.238-1.727-1.263-1.238-1.702 1.238a5.082 5.082 0 0 0-1.392-.593L7.864 0H6.11zm.903 4.564a2.409 2.409 0 0 1 2.423 2.423c0 1.35-1.073 2.45-2.423 2.45a2.452 2.452 0 0 1-2.45-2.45c0-1.35 1.1-2.423 2.45-2.423z">
-            </path>
-        </symbol>
-        <symbol id="svg-icon-page" viewBox="0 0 11 13">
-            <path d="M1 1v11h9V1H1zM0 0h11v13H0V0zm2 3v1h7V3H2zm0 3v1h7V6H2zm0 3v1h7V9H2z"></path>
-        </symbol>
-        <symbol id="svg-icon-a" viewBox="0 0 13 13">
-            <path
-                d="M8.007 8.465h-5.22L.992 13H0L5.168.098h.571L10.802 13H9.79L8.007 8.465zM3.11 7.656h4.597L5.959 3.024a22.5 22.5 0 0 1-.527-1.511 14.094 14.094 0 0 1-.519 1.529L3.111 7.656z">
-            </path>
-        </symbol>
-    </svg>
-
-    <div class="main-container full-height ">
-
-        <header class="header">
-
-            <div class="softobar">
-                <div class="softobar-container">
-                    <div class="softobar-logo">
-                    </div>
-                    캡스톤 프로젝트 17조 Summer - 음성 데이터를 텍스트로 변환한 뒤 요약해주는 웹 서비스
-                   
+        <div class="softobar">
+            <div class="softobar-container">
+                <div class="softobar-logo">
                 </div>
+                캡스톤 프로젝트 17조 Summer - 음성 데이터를 텍스트로 변환한 뒤 요약해주는 웹 서비스
             </div>
+        </div>
 
-            <div class="sticky-wrapper" style="min-height: 70px;">
-                <div class="sticky-wrapper" style="min-height: 75px;">
-                    <div class="header-main sticky-header">
-                        <div class="container">
-                            <div class="header-wrapper">
-
-                                <div class="logo">
-                                    <!-- <a herf="convert3.html">
-                    <img src="icon.png">
-                  
-                  </a> -->
-                                    <a herf="convert3.html">
-                                        <img src="logo2.png" width="150px">
-                                    </a>
-
-
-                                    
-
-
+        <div class="sticky-wrapper" style="min-height: 70px;">
+            <div class="sticky-wrapper" style="min-height: 75px;">
+                <div class="header-main sticky-header">
+                    <div class="container">
+                        <div class="header-wrapper">
+<!--src="{% static 'capstone/js/jquery.validate.js' %}"-->
+                            <div class="logo">
+                                <img src="{% static 'capstone/img/main_logo.png' %}" width="150px">
+                            </div>
+                            <div class="navigation-wrapper">
+                                <div class="navigation">
                                 </div>
-
-
-
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
+        </div>
 
-        </header>
-        <div class="main-content">
+    </header>
+    <svg style="display: none;">
+        <symbol id="from-pc" viewBox="0 0 29 20">
+            <path d="M3,0h23v16H3V0z M5,2v12h19V2H5z M1,18h27v2H1V18z"></path>
+        </symbol>
+
+        <symbol id="from-url" viewBox="0 0 24 24">
+            <path d="M13.485 15.49c.444.445.487 1.13.093 1.525l-6.59 6.59c-.393.393-1.08.351-1.524-.093l-5.1-5.1c-.445-.446-.487-1.131-.093-1.526l6.59-6.589c.394-.394 1.08-.352 1.524.093.444.443.487 1.13.092 1.524L3.32 17.071c-.393.394-.352 1.08.093 1.525l1.865 1.865c.444.445 1.13.486 1.524.092l5.157-5.156c.394-.395 1.08-.353 1.525.092l.001.002zM23.513 5.465c.444.443.486 1.13.092 1.524l-6.59 6.59c-.393.393-1.08.351-1.524-.093-.444-.445-.487-1.13-.092-1.525l5.156-5.157c.395-.395.353-1.08-.092-1.525l-1.865-1.865c-.445-.444-1.13-.486-1.525-.092l-5.157 5.157c-.393.393-1.08.351-1.524-.093-.445-.444-.486-1.13-.092-1.524L16.889.27c.394-.393 1.08-.352 1.524.093l5.1 5.1zm-6.92 1.818c.445.445.486 1.13.092 1.524l-7.879 7.879c-.394.393-1.08.353-1.524-.092-.445-.445-.486-1.13-.092-1.525l7.879-7.878c.394-.395 1.08-.353 1.524.092z"></path>
+        </symbol>
+        <symbol id="svg-icon-star" viewBox="0 0 12 12">
+            <path d="M6,0L4.375,4.063L0,4.359l3.36,2.813l-1.063,4.234L6,9.078l3.703,2.328L8.641,7.172L12,4.359 L7.625,4.063L6,0z"></path>
+        </symbol>
+        <symbol id="svg-icon-close" viewBox="0 0 16 16">
+            <path d="M.724.118L.118.724 7.395 8 .118 15.276l.606.606L8 8.605l7.276 7.277.606-.606L8.605 8 15.882.724l-.606-.606L8 7.395z"></path>
+        </symbol>
+        <symbol id="svg-icon-process" viewBox="0 0 18 18">
+            <path d="M12.858,10h2.052c-0.478,2.836-2.938,5-5.91,5c-1.657,0-3.152-0.676-4.236-1.764L3,15v-5h5l-1.817,1.817C6.902,12.545,7.895,13,9,13C10.861,13,12.412,11.722,12.858,10z M13.236,4.764C12.152,3.676,10.657,3,9,3C6.028,3,3.567,5.164,3.09,8h2.052C5.588,6.278,7.139,5,9,5c1.106,0,2.098,0.455,2.817,1.183L10,8h5V3L13.236,4.764z"></path>
+        </symbol>
+        <symbol id="svg-arrow-d" viewBox="0 0 13 13">
+            <path d="M6 11.212V1h1v10.212L10.514 7l.486.608L6.5 13 2 7.608 2.486 7 6 11.212z"></path>
+        </symbol>
+        <symbol id="svg-arrow-split" viewBox="0 0 17 13">
+            <path d="M8,0h1v13H8V0z M4.493,2L0,7l4.493,5L5,11.46L0.99,7L5,2.54L4.493,2z M12.507,2L12,2.54L16.01,7L12,11.46L12.507,12L17,7L12.507,2z"></path>
+        </symbol>
+        <symbol id="svg-plus" viewBox="0 0 13 13">
+            <path d="M6 0v6H0v1h6v6h1V7h6V6H7V0z"></path>
+        </symbol>
+        <symbol id="svg-submit-arrow" viewBox="0 0 20 22">
+            <path d="M0,11.959V10.05h16.343l-7.81-7.926c-0.279-0.273-0.359-0.69-0.202-1.047C8.563,0.579,9.152,0.362,9.65,0.593c0.111,0.052,0.213,0.124,0.298,0.212L20,11.005L9.948,21.204c-0.378,0.382-0.991,0.396-1.384,0.03c-0.381-0.352-0.406-0.943-0.055-1.324c0.008-0.009,0.016-0.018,0.024-0.026l7.81-7.925H0L0,11.959z"></path>
+        </symbol>
+        <symbol id="svg-plus2" viewBox="0 0 14 14">
+            <path d="M14,8H8v6H6V8H0V6h6V0h2v6h6V8z"></path>
+        </symbol>
+        <symbol id="svg-download" viewBox="0 0 14 14">
+            <path d="M7,11.147L1.865,5.609l0.674-0.758l0.075,0.081l3.73,4.025V1h1.313v7.957l3.805-4.106l0.673,0.758L7,11.147z M0,13v1h14v-1H0z"></path>
+        </symbol>
+        <symbol id="svg-settings" viewBox="0 0 14 14">
+            <path d="M6.11 0l-.335 2.063a5.08 5.08 0 0 0-1.392.567L2.681 1.418 1.444 2.656 2.63 4.357a5.245 5.245 0 0 0-.567 1.418L0 6.11v1.754l2.063.36c.122.5.306.964.567 1.393l-1.212 1.702 1.238 1.237 1.727-1.186c.429.258.896.445 1.392.567L6.11 14h1.754l.36-2.063a5.139 5.139 0 0 0 1.393-.593l1.727 1.212 1.238-1.237-1.238-1.702c.255-.425.47-.896.593-1.392L14 7.864V6.11l-2.063-.335a5.182 5.182 0 0 0-.593-1.392l1.238-1.727-1.263-1.238-1.702 1.238a5.082 5.082 0 0 0-1.392-.593L7.864 0H6.11zm.903 4.564a2.409 2.409 0 0 1 2.423 2.423c0 1.35-1.073 2.45-2.423 2.45a2.452 2.452 0 0 1-2.45-2.45c0-1.35 1.1-2.423 2.45-2.423z"></path>
+        </symbol>
+        <symbol id="svg-icon-page" viewBox="0 0 11 13">
+            <path d="M1 1v11h9V1H1zM0 0h11v13H0V0zm2 3v1h7V3H2zm0 3v1h7V6H2zm0 3v1h7V9H2z"></path>
+        </symbol>
+        <symbol id="svg-icon-a" viewBox="0 0 13 13">
+            <path d="M8.007 8.465h-5.22L.992 13H0L5.168.098h.571L10.802 13H9.79L8.007 8.465zM3.11 7.656h4.597L5.959 3.024a22.5 22.5 0 0 1-.527-1.511 14.094 14.094 0 0 1-.519 1.529L3.111 7.656z"></path>
+        </symbol>
+    </svg>
+
+    <!-- Overall View -->
+    <div class="modal fade" id="modalOverall" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" style="overflow-y:scroll; position: absolute; z-index: 10000;">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <!--Header-->
+                <div class="modal-header">
+                    <h3 class="modal-title" id="myModalLabel">test.flac - Overall View</h3>
+                    &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+                    &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+                    &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+                    &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+                    <a href="{% static 'capstone/overallview/overallview.txt' %}" download>
+                        <input type="button" class="close" value="Download" style="font-size: 15px; border-radius: 3px 3px 3px 3px; float: right;" /></a>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close" style="float:right">
+                        <span aria-hidden="true">×</span>
+                    </button>
+
+                </div>
+                <!--Body-->
+                <div class="modal-body">
+
+                    <table class="table table-hover">
+                        <thead>
+                            <tr>
+                                <th style="text-align:center">Script</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>
+                                    There's a question.
+                                    We need to rethink together.
+                                    What should be the role of money and markets in our societies today.
+                                    There are very few things that money can't buy.
+                                    If you are sentenced to a jail term in Santa Barbara, California, you should know that if you don't like the standard accommodations, you can buy a prison cell upgrade.<br><br>
+                                    It's true for how much do you think?
+                                    What would you guess?
+                                    $500 not the Ritz-Carlton. It's a jail $82 a night $82 tonight.
+                                    Do you go to an amusement park and don't want to stand in the long lines for the popular rides.
+                                    There is now a solution in many theme parks.
+                                    You can pay extra to jump to the head of the line.
+                                    They call them fast track or VIP tickets.
+                                    And it just really happening in amusement parks in Washington DC long lines queues sometimes form for important Congressional hearing.<br><br>
+                                    Some people don't like to wait in long queues maybe overnight even in the rain.
+                                    So now for lobbyists and others who are very keen to attend these hearings, but don't like to wait there are companies line standing companies.
+                                    You can go to them.
+                                    You can pay them a certain amount of money.
+                                    They hire homeless people and others who need a job to stand waiting in the line for as long as it takes and the lobbyists just before the hearing begins can take his or her placed at the head of the line and a seat in the front of the room paid line standing.<br><br>
+                                    It's happening the recourse to Market mechanisms in Market thinking and Market Solutions in bigger arenas.
+                                    Take the way we fight our wars. Did you know that any Iraq and Afghanistan there were more private military contractors on the ground.
+                                    Then there were US military Troop.<br><br>
+                                    Now this isn't because we had a public debate about whether we wanted to Outsource War 2 private companies, but this is what has happened.
+                                    Over the past three decades we've lived through a quiet Revolution.
+                                    We've drifted almost without realizing it from having a market economy to becoming Market societies.
+                                    The difference is this a market economy is a tool the valuable and effective tool for organizing productive activity.
+                                    The market Society is a place where almost everything is up for sale.
+                                    It's a way of life in which Market sinking and Market values begin to dominate every aspect of life.
+                                    Personal relations family life health education politics Civic life now.<br><br>
+                                    Why worry why worry about are becoming Market societies.
+                                    For two reasons, I think.
+                                    One of them has to do with inequality.
+                                    the more things money can buy The more affluent or the lack of it matters if the only thing that money determined was access to Yachats or fancy Vacations or BMW than any Pollock.<br><br>
+                                    He wouldn't matter very much but when money comes increasingly to govern access to the essentials of the good life.
+                                    Decent Health Care access to the best education political voice and influence in campaigns when money comes to govern all of those things and it probably matters a great deal.
+                                    And so the marketization of everything sharpens The Sting of inequality and its social and Civic consequence to worry.
+                                    There's a second reason apart.
+                                    From the worry about any quality and it's this.
+                                    With some social goods and practices when Market thinking and Market values enter they may change the meaning of those practices and crowd-out attitudes and Norms worth caring about like to take an example.<br><br>
+                                    Of a controversial use of a market mechanism a cash incentive and see what you think about it.
+                                    Many schools struggle with the challenge of motivating kids especially kids from disadvantaged backgrounds to study hard to do well in school to apply themselves some Economist have proposed a market solution offer cash incentives to kids for getting good grades or high test scores are for reading books.
+                                    They tried this actually they done some experiments in some major American cities.
+                                    In New York in Chicago in Washington DC and cried that's offering $50 for an a $35 for a b in Dallas Texas have a program that offers 8 year olds $2 for each book.
+                                    They read.
+                                    So, let's see what some people are in favor.<br><br>
+                                    Some people are opposed to this cash incentive to motivate a cheap and let's see what people here. Think about it imagine that you are the major school system and someone comes to you with this proposal and that's a foundation.
+                                    They will provide the funds.
+                                    You don't have to take it out of your budget.
+                                    How many would be in favor?
+                                    And how many would be opposed to giving it a try?
+                                    Let's see by your show of hands first how many things might at least be worth a try see if it would work raise your hand.
+                                    And how many would be opposed how many would so the majority here are opposed but up a sizable minority are in favour.<br><br>
+                                    Let's have a discussion.
+                                    Let's start with those of you who object who would rule it out even before trying.
+                                    What would be your reason who will get our discussion started. Yes.
+                                    Hello everyone.
+                                    I'm hunka and I think it just kills the intrinsic motivation.
+                                    So it's in respect that children that they would like to read your test.
+                                    Take does incentive away chest pains. I'm so it just changes Behavior.
+                                    Cakes the intrinsic incentive away.<br><br>
+                                    What is her should be the intrinsic motivation to learn to get to know the world.
+                                    And then if you stop paying them what happened then then they stop reading now, let's see if there's someone who favors who thinks it's worth trying this I'm Elizabeth Loftus and you said worth a try and so why not try it and do the experiment and measure things and and measure measure you measure how many how many books they read and how many books they continue to read after you stop paying them.<br><br>
+                                    All right.
+                                    What about that saying?
+                                    I just think this is him not to offend anyone and very American Way.
+                                    All right, what's emerged from this discussion is the following question will the cash incentive drive out or corrupt or crowd out the higher motivation intrinsic lesson that we hope to convey which is to learn to love to learn and to read.
+                                    For their own sakes and people disagree about what the effect will be.
+                                    The cat seems to be the question that somehow a market mechanism marracash Enchanted teaches the wrong lesson.
+                                    And if it does what will become of these children later I should tell you what's happened with these experiments they cash for good grades.
+                                    Has had very mixed results for the most part has not resulted in higher grades.
+                                    The $2 for each book did lead those kids to read more books it also LED them to read shorter books.
+                                    But the real question is what will become of these kids later.
+                                    Will they have learned that reading is a chore a form of Peace work to be done for pay.<br><br>
+                                    That's the worry or may it lead them to read maybe for the wrong reason initially, but then lead them to fall in love with reading for its own sake now what this even this brief debate rings out.
+                                    It's something that many economist's Overlook often assume that markets are inert that they do not touch or taint the goods they exchange market exchange.
+                                    They assumed doesn't change the meaning or value of the goods exchanged.
+                                    This may be true enough if we're talking about material Goods.
+                                    If you sell me a flat screen television or give me one as a gift it will be the same good it will work the same either way, but the same may not be true.
+                                    If we're talking about non material goods and social practices such as teaching and learning or engaging together in Civic life in those domains bringing Market mechanisms in cash incentives May undermine or crowd out non-market values and attitudes worth caring about once we see
+                                    That markets in Commerce when extended beyond the material to me.<br><br>
+                                    Can change the character of the goods?
+                                    Themselves can change the meaning of the social practices as in the example of teaching and learning.
+                                    We have to ask where markets belong and where they don't where they may actually undermine values and attitudes worth caring about but to have this debate we have to do something.
+                                    We're not very good at and that is to reason together in public about the value in the meaning of the social practices reprise.
+                                    From our bodies to family life to personal relations to health teaching and learning to Civic life.<br><br>
+                                    Now, these are controversial questions.
+                                    And so we tend to shrink from them inside during the past three decades when Market reasoning in Market thinking have gathered force and gamepress to use a public discourse during this time.
+                                    has become a hollowed-out empty a larger moral meaning for but once we see
+                                    That markets change the character of goods we have to debate among ourselves.
+                                    These bigger questions about how to Value Goods one of the most corrosive effects.
+                                    Putting a price on everything.
+                                    Is on commonality the sense that we are all in it together.
+                                    Against the background of rising inequality Market icing every aspect of life.
+                                    leads to a condition where those who are actual.
+                                    No, sort of modest means increasingly live Separate Lives.
+                                    We live and work in shop and play in different places are children go to different schools.<br><br>
+                                    This isn't good for democracy nor. Is it a satisfying way to live?
+                                    Even for those of us who can't afford to buy our way to the head of the line?
+                                    Here's why Democracy does not require perfect equality.
+                                    What it does require is that citizens share in a common life what matters is the people of different social backgrounds different walks of life encounter one another up against one another in the ordinary course of life because this is what teaches us to negotiating and to provide our differences and this is how we come to care for the common good.<br><br>
+                                    I'm so in the end?
+                                    X is not mainly an economic question.
+                                    It's really a question of how we want to live together.
+                                    Do we want a society where everything is up for sale or are there certain moral and Civic book that markets do not honor and money cannot buy.
+                                    Thank you very much.
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Overall View -->
+    <!-- Button trigger modal-->
+    <!-- <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalCart">Launch modal</button> -->
+    <div class="modal fade" id="modalSummary" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <!--Header-->
+                <div class="modal-header" style="">
+                    <h3 class="modal-title" >test.flac - Summary View </h3>
+                    &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+                    &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+                    &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+                    <a data-toggle="modal" data-target="#modalOverall">
+                        <input type="button" class="close" value="Overall View" style="font-size: 15px; border-radius: 3px 3px 3px 3px; float: right;" /></a>
+                    <a href="{% static 'capstone/summary/summary.txt' %}" download>
+                        <input type="button" class="close" value="Download" style="font-size: 15px; border-radius: 3px 3px 3px 3px; float: right;" /></a>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close" style="float:right">
+                        <span aria-hidden="true">×</span>
+                    </button>
+
+                </div>
+                <!--Body-->
+                <div class="modal-body">
+
+                    <table class="table table-hover">
+                        <thead>
+                            <tr>
+                                <th>Time</th>
+                                <th style="text-align:center">Summary</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <th scope="row">0:00:00</th>
+                                <td>There's a question.</td>
+                                <td><a><i class="fas fa-times"></i></a></td>
+                            </tr>
+                            <tr>
+                                <th scope="row">0:01:13</th>
+                                <td>There are very few things that money can't buy.</td>
+
+                                <td><a><i class="fas fa-times"></i></a></td>
+                            </tr>
+                            <tr>
+                                <th scope="row">0:02:15</th>
+                                <td>It's true for how much do you think?</td>
+
+                                <td><a><i class="fas fa-times"></i></a></td>
+                            </tr>
+                            <tr>
+                                <th scope="row">0:03:43</th>
+                                <td>They hire homeless people and others who need a job to stand waiting in the line for as long as it takes and the lobbyists just before the hearing begins can take his or her placed at the head of the line and a seat in the front of the room paid line standing.
+                                </td>
+                                <td><a><i class="fas fa-times"></i></a></td>
+                            </tr>
+                            <tr>
+                                <th scope="row">0:04:49</th>
+                                <td>We've drifted almost without realizing it from having a market economy to becoming Market societies.</td>
+                                <td><a><i class="fas fa-times"></i></a></td>
+                            </tr>
+                            <tr>
+                                <th scope="row">0:05:30</th>
+                                <td>
+                                    The market Society is a place where almost everything is up for sale.
+                                </td>
+                                <td><a><i class="fas fa-times"></i></a></td>
+                            </tr>
+                            <tr>
+                                <th scope="row">0:06:20</th>
+                                <td>It's a way of life in which Market sinking and Market values begin to dominate every aspect of life.</td>
+                                <td><a><i class="fas fa-times"></i></a></td>
+                            </tr>
+                            <tr>
+                                <th scope="row">0:06:59</th>
+                                <td>He wouldn't matter very much but when money comes increasingly to govern access to the essentials of the good life.</td>
+                                <td><a><i class="fas fa-times"></i></a></td>
+                            </tr>
+                            <tr>
+                                <th scope="row">0:08:19</th>
+                                <td>And so the marketization of everything sharpens The Sting of inequality and its social and Civic consequence to worry.</td>
+                                <td><a><i class="fas fa-times"></i></a></td>
+                            </tr>
+                            <tr>
+                                <th scope="row">0:09:39</th>
+                                <td>With some social goods and practices when Market thinking and Market values enter they may change the meaning of those practices and crowd-out attitudes and Norms worth caring about like to take an example.</td>
+                                <td><a><i class="fas fa-times"></i></a></td>
+                            </tr>
+                            <tr>
+                                <th scope="row">0:10:49</th>
+                                <td>Of a controversial use of a market mechanism a cash incentive and see what you think about it.
+                                </td>
+                                <td><a><i class="fas fa-times"></i></a></td>
+                            </tr>
+                            <tr>
+                                <th scope="row">0:11:49</th>
+                                <td>Many schools struggle with the challenge of motivating kids especially kids from disadvantaged backgrounds to study hard to do well in school to apply themselves some Economist have proposed a market solution offer cash incentives to kids for getting good grades or high test scores are for reading books.</td>
+                                <td><a><i class="fas fa-times"></i></a></td>
+                            </tr>
+                            <tr>
+                                <th scope="row"></th>
+                                <td>So, let's see what some people are in favor.</td>
+                                <td><a><i class="fas fa-times"></i></a></td>
+                            </tr>
+                            <tr>
+                                <th scope="row"></th>
+                                <td>How many would be in favor?</td>
+                                <td><a><i class="fas fa-times"></i></a></td>
+                            </tr>
+                            <tr>
+                                <th scope="row"></th>
+                                <td>And how many would be opposed to giving it a try?</td>
+                                <td><a><i class="fas fa-times"></i></a></td>
+                            </tr>
+                            <tr>
+                                <th scope="row"></th>
+                                <td>Let's see by your show of hands first how many things might at least be worth a try see if it would work raise your hand.</td>
+                                <td><a><i class="fas fa-times"></i></a></td>
+                            </tr>
+                            <tr>
+                                <th scope="row"></th>
+                                <td>Let's start with those of you who object who would rule it out even before trying.
+                                </td>
+                                <td><a><i class="fas fa-times"></i></a></td>
+                            </tr>
+                            <tr>
+                                <th scope="row"></th>
+                                <td>Hello everyone.</td>
+                                <td><a><i class="fas fa-times"></i></a></td>
+                            </tr>
+                            <tr>
+                                <th scope="row"></th>
+                                <td>Cakes the intrinsic incentive away.</td>
+                                <td><a><i class="fas fa-times"></i></a></td>
+                            </tr>
+                            <tr>
+                                <th scope="row"></th>
+                                <td>All right, what's emerged from this discussion is the following question will the cash incentive drive out or corrupt or crowd out the higher motivation intrinsic lesson that we hope to convey which is to learn to love to learn and to read.</td>
+                                <td><a><i class="fas fa-times"></i></a></td>
+                            </tr>
+                            <tr>
+                                <th scope="row"></th>
+                                <td>Will they have learned that reading is a chore a form of Peace work to be done for pay.
+                                </td>
+                                <td><a><i class="fas fa-times"></i></a></td>
+                            </tr>
+                            <tr>
+                                <th scope="row"></th>
+                                <td>They assumed doesn't change the meaning or value of the goods exchanged.</td>
+                                <td><a><i class="fas fa-times"></i></a></td>
+                            </tr>
+                            <tr>
+                                <th scope="row"></th>
+                                <td>Can change the character of the goods?
+                                </td>
+                                <td><a><i class="fas fa-times"></i></a></td>
+                            </tr>
+                            <tr>
+                                <th scope="row"></th>
+                                <td>Themselves can change the meaning of the social practices as in the example of teaching and learning.</td>
+                                <td><a><i class="fas fa-times"></i></a></td>
+                            </tr>
+                            <tr>
+                                <th scope="row"></th>
+                                <td>From our bodies to family life to personal relations to health teaching and learning to Civic life.</td>
+                                <td><a><i class="fas fa-times"></i></a></td>
+                            </tr>
+                            <tr>
+                                <th scope="row"></th>
+                                <td>We live and work in shop and play in different places are children go to different schools.</td>
+                                <td><a><i class="fas fa-times"></i></a></td>
+                            </tr>
+                            <tr>
+                                <th scope="row"></th>
+                                <td>Is it a satisfying way to live?</td>
+                                <td><a><i class="fas fa-times"></i></a></td>
+                            </tr>
+                            <tr>
+                                <th scope="row"></th>
+                                <td>What it does require is that citizens share in a common life what matters is the people of different social backgrounds different walks of life encounter one another up against one another in the ordinary course of life because this is what teaches us to negotiating and to provide our differences and this is how we come to care for the common good.</td>
+                                <td><a><i class="fas fa-times"></i></a></td>
+                            </tr>
+                            <tr>
+                                <th scope="row"></th>
+                                <td>I'm so in the end?</td>
+                                <td><a><i class="fas fa-times"></i></a></td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal: summary view -->
+
+
+    <section id="project" class="col-12" max-width:100%;">
+
+        <container>
+
+            <div style="justify-content:center; flex-direction: row; width: 100%; display: flex; cursor: pointer;">
+
+                {% block content %}
+                <form method="post" enctype="multipart/form-data">
+                    {% csrf_token %}
+
+
+                    <!-- file source buttion -->
+                    <div class="main-content">
 
             <div class="container">
                 <div class="content-area">
@@ -593,41 +917,24 @@
                                     <div class="file-source-title d-none d-md-block">
                                         Select files to convert or drag &amp; drop </div>
                                     <div class="file-source-button">
-                                        <label for="pc-upload-add" class="action-label"><span>From
-                                                Computer</span></label>
-                                        <div class="menu-wrapper"><label for="pc-upload-add"
-                                                class="file-source-btn"><span>Select files</span> <i
-                                                    data-toggle-widget=".file-source-nav"
-                                                    data-toggle="dropdown"></i></label>
-                                            <div class="dropdown-menu file-source-nav" style="display: none;"><input
-                                                    type="file" id="pc-upload-add" name="pc-upload" multiple="multiple"
-                                                    class="file-input"> <label for="pc-upload-add"
-                                                    data-action-label="From Computer" class="nav-item from-pc"><i><svg
-                                                            width="28" height="19">
+                                        <label for="pc-upload-add" class="action-label">
+                                            <span>From Computer</span>
+                                        </label>
+                                        <div class="menu-wrapper">
+                                            <label for="pc-upload-add" class="file-source-btn">
+                                                <span>Select files</span>
+                                                <i data-toggle-widget=".file-source-nav" data-toggle="dropdown"></i>
+                                            </label>
+                                            <div class="dropdown-menu file-source-nav" style="display: none;">
+                                                <input type="file" id="pc-upload-add" name="pc-upload" multiple="multiple" class="file-input">
+                                                <label for="pc-upload-add" data-action-label="From Computer" class="nav-item from-pc"><i><svg width="28" height="19">
                                                             <use xlink:href="#from-pc"></use>
                                                         </svg></i></label>
-                                                <!---->
-                                                <!---->
-                                                <!---->
-                                                <!----> <span data-action-label="From Dropbox"
-                                                    class="nav-item from-dropbox"><i><svg width="26" height="24">
-                                                            <use xlink:href="#from-dropbox"></use>
-                                                        </svg></i></span>
-                                                <!---->
-                                                <!---->
-                                                <!---->
-                                                <!---->
-                                                <span data-action-label="From Google Drive"
-                                                    class="nav-item from-drive"><i><svg width="24" height="21">
-                                                            <use xlink:href="#from-gdrive"></use>
-                                                        </svg></i></span>
-                                                <!---->
-                                                <!---->
-                                                <!---->
-                                                <!----> <span data-action-label="URL" class="nav-item from-url"><i><svg
-                                                            width="24" height="24">
+                                                <span data-action-label="URL" class="nav-item from-url"><i><svg width="24" height="24">
                                                             <use xlink:href="#from-url"></use>
-                                                        </svg></i></span></div>
+                                                        </svg></i>
+                                                </span>
+                                            </div>
                                         </div>
                                     </div>
 
@@ -641,22 +948,110 @@
                         </div>
                     </div>
 
-                    
+
+
 
                 </div>
             </div>
 
         </div>
 
+                    
+
+                    <!-- <input type="file" accept=".flac" name="file" required> -->
+                    <button type="submit">Upload</button>
+                </form>
+
+
+                <!-- <input type="Sentence"/> -->
+                <!-- data-toggle="modal" data-target="#modalCart" -->
+            </div>
+            <br>
+            <div style="justify-content:center; flex-direction: row; width: 100%; display: flex; padding: 10px">
+                {% if url %}
+                <p>{{ url }}</p>
+                {% endif %}
+                &emsp;
+                <span style="cursor: default;">Sentence &emsp;</span>
+                <select name="Sentence">
+                    <option value="30%" selected="selected">30%</option>
+                    <option value="20%">20%</option>
+                    <option value="10%">10%</option>
+                </select>
+                &emsp;
+                <input type="submit" value="Summary" id="submit" onclick="Summary()" style="border-radius:5px 5px 5px 5px; cursor: pointer;" />
+            </div>
+            <div class="text-center">
+                <h1 class="letter-spacing-1 text-uppercase">&emsp;</h1>
+            </div>
+
+            {% endblock %}
+            <style>
+                /* table, th, td {
+                      border: 1px solid black; 
+                      border-collapse: collapse;
+                    } */
+                    th, td {
+                      padding: 10px;
+                      text-align: left;
+                    }
+            </style>
+            <div style="justify-content:center; flex-direction: row; width: 100%; display: flex; cursor: default;">
+                <table>
+                    <!-- <caption style="text-align:center; caption-side: top;"><h2>List</h2></caption> -->
+                    <tr>
+                        <th>
+                            <h3>Files</h3>
+                        </th>
+                        <th>
+                            <h3>Duration</h3>
+                        </th>
+                        <th>
+                            <h3>Uploaded</h3>
+                        </th>
+                        <th>
+                            <h3>KeyWords</h3>
+                        </th>
+                    </tr>
+                    <tr>
+                        <td style="text-align:center"><a data-toggle="modal" data-target="#modalSummary" class="cursor" style="cursor: pointer;">test.flac</a></td>
+                        <td style="text-align:center">0:14:37</td>
+                        <td style="text-align:center">18 Apr 2019 16:01</td>
+                        <td style="text-align:center; flex-direction: row; ">
+                            <div style="font-weight: bold; text-transform: uppercase">
+                                <span style="background:cornflowerblue; border: solid cornflowerblue; border-radius: 15px 15px 15px 15px">accmodations</span>
+                                <span style="background:cornflowerblue; border: solid cornflowerblue; border-radius: 15px 15px 15px 15px">hire</span>
+                                <span style="background:cornflowerblue; border: solid cornflowerblue; border-radius: 15px 15px 15px 15px">hearings</span>
+                            </div>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            <!-- data-toggle="modal" data-target="#modalCart" -->
+            <script type="text/javascript">
+                function Upload() {
+                    alert("Upload Success");
+                }
+
+                function Summary() {
+                    alert("Summary Success")
+                }
+            </script>
+            <!-- <div class="project_desc" >
+                    <h3 class="mb-4">Text</h3>
+                    
+                    <div class="text-medium" style="line-height:1.95rem;">
+                        key word
+                    </div>
+            </div> -->
+
+        </container>
+
+
+    </section>
 
 
 
-        <script src="https://static.convertio.co/js/app.js" crossorigin="anonymous" gapi_processed="true"></script>
-
-    </div>
-    <div></div>
-    </div>
-    </div>
 </body>
 
 </html>
