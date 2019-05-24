@@ -25,21 +25,16 @@
 	<link rel="shortcut icon" type="image/png" href="{% static 'capstone/img/favicon.png' %}" />
 	<!-- Bootstrap CSS -->
 	<link href="{% static 'capstone/css/bootstrap.css' %}" rel="stylesheet" type="text/css">
-	<!--	<link href="{% static 'capstone/css/app.css' %}" rel="stylesheet" type="text/css">-->
-	<!-- Font Awesome CSS -->
+
 	<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,400i,600,600i,700,700i,800&amp;subset=latin-ext" rel="stylesheet" crossorigin="anonymous">
 
 	<!-- Include all css plugins (below), or include individual files as needed -->
 	<link href="{% static 'capstone/css/magnific-popup.css' %}" rel="stylesheet" type="text/css">
-	<!--	<link href="{% static 'capstone/css/commonv7.css' %}" rel="stylesheet" type="text/css">-->
+
 	<!-- Theme CSS -->
+	<link href="{% static 'capstone/css/upload.css' %}" rel="stylesheet" type="text/css">
 	<link href="{% static 'capstone/css/theme.css' %}" rel="stylesheet" type="text/css">
 	<link href="{% static 'capstone/css/styles.css' %}" rel="stylesheet" type="text/css">
-
-	<!-- js  -->
-	<script type="text/javascript" async="" src="https://www.google-analytics.com/analytics.js"></script>
-	<script type="text/javascript" async="" src="https://www.google-analytics.com/analytics.js"></script>
-	<script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-55374714-1"></script>
 
 	<!-- Main JS -->
 	<script src="{% static 'capstone/js/jquery.js' %}"></script>
@@ -59,535 +54,6 @@
 
 	<!-- Theme JS -->
 	<script src="{% static 'capstone/js/theme.js' %}"></script>
-	<!--
-	<style type="text/css">
-		@-webkit-keyframes rotate {
-			from {
-				-webkit-transform: rotate(0deg);
-			}
-
-			to {
-				-webkit-transform: rotate(360deg);
-			}
-		}
-
-		@keyframes rotate {
-			from {
-				transform: rotate(0deg);
-			}
-
-			to {
-				transform: rotate(360deg);
-			}
-		}
-
-		.dropbox-dropin-btn,
-		.dropbox-dropin-btn:link,
-		.dropbox-dropin-btn:hover {
-			display: inline-block;
-			height: 14px;
-			font-family: "Lucida Grande", "Segoe UI", "Tahoma", "Helvetica Neue", "Helvetica", sans-serif;
-			font-size: 11px;
-			font-weight: 600;
-			color: #636363;
-			text-decoration: none;
-			padding: 1px 7px 5px 3px;
-			border: 1px solid #ebebeb;
-			border-radius: 2px;
-			border-bottom-color: #d4d4d4;
-			background: #fcfcfc;
-			background: -moz-linear-gradient(top, #fcfcfc 0%, #f5f5f5 100%);
-			background: -webkit-linear-gradient(top, #fcfcfc 0%, #f5f5f5 100%);
-			background: linear-gradient(to bottom, #fcfcfc 0%, #f5f5f5 100%);
-			filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#fcfcfc', endColorstr='#f5f5f5', GradientType=0);
-		}
-
-		.dropbox-dropin-default:hover,
-		.dropbox-dropin-error:hover {
-			border-color: #dedede;
-			border-bottom-color: #cacaca;
-			background: #fdfdfd;
-			background: -moz-linear-gradient(top, #fdfdfd 0%, #f5f5f5 100%);
-			background: -webkit-linear-gradient(top, #fdfdfd 0%, #f5f5f5 100%);
-			background: linear-gradient(to bottom, #fdfdfd 0%, #f5f5f5 100%);
-			filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#fdfdfd', endColorstr='#f5f5f5', GradientType=0);
-		}
-
-		.dropbox-dropin-default:active,
-		.dropbox-dropin-error:active {
-			border-color: #d1d1d1;
-			box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.1);
-		}
-
-		.dropbox-dropin-btn .dropin-btn-status {
-			display: inline-block;
-			width: 15px;
-			height: 14px;
-			vertical-align: bottom;
-			margin: 0 5px 0 2px;
-			background: transparent url('https://www.dropbox.com/static/images/widgets/dbx-saver-status.png') no-repeat;
-			position: relative;
-			top: 2px;
-		}
-
-		.dropbox-dropin-default .dropin-btn-status {
-			background-position: 0px 0px;
-		}
-
-		.dropbox-dropin-progress .dropin-btn-status {
-			width: 18px;
-			margin: 0 4px 0 0;
-			background: url('https://www.dropbox.com/static/images/widgets/dbx-progress.png') no-repeat center center;
-			-webkit-animation-name: rotate;
-			-webkit-animation-duration: 1.7s;
-			-webkit-animation-iteration-count: infinite;
-			-webkit-animation-timing-function: linear;
-			animation-name: rotate;
-			animation-duration: 1.7s;
-			animation-iteration-count: infinite;
-			animation-timing-function: linear;
-		}
-
-		.dropbox-dropin-success .dropin-btn-status {
-			background-position: -15px 0px;
-		}
-
-		.dropbox-dropin-disabled {
-			background: #e0e0e0;
-			border: 1px #dadada solid;
-			border-bottom: 1px solid #ccc;
-			box-shadow: none;
-		}
-
-		.dropbox-dropin-disabled .dropin-btn-status {
-			background-position: -30px 0px;
-		}
-
-		.dropbox-dropin-error .dropin-btn-status {
-			background-position: -45px 0px;
-		}
-
-		@media only screen and (-webkit-min-device-pixel-ratio: 1.4) {
-			.dropbox-dropin-btn .dropin-btn-status {
-				background-image: url('https://www.dropbox.com/static/images/widgets/dbx-saver-status-2x.png');
-				background-size: 60px 14px;
-				-webkit-background-size: 60px 14px;
-			}
-
-			.dropbox-dropin-progress .dropin-btn-status {
-				background: url('https://www.dropbox.com/static/images/widgets/dbx-progress-2x.png') no-repeat center center;
-				background-size: 20px 20px;
-				-webkit-background-size: 20px 20px;
-			}
-		}
-
-		.dropbox-saver:hover,
-		.dropbox-chooser:hover {
-			text-decoration: none;
-			cursor: pointer;
-		}
-
-		.dropbox-chooser,
-		.dropbox-dropin-btn {
-			line-height: 11px !important;
-			text-decoration: none !important;
-			box-sizing: content-box !important;
-			-webkit-box-sizing: content-box !important;
-			-moz-box-sizing: content-box !important;
-		}
-	</style>
-	<style>
-		.picker-dialog-frame {
-			width: 100%;
-			height: 100%;
-			border: 0;
-			overflow: hidden
-		}
-
-		.picker-dialog-bg {
-			position: absolute;
-			top: 0;
-			left: 0;
-			background-color: #fff;
-			z-index: 1000
-		}
-
-		.picker-dialog {
-			position: absolute;
-			top: 0;
-			left: 0;
-			background-color: #fff;
-			border: 1px solid #acacac;
-			width: auto;
-			padding: 0;
-			z-index: 1001;
-			overflow: auto;
-			-moz-box-shadow: rgba(0, 0, 0, .2) 0 4px 16px;
-			-webkit-box-shadow: rgba(0, 0, 0, .2) 0 4px 16px;
-			box-shadow: rgba(0, 0, 0, .2) 0 4px 16px
-		}
-
-		.picker-dialog-content {
-			font-size: 0;
-			padding: 0
-		}
-
-		.picker-dialog-title,
-		.picker-dialog-buttons {
-			display: none
-		}
-	</style>
-	<style type="text/css">
-		.fb_hidden {
-			position: absolute;
-			top: -10000px;
-			z-index: 10001
-		}
-
-		.fb_reposition {
-			overflow: hidden;
-			position: relative
-		}
-
-		.fb_invisible {
-			display: none
-		}
-
-		.fb_reset {
-			background: none;
-			border: 0;
-			border-spacing: 0;
-			color: #000;
-			cursor: auto;
-			direction: ltr;
-			font-family: "lucida grande", tahoma, verdana, arial, sans-serif;
-			font-size: 11px;
-			font-style: normal;
-			font-variant: normal;
-			font-weight: normal;
-			letter-spacing: normal;
-			line-height: 1;
-			margin: 0;
-			overflow: visible;
-			padding: 0;
-			text-align: left;
-			text-decoration: none;
-			text-indent: 0;
-			text-shadow: none;
-			text-transform: none;
-			visibility: visible;
-			white-space: normal;
-			word-spacing: normal
-		}
-
-		.fb_reset>div {
-			overflow: hidden
-		}
-
-		@keyframes fb_transform {
-			from {
-				opacity: 0;
-				transform: scale(.95)
-			}
-
-			to {
-				opacity: 1;
-				transform: scale(1)
-			}
-		}
-
-		.fb_animate {
-			animation: fb_transform .3s forwards
-		}
-
-		.fb_dialog {
-			background: rgba(82, 82, 82, .7);
-			position: absolute;
-			top: -10000px;
-			z-index: 10001
-		}
-
-		.fb_dialog_advanced {
-			border-radius: 8px;
-			padding: 10px
-		}
-
-		.fb_dialog_content {
-			background: #fff;
-			color: #373737
-		}
-
-		.fb_dialog_close_icon {
-			background: url(https://static.xx.fbcdn.net/rsrc.php/v3/yq/r/IE9JII6Z1Ys.png) no-repeat scroll 0 0 transparent;
-			cursor: pointer;
-			display: block;
-			height: 15px;
-			position: absolute;
-			right: 18px;
-			top: 17px;
-			width: 15px
-		}
-
-		.fb_dialog_mobile .fb_dialog_close_icon {
-			left: 5px;
-			right: auto;
-			top: 5px
-		}
-
-		.fb_dialog_padding {
-			background-color: transparent;
-			position: absolute;
-			width: 1px;
-			z-index: -1
-		}
-
-		.fb_dialog_close_icon:hover {
-			background: url(https://static.xx.fbcdn.net/rsrc.php/v3/yq/r/IE9JII6Z1Ys.png) no-repeat scroll 0 -15px transparent
-		}
-
-		.fb_dialog_close_icon:active {
-			background: url(https://static.xx.fbcdn.net/rsrc.php/v3/yq/r/IE9JII6Z1Ys.png) no-repeat scroll 0 -30px transparent
-		}
-
-		.fb_dialog_iframe {
-			line-height: 0
-		}
-
-		.fb_dialog_content .dialog_title {
-			background: #6d84b4;
-			border: 1px solid #365899;
-			color: #fff;
-			font-size: 14px;
-			font-weight: bold;
-			margin: 0
-		}
-
-		.fb_dialog_content .dialog_title>span {
-			background: url(https://static.xx.fbcdn.net/rsrc.php/v3/yd/r/Cou7n-nqK52.gif) no-repeat 5px 50%;
-			float: left;
-			padding: 5px 0 7px 26px
-		}
-
-		body.fb_hidden {
-			height: 100%;
-			left: 0;
-			margin: 0;
-			overflow: visible;
-			position: absolute;
-			top: -10000px;
-			transform: none;
-			width: 100%
-		}
-
-		.fb_dialog.fb_dialog_mobile.loading {
-			background: url(https://static.xx.fbcdn.net/rsrc.php/v3/ya/r/3rhSv5V8j3o.gif) white no-repeat 50% 50%;
-			min-height: 100%;
-			min-width: 100%;
-			overflow: hidden;
-			position: absolute;
-			top: 0;
-			z-index: 10001
-		}
-
-		.fb_dialog.fb_dialog_mobile.loading.centered {
-			background: none;
-			height: auto;
-			min-height: initial;
-			min-width: initial;
-			width: auto
-		}
-
-		.fb_dialog.fb_dialog_mobile.loading.centered #fb_dialog_loader_spinner {
-			width: 100%
-		}
-
-		.fb_dialog.fb_dialog_mobile.loading.centered .fb_dialog_content {
-			background: none
-		}
-
-		.loading.centered #fb_dialog_loader_close {
-			clear: both;
-			color: #fff;
-			display: block;
-			font-size: 18px;
-			padding-top: 20px
-		}
-
-		#fb-root #fb_dialog_ipad_overlay {
-			background: rgba(0, 0, 0, .4);
-			bottom: 0;
-			left: 0;
-			min-height: 100%;
-			position: absolute;
-			right: 0;
-			top: 0;
-			width: 100%;
-			z-index: 10000
-		}
-
-		#fb-root #fb_dialog_ipad_overlay.hidden {
-			display: none
-		}
-
-		.fb_dialog.fb_dialog_mobile.loading iframe {
-			visibility: hidden
-		}
-
-		.fb_dialog_mobile .fb_dialog_iframe {
-			position: sticky;
-			top: 0
-		}
-
-		.fb_dialog_content .dialog_header {
-			background: linear-gradient(from(#738aba), to(#2c4987));
-			border-bottom: 1px solid;
-			border-color: #1d3c78;
-			box-shadow: white 0 1px 1px -1px inset;
-			color: #fff;
-			font: bold 14px Helvetica, sans-serif;
-			text-overflow: ellipsis;
-			text-shadow: rgba(0, 30, 84, .296875) 0 -1px 0;
-			vertical-align: middle;
-			white-space: nowrap
-		}
-
-		.fb_dialog_content .dialog_header table {
-			height: 43px;
-			width: 100%
-		}
-
-		.fb_dialog_content .dialog_header td.header_left {
-			font-size: 12px;
-			padding-left: 5px;
-			vertical-align: middle;
-			width: 60px
-		}
-
-		.fb_dialog_content .dialog_header td.header_right {
-			font-size: 12px;
-			padding-right: 5px;
-			vertical-align: middle;
-			width: 60px
-		}
-
-		.fb_dialog_content .touchable_button {
-			background: linear-gradient(from(#4267B2), to(#2a4887));
-			background-clip: padding-box;
-			border: 1px solid #29487d;
-			border-radius: 3px;
-			display: inline-block;
-			line-height: 18px;
-			margin-top: 3px;
-			max-width: 85px;
-			padding: 4px 12px;
-			position: relative
-		}
-
-		.fb_dialog_content .dialog_header .touchable_button input {
-			background: none;
-			border: none;
-			color: #fff;
-			font: bold 12px Helvetica, sans-serif;
-			margin: 2px -12px;
-			padding: 2px 6px 3px 6px;
-			text-shadow: rgba(0, 30, 84, .296875) 0 -1px 0
-		}
-
-		.fb_dialog_content .dialog_header .header_center {
-			color: #fff;
-			font-size: 16px;
-			font-weight: bold;
-			line-height: 18px;
-			text-align: center;
-			vertical-align: middle
-		}
-
-		.fb_dialog_content .dialog_content {
-			background: url(https://static.xx.fbcdn.net/rsrc.php/v3/y9/r/jKEcVPZFk-2.gif) no-repeat 50% 50%;
-			border: 1px solid #4a4a4a;
-			border-bottom: 0;
-			border-top: 0;
-			height: 150px
-		}
-
-		.fb_dialog_content .dialog_footer {
-			background: #f5f6f7;
-			border: 1px solid #4a4a4a;
-			border-top-color: #ccc;
-			height: 40px
-		}
-
-		#fb_dialog_loader_close {
-			float: left
-		}
-
-		.fb_dialog.fb_dialog_mobile .fb_dialog_close_button {
-			text-shadow: rgba(0, 30, 84, .296875) 0 -1px 0
-		}
-
-		.fb_dialog.fb_dialog_mobile .fb_dialog_close_icon {
-			visibility: hidden
-		}
-
-		#fb_dialog_loader_spinner {
-			animation: rotateSpinner 1.2s linear infinite;
-			background-color: transparent;
-			background-image: url(https://static.xx.fbcdn.net/rsrc.php/v3/yD/r/t-wz8gw1xG1.png);
-			background-position: 50% 50%;
-			background-repeat: no-repeat;
-			height: 24px;
-			width: 24px
-		}
-
-		@keyframes rotateSpinner {
-			0% {
-				transform: rotate(0deg)
-			}
-
-			100% {
-				transform: rotate(360deg)
-			}
-		}
-
-		.fb_iframe_widget {
-			display: inline-block;
-			position: relative
-		}
-
-		.fb_iframe_widget span {
-			display: inline-block;
-			position: relative;
-			text-align: justify
-		}
-
-		.fb_iframe_widget iframe {
-			position: absolute
-		}
-
-		.fb_iframe_widget_fluid_desktop,
-		.fb_iframe_widget_fluid_desktop span,
-		.fb_iframe_widget_fluid_desktop iframe {
-			max-width: 100%
-		}
-
-		.fb_iframe_widget_fluid_desktop iframe {
-			min-width: 220px;
-			position: relative
-		}
-
-		.fb_iframe_widget_lift {
-			z-index: 1
-		}
-
-		.fb_iframe_widget_fluid {
-			display: inline
-		}
-
-		.fb_iframe_widget_fluid span {
-			width: 100%
-		}
-	</style>
--->
 
 </head>
 
@@ -622,51 +88,7 @@
 		</div>
 
 	</header>
-	<svg style="display: none;">
-		<symbol id="from-pc" viewBox="0 0 29 20">
-			<path d="M3,0h23v16H3V0z M5,2v12h19V2H5z M1,18h27v2H1V18z"></path>
-		</symbol>
 
-		<symbol id="from-url" viewBox="0 0 24 24">
-			<path d="M13.485 15.49c.444.445.487 1.13.093 1.525l-6.59 6.59c-.393.393-1.08.351-1.524-.093l-5.1-5.1c-.445-.446-.487-1.131-.093-1.526l6.59-6.589c.394-.394 1.08-.352 1.524.093.444.443.487 1.13.092 1.524L3.32 17.071c-.393.394-.352 1.08.093 1.525l1.865 1.865c.444.445 1.13.486 1.524.092l5.157-5.156c.394-.395 1.08-.353 1.525.092l.001.002zM23.513 5.465c.444.443.486 1.13.092 1.524l-6.59 6.59c-.393.393-1.08.351-1.524-.093-.444-.445-.487-1.13-.092-1.525l5.156-5.157c.395-.395.353-1.08-.092-1.525l-1.865-1.865c-.445-.444-1.13-.486-1.525-.092l-5.157 5.157c-.393.393-1.08.351-1.524-.093-.445-.444-.486-1.13-.092-1.524L16.889.27c.394-.393 1.08-.352 1.524.093l5.1 5.1zm-6.92 1.818c.445.445.486 1.13.092 1.524l-7.879 7.879c-.394.393-1.08.353-1.524-.092-.445-.445-.486-1.13-.092-1.525l7.879-7.878c.394-.395 1.08-.353 1.524.092z"></path>
-		</symbol>
-		<symbol id="svg-icon-star" viewBox="0 0 12 12">
-			<path d="M6,0L4.375,4.063L0,4.359l3.36,2.813l-1.063,4.234L6,9.078l3.703,2.328L8.641,7.172L12,4.359 L7.625,4.063L6,0z"></path>
-		</symbol>
-		<symbol id="svg-icon-close" viewBox="0 0 16 16">
-			<path d="M.724.118L.118.724 7.395 8 .118 15.276l.606.606L8 8.605l7.276 7.277.606-.606L8.605 8 15.882.724l-.606-.606L8 7.395z"></path>
-		</symbol>
-		<symbol id="svg-icon-process" viewBox="0 0 18 18">
-			<path d="M12.858,10h2.052c-0.478,2.836-2.938,5-5.91,5c-1.657,0-3.152-0.676-4.236-1.764L3,15v-5h5l-1.817,1.817C6.902,12.545,7.895,13,9,13C10.861,13,12.412,11.722,12.858,10z M13.236,4.764C12.152,3.676,10.657,3,9,3C6.028,3,3.567,5.164,3.09,8h2.052C5.588,6.278,7.139,5,9,5c1.106,0,2.098,0.455,2.817,1.183L10,8h5V3L13.236,4.764z"></path>
-		</symbol>
-		<symbol id="svg-arrow-d" viewBox="0 0 13 13">
-			<path d="M6 11.212V1h1v10.212L10.514 7l.486.608L6.5 13 2 7.608 2.486 7 6 11.212z"></path>
-		</symbol>
-		<symbol id="svg-arrow-split" viewBox="0 0 17 13">
-			<path d="M8,0h1v13H8V0z M4.493,2L0,7l4.493,5L5,11.46L0.99,7L5,2.54L4.493,2z M12.507,2L12,2.54L16.01,7L12,11.46L12.507,12L17,7L12.507,2z"></path>
-		</symbol>
-		<symbol id="svg-plus" viewBox="0 0 13 13">
-			<path d="M6 0v6H0v1h6v6h1V7h6V6H7V0z"></path>
-		</symbol>
-		<symbol id="svg-submit-arrow" viewBox="0 0 20 22">
-			<path d="M0,11.959V10.05h16.343l-7.81-7.926c-0.279-0.273-0.359-0.69-0.202-1.047C8.563,0.579,9.152,0.362,9.65,0.593c0.111,0.052,0.213,0.124,0.298,0.212L20,11.005L9.948,21.204c-0.378,0.382-0.991,0.396-1.384,0.03c-0.381-0.352-0.406-0.943-0.055-1.324c0.008-0.009,0.016-0.018,0.024-0.026l7.81-7.925H0L0,11.959z"></path>
-		</symbol>
-		<symbol id="svg-plus2" viewBox="0 0 14 14">
-			<path d="M14,8H8v6H6V8H0V6h6V0h2v6h6V8z"></path>
-		</symbol>
-		<symbol id="svg-download" viewBox="0 0 14 14">
-			<path d="M7,11.147L1.865,5.609l0.674-0.758l0.075,0.081l3.73,4.025V1h1.313v7.957l3.805-4.106l0.673,0.758L7,11.147z M0,13v1h14v-1H0z"></path>
-		</symbol>
-		<symbol id="svg-settings" viewBox="0 0 14 14">
-			<path d="M6.11 0l-.335 2.063a5.08 5.08 0 0 0-1.392.567L2.681 1.418 1.444 2.656 2.63 4.357a5.245 5.245 0 0 0-.567 1.418L0 6.11v1.754l2.063.36c.122.5.306.964.567 1.393l-1.212 1.702 1.238 1.237 1.727-1.186c.429.258.896.445 1.392.567L6.11 14h1.754l.36-2.063a5.139 5.139 0 0 0 1.393-.593l1.727 1.212 1.238-1.237-1.238-1.702c.255-.425.47-.896.593-1.392L14 7.864V6.11l-2.063-.335a5.182 5.182 0 0 0-.593-1.392l1.238-1.727-1.263-1.238-1.702 1.238a5.082 5.082 0 0 0-1.392-.593L7.864 0H6.11zm.903 4.564a2.409 2.409 0 0 1 2.423 2.423c0 1.35-1.073 2.45-2.423 2.45a2.452 2.452 0 0 1-2.45-2.45c0-1.35 1.1-2.423 2.45-2.423z"></path>
-		</symbol>
-		<symbol id="svg-icon-page" viewBox="0 0 11 13">
-			<path d="M1 1v11h9V1H1zM0 0h11v13H0V0zm2 3v1h7V3H2zm0 3v1h7V6H2zm0 3v1h7V9H2z"></path>
-		</symbol>
-		<symbol id="svg-icon-a" viewBox="0 0 13 13">
-			<path d="M8.007 8.465h-5.22L.992 13H0L5.168.098h.571L10.802 13H9.79L8.007 8.465zM3.11 7.656h4.597L5.959 3.024a22.5 22.5 0 0 1-.527-1.511 14.094 14.094 0 0 1-.519 1.529L3.111 7.656z"></path>
-		</symbol>
-	</svg>
 
 	<!-- Overall View -->
 	<div class="modal fade" id="modalOverall" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" style="overflow-y:scroll; position: absolute; z-index: 10000;">
@@ -1017,21 +439,25 @@
 				{% block content %}
 				<form method="post" enctype="multipart/form-data">
 					{% csrf_token %}
-					<input type="file" accept=".flac" name="file" required>
-					<input type="submit" value="Upload" style="border-radius:5px 5px 5px 5px; cursor: pointer;">
-				</form>	
+					<div class="filebox">
+						<label for="ex_file">file select</label>
+						<input type="file" id="ex_file" accept=".flac" name="file" style=" padding: .5em .75em; color: #999; font-size: inherit; line-height: normal; border-radius: .25em; " required>
+					</div>
+
+					<input type="submit" class="btn btn-light" value="Upload" style="border-radius:5px 5px 5px 5px; cursor: pointer;">
+				</form>
 			</div>
 			<div style="justify-content:center; flex-direction: row; width: 100%; display: flex; cursor: pointer;">
-			<br>-----------OR-----------<br>
-			<br>
+				<br>OR<br>
+				<br>
 			</div>
-			<div style="justify-content:center; flex-direction: row; width: 100%; display: flex; cursor: pointer;">
+			<div style="justify-content:center; flex-direction: row; width: 100%; display: flex; cursor: pointer; ">
 				<form method="get">
 					{% csrf_token %}
-					<span>URL</span>
-					<input type="url" name="url_input">
+					<input type="text" name="save_name" value="File Name" onclick="this.value='';" style="text-align:center; border: solid 2px #609fa4; border-radius: 8px;" required>
 					&emsp;
-					<input type="submit" value="Upload" style="border-radius:5px 5px 5px 5px; cursor: pointer;">
+					<input type="url" name="url_input" value="URL" onclick="this.value='';" style="text-align:center; border: solid 2px #609fa4; border-radius: 8px" required>
+					<input type="submit" class="btn btn-light" value="Upload" style="border-radius:5px 5px 5px 5px; cursor: pointer;">
 				</form>
 			</div>
 			<br>
@@ -1042,14 +468,14 @@
 				&emsp;
 				<form method="get">
 					{% csrf_token %}
-					<span style="cursor: default;">Sentence &emsp;</span>
+					<label>Sentence: </label>
 					<select name="sentence">
 						<option value="0.3" selected="selected">30%</option>
 						<option value="0.2">20%</option>
 						<option value="0.1">10%</option>
 					</select>
 					&emsp;
-					<input type="submit" value="Summary" id="submit" style="border-radius:5px 5px 5px 5px; cursor: pointer;" >
+					<input type="submit" class="btn btn-light" value="Summary" id="submit" style="border-radius:5px 5px 5px 5px; cursor: pointer;">
 				</form>
 			</div>
 			<style>
