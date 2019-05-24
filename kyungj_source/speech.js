@@ -1,3 +1,8 @@
+let inputArg = []
+process.argv.forEach(function (val, idx, array) {
+  inputArg = array;
+});
+
 // Imports the Google Cloud client library
 const speech = require('@google-cloud/speech');
 let fs = require('fs');
@@ -8,14 +13,15 @@ const client = new speech.SpeechClient();
 /**
 * TODO(developer): Uncomment the following lines before running the sample.
 */
-const gcsUri = 'gs://capstone-project-2019/conana_show.wav';
-const encoding = 'Eencoding of the audio file, e.g. LINEAR16';
-const sampleRateHertz = 44100;
+const gcsUri = `gs://capstone-project-2019/${inputArg[2]}`;
+const encoding = 'FLAC';
+// const sampleRateHertz = 16000;
 const languageCode = 'en-US';
+const audioChannelCount = 2;
 
 const config = {
     encoding: encoding,
-    sampleRateHertz: sampleRateHertz,
+    audioChannelCount: audioChannelCount,
     languageCode: languageCode,
     enableWordTimeOffsets: true,
     enableAutomaticPunctuation: true,
@@ -45,8 +51,8 @@ client
     .map(result => result.alternatives[0].transcript)
     .join('\n');
     //console.log(`Transcription: ${transcription}`);
-    fs.writeFile('output.txt', transcription, 'utf8', function(err) {
-        console.log('asyn file output complete');
+    fs.writeFile(inputArg[3], transcription, 'utf8', function(err) {
+        console.log(`${inputArg[3]} is created.`);
     });
 })
 .catch(err => {
