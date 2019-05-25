@@ -7,9 +7,8 @@
 import subprocess
 import sys
 
-filePath = '/Users/kyungj/gcloud/resources/'
 fileName = sys.argv[1] # file name
-duration = str(subprocess.check_output('sox --info -d ' + filePath + fileName, shell=True))
+duration = str(subprocess.check_output('sox --info -d ' + fileName, shell=True))
 duration = duration[2:]
 duration = duration[:-6]
 
