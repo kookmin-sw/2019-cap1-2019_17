@@ -1,8 +1,12 @@
+# Mongo DB에 음성파일의 이름, keyword 5개, duration 업로드
+# 음성파일: test.flac 
+# 필요한 파일: test_keyword.txt & test_duration.txt 
+
 # Pymongo install for Mac OS X
 # $ sudo pip3 install pymongo
 
+# Compile 방법
 # $ python3 dataToDB.py test
-# test는 확장자 제외 파일 이름
 
 import pymongo
 import sys
