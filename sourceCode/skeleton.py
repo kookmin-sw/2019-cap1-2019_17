@@ -8,10 +8,12 @@ from sklearn.preprocessing import normalize
 import spacy # 자연어 처리 패키지 nltk와 흡사
 import neuralcoref
 import numpy as np
+import os.path
+import sys
 
 class CoreferenceResolution(object):
     def __init__(self):
-        self.nlp = spacy.load('en_core_web_lg')
+        self.nlp = spacy.load('en')
         neuralcoref.add_to_pipe(self.nlp)
 
     def pronoun2reference(self, doc):
@@ -28,7 +30,7 @@ class CoreferenceResolution(object):
 class SentenceTokenizer(object):
     def __init__(self):
         self.retokenize = RegexpTokenizer("[\w]+")
-        textfile = open("input3.txt", "r") #불용어처리를 배열로 담아서 처리
+        textfile = open("en_stopward.txt", "r") #불용어처리를 배열로 담아서 처리
         self.stopwords = []
         while True:
             line = textfile.read().splitlines()
@@ -169,17 +171,38 @@ class TextRank(object):
         return keywords
 
 
-f = open("/Users/macbook/Desktop/학교/졸프/work/Example/input2.txt", 'r')
+try:
+    f = open(sys.argv[1], "r", encoding='UTF8')
+except:
+    print("wrong input")
+    sys.exit[1]
+
+try:
+    ratio = sys.argv[2]
+
+    if float(ratio) > 1 or float(ratio) < 0:
+        raise ValueError
+except:
+    print("wrong input")
+    sys.exit[2]
+
+
 a = f.read()
-#url = 'https://www.itnews.com.au/news/facebook-stored-millions-of-user-passwords-in-plain-text-522782'
-#textrank = TextRank(url)
 textrank = TextRank(a)
-ratio = 0.39
-outText = open("abridgement.txt", "w")
-for row in textrank.summarize(ratio):
-    print(row)
-    print()
+# shell script에 맞게 실행시키기 위해 인자를 받아서 실행시키기 위한 코드
+s = os.path.splitext(sys.argv[1])
+
+outText = open(sys.argv[3], "w", encoding='UTF8')
+for row in textrank.summarize(float(ratio)):
     outText.write(row)
     outText.write('\n')
-print('keywords :',textrank.keywords(5))
 outText.close()
+
+outText1 = open(sys.argv[4], "w", encoding='UTF8')
+for row in textrank.keywords(5):
+    outText1.write(row)
+    outText1.write('\n')
+
+outText1.close()
+
+print("filename : " + f.name)
