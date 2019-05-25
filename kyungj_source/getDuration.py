@@ -1,7 +1,7 @@
 # get the length of audio file in python
 
 # Ubuntu install 
-# $ sudo apt-get sox
+# $ sudo apt install sox
 
 # $ python3 getDuation.py test.flac
 import subprocess
