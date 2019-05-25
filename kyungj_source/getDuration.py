@@ -1,9 +1,22 @@
 # get the length of audio file in python
-import subprocess
 
-# audioFile = '/Users/kyungj/gcloud/resources/test.flac'
-audioFile = '/Users/kyungj/gcloud/resources/Google_Gnome.wav' # test audio
-duration = str(subprocess.check_output('sox --info -d ' + audioFile, shell=True))
+# Ubuntu install 
+# $ sudo apt-get sox
+
+# $ python3 getDuation.py test.flac
+import subprocess
+import sys
+
+filePath = '/Users/kyungj/gcloud/resources/'
+fileName = sys.argv[1] # file name
+duration = str(subprocess.check_output('sox --info -d ' + filePath + fileName, shell=True))
 duration = duration[2:]
 duration = duration[:-6]
-print(duration)
+
+with open(fileName[:-5] + '_duration.txt', 'w') as f:
+    f.write(duration)
+
+
+
+
+
