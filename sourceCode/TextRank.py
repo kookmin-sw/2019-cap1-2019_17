@@ -16,11 +16,11 @@ class CoreferenceResolution(object):
         self.nlp = spacy.load('en')
         neuralcoref.add_to_pipe(self.nlp)
 
-    def pronoun2reference(self, doc):
+    def pronoun2reference(self, doc): #대용어가 무엇을 지칭하는지 파악
         goc = self.nlp(doc)
         return goc._.coref_resolved
     
-    def whatispronoun(self, str):
+    def whatispronoun(self, str): #파악한 대용어를 모두 저장
         goc = self.nlp(str)
         pronounlist = []
         for cluster in goc._.coref_clusters:
@@ -30,7 +30,7 @@ class CoreferenceResolution(object):
 class SentenceTokenizer(object):
     def __init__(self):
         self.retokenize = RegexpTokenizer("[\w]+")
-        textfile = open("en_stopward.txt", "r") #불용어처리를 배열로 담아서 처리
+        textfile = open("stop_word.txt", "r") #불용어처리를 배열로 담아서 처리
         self.stopwords = []
         while True:
             line = textfile.read().splitlines()
@@ -204,5 +204,3 @@ for row in textrank.keywords(5):
     outText1.write('\n')
 
 outText1.close()
-
-print("filename : " + f.name)

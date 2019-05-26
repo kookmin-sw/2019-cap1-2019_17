@@ -1,0 +1,92 @@
+It’s easy to forget that because Apple seemingly forgot that it made the iPad mini: the last update, the iPad mini 4, came in 2015, and it’s barely been mentioned since. 
+Most people, both in and out of Apple, assumed the mini’s middle-size market position would eventually be snuffed out of existence by ever-larger phones and the repositioning of the iPad as a laptop replacement.
+But people really love their iPad minis, and they just kept buying the iPad mini 4, even as the rest of the iOS lineup was updated and improved over time. 
+Apple told me it was surprised to find that people were buying the mini primarily because of its size, not because of its price. 
+And if people are going to keep buying something, it’s worth updating. So there’s a new iPad mini now, updated with some of Apple’s latest tech, and starting at $399.
+
+A PARTS-BIN REMIX BUT THE PARTS ARE ALL GOOD
+That’s some of Apple’s latest tech, not all. 
+You’re still looking at the exact same external design, which is now nearly seven years old. 
+If you secretly replaced any previous iPad mini with the new one, there’s a chance you might not even notice the difference. 
+All the changes to this new mini are on the inside, and they’re significant — which they should be, given the amount of time since it was last refreshed.
+
+You’d expect a spec-bump update like this to be fairly boring, especially since Apple made some curious choices about Lightning and Pencil support along the way. 
+But it turns out I really loved using the iPad mini these past few days.
+I’d forgotten how much I liked having a small tablet instead of a giant phone. 
+Sure, it’s a little bit of an Apple parts-bin remix, but the parts are all good.
+
+The only reason to buy an iPad mini is because you want a killer small tablet. 
+There simply isn’t another tablet at this size that can compete: the Android tablet app ecosystem is far from great, small Android tablets usually have much slower processors and are really meant for watching videos anyway, and there just aren’t any good small Windows tablets aside from the Surface Go, which is considerably larger than the mini.
+With the new iPad mini, you get basically the entire feature set of the new iPad Air in a smaller package with more and better tablet app support than anything else on the market. 
+If you are the sort of person who wants a powerful small tablet, the new iPad mini is the best choice, full stop. 
+It’s basically the only choice.
+
+THERE SIMPLY ISN’T ANOTHER TABLET AT THIS SIZE THAT CAN COMPETE WITH THE MINI
+That’s not to say that this new iPad mini is perfect, or even state-of-the-art. 
+Those bezels are a real throwback, and the decision to use the first-gen Apple Pencil instead of the far superior second-gen Pencil Apple developed for the new iPad Pro is extremely strange. 
+If you’re trying to piece together a coherent story about Apple’s iPad lineup, well, good luck. But it turns out that none of that really affects using the iPad mini day-to-day.
+
+Here’s what’s new: there’s an A12 processor with Apple’s Neural Engine, an updated 7.9-inch display with wide color support, Gigabit LTE and dual-sim support in the cellular models, and a new 7-megapixel front-facing camera with an f/2.2 lens.
+Then there’s a pile of old stuff: you’ve still got a physical home button with Touch ID on the front — no Face ID or fancy haptic button here — and two stereo speakers at the bottom. 
+On the back, there’s the same old 8-megapixel f/2.4 camera, which takes at best medium-good photos. 
+There’s a headphone jack, which warms my heart. And there’s that Lightning connector on the bottom, not USB-C like the new iPad Pros.
+
+Apple told me that they think of USB-C as a pro feature, and that it was really important to maintain compatibility with the existing ecosystem of iPad mini accessories and workflows, so the company stuck with Lightning. 
+I get that. The new mini is an easy drop-in replacement for any of the old ones, and you can’t pull that off with a connector change. 
+But at this point, Apple’s commitment to USB-C is all over the place. 
+At the very least, shipping two new Lightning iPads means Lightning will remain in the Apple connector mix for several more years to come, delaying the future where everything just uses one universal connector. 
+You have dreams, the iPad mini has reality.
+
+THE FIRST-GEN APPLE PENCIL HAS NEVER BEEN A TRIUMPH OF DESIGN
+Apple Pencil support is equally confusing: the iPad Pro came out late last year with a new second-gen pencil that magnetically clips onto the side of the iPad and charges wirelessly, but this new mini doesn’t have any of that. 
+Instead, you’ve got Apple’s first-gen Pencil, which has never been a triumph of design or usability. 
+You still pair and charge it by plugging it into the bottom of the iPad, which looks even more ridiculous on the mini, and the cap is still insanely easy to lose.
+
+ 
+Using the old Pencil is why I say it feels like Apple raided the iPad parts bin: the new Pencil is so much easier to hold, charge, and keep track of. 
+If there was vibrant market competition for small tablets, I’d bet Apple would have gone with the second-gen pencil on the new mini, because it’s so clearly superior. 
+But there isn’t, so you get the first-gen Pencil, which is obviously worse. Do your best to hold on to that cap.
+
+The Pencil itself works just like the first-gen Apple Pencil on any other iPad: it’s fast and responsive, works great across apps that support it, and generally makes the iPad feel like much more than just a consumption device, even if you don’t use it a ton. 
+But it’s not bundled in the box: it costs another $99, which raises the total cost of the new mini to $500 to start. 
+That feels like a miss; if Apple is serious about iPad developers supporting the Pencil, it should put it in the box.
+
+Apart from adding Pencil support, the display is very nice, in the way that Apple LCDs are always very nice. 
+It has wide color support, a respectable 500 nits of brightness, and it’s laminated, unlike the cheapest iPad, so it looks like you’re touching the pixels. 
+What it doesn’t have is ProMotion, which is Apple’s fancy variable refresh-rate tech that makes scrolling super smooth on the iPad Pros. 
+I love ProMotion, but truth be told, I didn’t find myself missing it too much on the mini’s smaller screen.
+
+ 
+I didn’t have the mini long enough to test battery life fully, but I haven’t charged it once in the week I’ve had it, and the battery is still at 31 percent. 
+Apple quotes 10 hours of video playback time, and it’s not like iPads have historically had battery issues, so I’d expect it to do fairly well.
+
+The A12 processor is the same chip in the iPhone XS and XR, so it’s plenty fast. 
+I didn’t encounter any slowdowns or lag as I edited photos in Lightroom, played a few games, and tried a couple of AR demos. 
+The mini runs the same iOS 12 as other iPads, which means you can also multitask on it, which is hilarious on a screen this small. 
+There was a moment when I had two open apps, another app open in a popover window, and a video all going at once. 
+It looked crowded as hell, but it was all working just fine.
+
+ 
+ 
+ 
+ 
+When I reviewed the iPad Pro, I found iOS 12 entirely too limiting. 
+While the hardware felt like it should take the place of my laptop, the software just wasn’t up to the task. 
+Not so with the iPad mini, which is too small to carry any of those lofty expectations. 
+iOS 12 on a screen this size feels light and zippy, and the iPad multiple-app features just feel like the system is helping to organize the small amount of screen space, instead of trying to invent an entirely new mode of computing. 
+You can do a lot on an iPad mini, but not too much, and that feels right for a device that obviously sits between a phone and a laptop.
+
+And after using the new iPad mini for a while, I was reminded of why people like them so much. 
+Phones and tablets have just been getting bigger for years now, and it’s refreshing to use a tablet that’s stubbornly remained small. 
+I like reading on the mini better than my big iPads, I feel less rude using it in meetings than my phone or my laptop, and it has a headphone jack. 
+The only thing I wish it had was a smart keyboard connector so I didn’t have to fiddle with a Bluetooth keyboard, but it’s not a huge loss.
+
+THE MINI IS OBVIOUSLY WORTH IT IF YOU WANT A SMALL, CAPABLE TABLET
+Apple’s got an intense lineup of iPads now. 
+There’s the cheap $329 9.7-inch iPad with an older processor and just-okay display, the new $399 iPad mini and $499 iPad Air, which basically share a spec sheet aside from screen size and the smart keyboard connector on the Air, and the two sizes of iPad Pro, which are marketed as full-on laptop replacements and start at $800. 
+There’s basically an iPad configuration at every price point between $300 and $1,900 now. 
+That’s a lot.
+
+But the decision to get an iPad mini is simple: do you want a small, capable tablet? If you do, the mini is obviously worth $399, especially when you consider how long Apple has supported iPads for in the past. 
+There’s just nothing else like it. 
+Let’s just hope that next time we don’t have to wait four years for Apple to remember it exists again.
