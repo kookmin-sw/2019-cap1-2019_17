@@ -1,0 +1,347 @@
+{% load staticfiles %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<!-- <script language="JavaScript" type="text/javascript">
+		var host = location.host.toLowerCase();
+		var currentAddress = location.href;
+		if (host.indexOf("www") == -1 && host.indexOf("kr") == -1 && host.indexOf("en") == -1) {
+			currentAddress = currentAddress.replace("//", "//www.");
+			location.href = currentAddress;
+		}
+	</script> -->
+	<script type="text/javascript" id="www-widgetapi-script" src="{% static 'capstone/js/www-widgetapi.js' %}" async="">
+	</script>
+	<title>Capstone 17 Team Summer</title>
+	<meta name="description" content="">
+	<meta name="keywords" content="">
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-sacle=1.0, maximum-scale=1.0, user-scalable=no">
+	<!-- <meta http-equiv="refresh" content="0; url=http://localhost:8000"/> -->
+	<meta http-equiv="X-UA-Compatible" acontent="IE=edge">
+	<!--파비콘-->
+	<link rel="shortcut icon" type="image/png" href="{% static 'capstone/img/favicon.png' %}" />
+	<!-- Bootstrap CSS -->
+	<link href="{% static 'capstone/css/bootstrap.css' %}" rel="stylesheet" type="text/css">
+
+	<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,400i,600,600i,700,700i,800&amp;subset=latin-ext" rel="stylesheet" crossorigin="anonymous">
+
+	<!-- Include all css plugins (below), or include individual files as needed -->
+	<link href="{% static 'capstone/css/magnific-popup.css' %}" rel="stylesheet" type="text/css">
+
+	<!-- Theme CSS -->
+	<link href="{% static 'capstone/css/upload.css' %}" rel="stylesheet" type="text/css">
+	<link href="{% static 'capstone/css/theme.css' %}" rel="stylesheet" type="text/css">
+	<link href="{% static 'capstone/css/styles.css' %}" rel="stylesheet" type="text/css">
+
+	<!-- Main JS -->
+	<script src="{% static 'capstone/js/jquery.js' %}"></script>
+	<script src="{% static 'capstone/js/popper.js' %}"></script>
+	<script src="{% static 'capstone/js/bootstrap.js' %}"></script>
+
+	<!-- Include all js plugins (below) -->
+	<script src="{% static 'capstone/js/pace.js' %}"></script>
+	<script src="{% static 'capstone/js/jquery.easing.js' %}"></script>
+	<script src="{% static 'capstone/js/jquery.matchHeight.js' %}"></script>
+	<script src="{% static 'capstone/js/jquery.inview.js' %}"></script>
+	<script src="{% static 'capstone/js/jquery.countTo.js' %}"></script>
+	<script src="{% static 'capstone/js/imagesloaded.pkgd.js' %}"></script>
+	<script src="{% static 'capstone/js/isotope.pkgd.js' %}"></script>
+	<script src="{% static 'capstone/js/jquery.magnific-popup.js' %}"></script>
+	<script src="{% static 'capstone/js/jquery.validate.js' %}"></script>
+	<script src="{% static 'capstone/js/upload.js' %}">
+	</script>
+
+	<!-- Theme JS -->
+	<script src="{% static 'capstone/js/theme.js' %}"></script>
+
+</head>
+{% block content %}
+
+<body>
+	<header class="header">
+
+		<!-- <div class="softobar" style="height: 100%">
+			<div class="softobar-container" style="height: 100% background-color: #609fa4;">
+				<div class="softobar-logo">
+				</div>
+				<div class="softbar-detail" style="color: white;" ba>
+					<p class="e"><b>캡스톤 프로젝트 17조 Summer</b><br><br>음성 데이터를 텍스트로 변환한 뒤 요약해주는 웹 서비스</p>
+				</div>
+			</div>
+		</div> -->
+
+		<div class="sticky-wrapper" style="min-height: 70px;">
+			<div class="sticky-wrapper" style="min-height: 75px;">
+				<div class="header-main sticky-header">
+					<div class="container">
+						<div class="header-wrapper">
+							<div class="logo">
+								<img src="/static/capstone/img/main_logo.png" width="150px">
+								<div class="text-align">
+									&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+
+
+								<h1>음성 데이터 요약</h1>
+								<div class="light-gray-color select-message">SELECT FILES TO CONVERT OR TYPE URL
+								</div>
+
+							</div>
+
+							<div class="navigation-wrapper">
+								<div class="navigation">
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+	</header>
+
+	{% for result in res_results %}
+	<!-- Overall View -->
+	<div class="modal fade" id="{{result.filename}}Overall" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" style="overflow-y:scroll; position: absolute; z-index: 10000;">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content">
+				<!--Header-->
+				<div class="modal-header">
+		&emsp;&emsp;&emsp;
+			<h3 class="modal-title" id="myModalLabel">{{result.filename}} - Overall View</h3>
+					&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+					&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+					&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+					&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+					<a href="{% static result.overall_txt %}" download>
+						<input type="button" class="close" value="Download" style="font-size: 15px; border-radius: 3px 3px 3px 3px; float: right;" /></a>
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close" style="float:right">
+						<span aria-hidden="true">×</span>
+					</button>
+
+				</div>
+
+				<!--Body-->
+				<div class="modal-body">
+					<table class="table table-hover">
+						<thead>
+							<tr>
+								<th scope="row">Time</th>
+								<td></td>
+								<th style="text-align:center">
+									<a>
+										<i class="fas fa-times">
+											Script
+										</i>
+									</a>
+								</th>
+							</tr>
+						</thead>
+						<tbody>
+							{% for k,v in result.dict.items %}
+							<tr>
+								<th scope="row">
+									{{k}}
+								</th>
+								<td></td>
+								<td>
+									<a>
+										<i class="fas fa-times">
+											{{ v }}
+										</i>
+									</a>
+								</td>
+							</tr>
+							{% endfor %}
+						</tbody>
+					</table>
+
+
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- Overall View -->
+	<!-- Summary View--->
+	<div class="modal fade" id="{{result.filename}}Summary" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content">
+				<!--Header-->
+				<div class="modal-header" style="">
+					<h3 class="modal-title">{{result.filename}} - Summary View </h3>
+					&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+					&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+					&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+					<a data-toggle="modal" data-target="#{{result.filename}}Overall">
+						<input type="button" class="close" value="Overall View" style="font-size: 15px; border-radius: 3px 3px 3px 3px; float: right;" /></a>
+					<a href="{% static result.summary_txt %}" download>
+						<input type="button" class="close" value="Download" style="font-size: 15px; border-radius: 3px 3px 3px 3px; float: right;" /></a>
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close" style="float:right">
+						<span aria-hidden="true">×</span>
+					</button>
+
+				</div>
+				<!--Body-->
+				<div class="modal-body">
+					<table class="table table-hover">
+						<thead>
+							<tr>
+								<th style="text-align:center">Script</th>
+							</tr>
+						</thead>
+						<tbody>
+							<td>
+								{% for i in result.summary_view%}
+								{{i}}<br>
+								{% endfor %}
+							</td>
+						</tbody>
+					</table>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- Summary View--->
+	{% endfor %}
+
+	<section id="project" class="col-12" style="background-color:rgb(247,247,247,1); max-width:100%;">
+
+		<container>
+
+
+			<div style="justify-content:center; flex-direction: row; width: 100%; display: inline-flex; cursor: pointer;">
+
+
+				<form method="post" enctype="multipart/form-data">
+					{% csrf_token %}
+					<div class="filebox">
+						<input class="upload-name" value="select file" disabled="disabled">
+						<label for="ex_file">file select</label>
+						<input type="file" id="ex_file" accept=".flac" class="upload-hidden" name="file" style=" padding: .5em .75em; color: #999; font-size: inherit; line-height: normal; border-radius: .25em; " required>
+
+						&emsp;&emsp;&emsp;
+						<input type="submit" class="btn btn-light" value="Upload" style="border-radius:5px 5px 5px 5px; cursor: pointer;">
+					</div>
+				</form>
+			</div>
+			&emsp; &emsp;
+			<div class="distri" style="text-align: center">OR</div>
+<!-- 			<div>
+				<hr width="100%">
+			</div>
+ -->
+ 			&emsp; &emsp;
+			<div style="justify-content:center; flex-direction: row; width: 100%; display: flex; cursor: pointer; ">
+				<form method="get">
+					{% csrf_token %}
+					<input type="text" name="save_name" value="File Name" onclick="this.value='';" style="text-align:center; border: solid 2px #609fa4; border-radius: 8px;" required>
+					&emsp;
+					<input type="url" name="url_input" value="URL" onclick="this.value='';" style="text-align:center; border: solid 2px #609fa4; border-radius: 8px" required>
+					<input type="submit" class="btn btn-light" value="Upload" style="border-radius:5px 5px 5px 5px; cursor: pointer;">
+				</form>
+			</div>
+			<br><br><br>
+			{% if messages %}
+			<script>
+				{% for message in messages %}
+					alert('{{ message }}');
+				{% endfor %}
+			</script>
+			{% endif %}
+			<div style="justify-content:center; flex-direction: row; width: 100%; display: flex; padding: 10px">
+				<div class="summaryform" style=" margin: auto; width: 50%; color: #212529; padding: 10px; border-radius: 10px;     background-color: #75b9be;">
+					<label>Uploaded file: </label>
+					{% if html_name %}
+					{{ html_name.name }}
+					{% endif %}
+					&emsp;
+					<form method="get">
+						{% csrf_token %}
+						<label>Sentence: </label>
+						<select name="sentence">
+							<option value="0.5">50%</option>
+							<option value="0.45">45%</option>
+							<option value="0.4">40%</option>
+							<option value="0.35">35%</option>
+							<option value="0.3" selected="selected">30%</option>
+							<option value="0.25">25%</option>
+							<option value="0.2">20%</option>
+							<option value="0.15">15%</option>
+							<option value="0.1">10%</option>
+							<option value="0.05">5%</option>
+						</select>
+						&emsp;
+						<input type="submit" class="btn btn-light" value="Summary" id="submit" style="border-radius:5px 5px 5px 5px; cursor: pointer;  background-color: #75b9be; border-color: #75b9be; ">
+
+					</form>
+				</div>
+			</div>
+			<style>
+				.e {
+					font-family: verdana;
+					font-weight: 400;
+					font-size: 17px;
+				}
+
+				th,
+				td {
+					padding: 10px;
+					text-align: left;
+				}
+			</style>
+
+&emsp; &emsp;&emsp;
+
+			<div style="justify-content:center; flex-direction: row; width: 100%; display: flex; cursor: default;">
+				<table>
+					<tr>
+						<th>
+							<h3>Files</h3>
+						</th>
+						<th>
+							<h3>Duration</h3>
+						</th>
+						<th>
+							<h3>Uploaded</h3>
+						</th>
+						<th>
+							<h3>KeyWords</h3>
+						</th>
+					</tr>
+
+					{% for result in res_results %}
+					<tr>
+						<td style="text-align:center">
+							<a data-toggle="modal" data-target="#{{result.filename}}Summary" class="cursor" style="cursor: pointer;">
+								{{result.filename}}
+							</a>
+						</td>
+						<td style="text-align:center">
+							{{result.duration}}
+						</td>
+						<td style="text-align:center">
+							{{result.uploaded}}
+						</td>
+						<td style="text-align:center; flex-direction: row; ">
+							<div style="font-weight: bold; text-transform: uppercase">
+								{% for i in result.keyword %}
+								<span style="background:cornflowerblue; border: solid cornflowerblue; border-radius: 15px 15px 15px 15px">
+									{{i}}
+								</span>
+								&emsp;
+								{% endfor %}
+							</div>
+						</td>
+					</tr>
+					{% endfor %}
+
+				</table>
+			</div>
+		</container>
+	</section>
+</body>
+{% endblock %}
+
+</html>
