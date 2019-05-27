@@ -68,16 +68,6 @@ section {
 	display: block
 }
 
-body {
-	margin: 0;
-	font-family: 'Noto Sans KR', sans-serif, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
-	font-size: 1rem;
-	font-weight: 400;
-	line-height: 1.5;
-	color: #212529;
-	text-align: left;
-	background-color: #fff
-}
 
 [tabindex="-1"]:focus {
 	outline: 0 !important
@@ -88,8 +78,13 @@ hr {
 	height: 0;
 	overflow: visible
 }
-
-h1,
+/* h1 {
+    color:black;
+    font-weight: 400;
+    font-size: 27px;
+    line-height: 32px;
+    letter-spacing: -1px;
+} */
 h2,
 h3,
 h4,
@@ -99,10 +94,10 @@ h6 {
 	margin-bottom: .5rem
 }
 
-p {
+/* p {
 	margin-top: 0;
 	margin-bottom: 1rem
-}
+} */
 
 abbr[data-original-title],
 abbr[title] {
@@ -269,7 +264,8 @@ textarea {
 	margin: 0;
 	font-family: inherit;
 	font-size: inherit;
-	line-height: inherit
+	line-height: inherit;
+	display: none;
 }
 
 button,
@@ -392,16 +388,18 @@ h6 {
 	font-weight: 500;
 	line-height: 1.2;
 	color: inherit;
+	text-align: center;
 }
 
 /* applied for titles: Blue Baikal Project, How It Works, Team, Contact */
 .h1,
 h1 {
 	/*font-size: 2.5rem; */
-    font-size: 2.3rem;
+    font-size: 3rem;
     line-height: 3.375rem;
-    font-weight: 700;
-    margin-bottom: 6rem;
+    font-weight: 400;
+	margin-bottom: 1rem;
+	text-align: center;
 }
 
 .h2,
@@ -427,10 +425,10 @@ h4 {
 
 /* applied for TEAM & ADVISORS' names */
 .h5,
-h5 { 
+h5 {
 	font-size: 1.2rem;
     font-weight: 600;
-} 
+}
 
 /* applied for project category: Movie, TV, Game, Music, Book */
 .h6,
@@ -469,10 +467,11 @@ h6 {
 }
 
 hr {
-	margin-top: 1rem;
-	margin-bottom: 1rem;
+
+	margin-top: 2rem;
+	margin-bottom: 2rem;
 	border: 0;
-	border-top: 1px solid rgba(0, 0, 0, .1)
+	border-top: 3px solid rgba(0, 0, 0, .32)
 }
 
 .small,
@@ -562,7 +561,20 @@ code {
 a > code {
 	color: inherit
 }
-
+.logo {
+	text-align: center;
+}
+.select-message {
+	font-weight: 10;
+}
+.light-gray-color {
+	text-align: center;
+	color:#959595;
+}
+.gray-color {
+	text-align: center;
+	color: #343a40;
+}
 kbd {
 	padding: .2rem .4rem;
 	font-size: 87.5%;
@@ -602,7 +614,7 @@ pre code {
 	margin-left: auto;
 }
 
-@media (min-width:576px) {
+/* @media (min-width:576px) {
 	.container {
 		max-width: 540px
 	}
@@ -624,7 +636,7 @@ pre code {
 	.container {
 		max-width: 1200px;
 	}
-}
+} */
 
 .container-fluid {
 	width: 100%;
@@ -9988,7 +10000,7 @@ a.text-dark:hover {
 
 	.table-bordered td,
 	.table-bordered th {
-		border: 1px solid #dee2e6 !important
+		border: 1px solid #343a40 !important
 	}
 
 	.table-dark {
@@ -9999,12 +10011,12 @@ a.text-dark:hover {
 	.table-dark td,
 	.table-dark th,
 	.table-dark thead th {
-		border-color: #dee2e6
+		border-color: #343a40
 	}
 
 	.table .thead-dark th {
 		color: inherit;
-		border-color: #dee2e6
+		border-color: #343a40
 	}
 }
 
