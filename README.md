@@ -38,7 +38,7 @@ The overall structure and development of this project are divided into three mai
 
 ---------------------------------------
 
-### 2. 소개 영상
+### 2. 시연 영상
 
 [![Video Label](https://img.youtube.com/vi/hhs1IOTSo3Y/0.jpg)](https://youtu.be/hhs1IOTSo3Y)
 
