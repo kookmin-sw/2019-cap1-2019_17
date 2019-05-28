@@ -5,3 +5,6 @@ chmod 700 file.sh
 sudo python3 manage.py runserver 0.0.0.0:80  
 // another shell
 sudo mongod
+
+
+// gcp api key was deleted as a security issue
