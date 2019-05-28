@@ -14,7 +14,7 @@ TED와 같은 영어 강연에서 전문적이고 긴 내용을 사람들이 한
 
 이 프로젝트의 전체적인 구조 및 개발 내용은 크게 3가지로 나뉜다.  
   
--  음성인식을 위해 외부 API(Google Speech API)를 사용하여 음성데이터를 텍스트로 변환한 후 그 데이터를 서버에 저장한다.  
+-  음성인식을 위해 외부 API(Google Speech-to-Text API)를 사용하여 음성데이터를 텍스트로 변환한 후 그 데이터를 서버에 저장한다.  
 
 -  서버에 저장된 텍스트 데이터를 요약 알고리즘을 적용하여 핵심 문장으로만 요약되도록 데이터를 가공한다.
 
@@ -100,9 +100,6 @@ The overall structure and development of this project are divided into three mai
 ### 4. 사용자 메뉴얼
 
 
-1) 사용자는 음성파일(flac포맷)이나 저장할 파일 이름과 Youtube링크를 업로드 한다.
-2) 요약될 문장의 %를 Summary 버튼을 누른다.
-3) 요약이 완료되면 로고 버튼을 눌러 리스트를 최신화 한다.
 
 
 
@@ -110,4 +107,3 @@ The overall structure and development of this project are divided into three mai
 
 ### 5. 기타
 
- 1) 
