@@ -23,11 +23,11 @@ TED와 같은 영어 강연에서 전문적이고 긴 내용을 사람들이 한
 
 ### Abstract
 
-It is difficult for people to absorb and understand many long and long contents through speeches, presentations, official announcements, etc. Because the amount of content is getting longer and larger, there is a limit to the amount of time people concentrate on, which can miss important parts. But, It is significant or important. Because of this, the contents are backed up in various ways, such as viewing again via broadcast, recording video, recording audio, etc., and reuse it later. We focused on this part and planned a project that converts voice data to text according to the use purpose and extracts the sentence converted into the text by important sentence unit.
+It is difficult for people to understand the professional and long contents of English lectures like TED* at once. These lectures are long, so people have a limited concentration and miss the important part. Therefore, they try to understand the content again, such as re-viewing the lecture or recording a voice. In this process, we have planned a project that converts voice data into text and extracts it in units of import agreements.
 
 The overall structure and development of this project are divided into three main categories.
 
--  For voice recognition, we use external API (Google Speech API) to convert voice data to text and store the data in server.
+-  For voice recognition, we use external API (Google Speech-to-Text API) to convert voice data to text and store the data in server.
 
 -  Apply the summarization algorithm to the text data stored on the server to process the data so that it is summarized as a core sentence only.
 
@@ -99,11 +99,8 @@ The overall structure and development of this project are divided into three mai
 
 ### 4. 사용자 메뉴얼
 
+![사용자매뉴얼].(./img/사용자매뉴얼.png)
 
 
 
-
----------------------------------------
-
-### 5. 기타
 
