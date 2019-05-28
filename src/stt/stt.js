@@ -10,7 +10,11 @@ async function main() {
         inputArg = array;
     });
 
+    phrase = []
 
+    fs.readFileSync('phrase.txt', 'utf-8').split(/\r?\n/).forEach(function(line){
+      phrase.push(line);
+    })
 
     // Creates a client
     const client = new speech.SpeechClient();
@@ -41,7 +45,7 @@ async function main() {
   // enableSeparateRecognitionPerChannel: true,
   // LINEAR16, FLAC
      "speechContexts": [{
-     "phrases": ["These are", "And live in"]
+     "phrases": phrase
       }]
     };
     const request = {
