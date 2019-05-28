@@ -1,0 +1,7 @@
+export GOOGLE_APPLICATION_CREDENTIALS=key.json
+chmod 700 error.sh
+chmod 700 url.sh
+chmod 700 file.sh 
+sudo python3 manage.py runserver 0.0.0.0:80  
+// another shell
+sudo mongod

@@ -1,0 +1,43 @@
+//django
+sudo apt-get update  
+sudo pip3 install django 
+sudo apt-get install python3-pip 
+// summary package
+pip3 install newspaper3k 
+pip3 install scikit-learn  
+pip3 install nltk  
+sudo python3 -m nltk.downloader -d /usr/local/share/nltk_data all 
+pip3 install neuralcoref --no-binary neuralcoref 
+sudo su
+pip3 install -U spacy==2.1.0 
+python3 -m spacy download en 
+exit
+
+//url to flac package
+sudo su
+pip3 install youtube-dl 
+sudo apt-get install ffmpeg 
+exit
+
+//nodejs stt
+export GOOGLE_APPLICATION_CREDENTIALS=key.json
+sudo apt-get install nodejs 
+sudo apt-get install npm 
+npm install --save @google-cloud/speech 
+npm install sf 
+nano /node_modules/@grpc/grpc-js/build/src/index.js
+//(45)const supportedNodeVersions = ''; modify
+
+//gcs storage cp
+sudo apt install gsutil 
+sudo snap install google-cloud-sdk --classic
+
+// get duration
+sudo apt install sox 
+
+//db
+sudo apt install mongodb-server-core 
+sudo apt install mongodb-clients 
+sudo su
+pip3 install pymongo 
+exit
