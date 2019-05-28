@@ -125,7 +125,7 @@ def index(request):
 #			print('url_sh')
 			messages.success(request, 'Start a URL Summary!')
 			print('\"' +input_name['name']+'\"' + " " + sentence +" " + save_name['name'])
-			os.system("sh ../url.sh " +"\""+ input_name['name'] + ""\"" +" " + sentence +" " + save_name['name'])
+			os.system("sh ../url.sh " +"\""+ input_name['name'] + "\"" +" " + sentence +" " + save_name['name'])
 			cnt = 1
 		# url sentence filename(확장자제거) 
 	
