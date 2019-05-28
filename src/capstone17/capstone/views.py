@@ -72,7 +72,7 @@ def index(request):
 		if check != '.flac':
 			messages.error(request, 'The extension is not FLAC.')
 			context = { 'res_results' : res_results}
-			#os.system("sh ../error.sh " + name)
+			os.system("sh ../error.sh " + name)
 			return render(request, 'capstone/index.html', context)
 		
 		input_name['name'] = name
@@ -115,7 +115,7 @@ def index(request):
 			print(input_name['name'])
 			print('file_sh')
 			messages.success(request, 'Start a File Summary!')
-			#os.system("sh ../file.sh " + input_name['name'] + " " + sentence )
+			os.system("sh ../file.sh " + input_name['name'] + " " + sentence )
 			cnt = 1
 			
 		#url	
@@ -125,7 +125,7 @@ def index(request):
 #			print('url_sh')
 			messages.success(request, 'Start a URL Summary!')
 			print('\"' +input_name['name']+'\"' + " " + sentence +" " + save_name['name'])
-			#os.system("sh ../url.sh " +"\""+ input_name['name'] + ""\"" +" " + sentence +" " + save_name['name'])
+			os.system("sh ../url.sh " +"\""+ input_name['name'] + ""\"" +" " + sentence +" " + save_name['name'])
 			cnt = 1
 		# url sentence filename(확장자제거) 
 	
