@@ -8,11 +8,13 @@
 ### 1. 프로젝트 소개
 
 
-연설이나 발표, 공표 등 음성을 통한 많고 긴 내용을 사람들이 모두 흡수하고 이해하기에는 무리가 있다. 중대하거나 중요한 내용이지만 그만큼 내용의 양도 많아지고 길어 지기 때문에 사람이 집중하는 시간에는 한계가 있어서 중요한 부분을 놓칠 수도 있다. 그러하기 때문에 방송을 통해 다시 보기를 하거나, 영상을 녹화하거나, 음성을 녹음하는 등 다양한 방법으로 내용을 백업하여 나중에 다시 활용하고 있다. 이 부분에 착안하여 사용 용도에 따라 음성 데이터를 텍스트로 변환한 후 그 텍스트로 변환된 문장을 중요 문장 단위로 추출하여 제공해주는 프로젝트를 계획하였다.
+TED와 같은 영어 강연에서 전문적이고 긴 내용을 사람들이 한번에 이해하기는 어렵다. 이러한 강연은 길이가 길어서 집중하는데 한계가 있고 중요한 부분을 놓치게 된다. 따라서 강연을 다시 보거나 음성을 녹음하는 등의 방법으로 내용을 다시 이해하려 한다. 이러한 과정에서 착안하여 음성 데이터를 텍스트로 변환한 후 중요 문장 단위로 추출하여 제공해주는 프로젝트를 계획하였다.  
+(TED는 기술, 오락, 디자인 등과 관련된 강연회이다.)
 
-이 프로젝트의 전체적인 구조 및 개발 내용은 크게 3가지로 나뉜다.
 
--  음성인식을 위해 외부 API(Google Speech API)를 사용하여 음성데이터를 텍스트로 변환한 후 그 데이터를 서버에 저장한다.
+이 프로젝트의 전체적인 구조 및 개발 내용은 크게 3가지로 나뉜다.  
+  
+-  음성인식을 위해 외부 API(Google Speech-to-Text API)를 사용하여 음성데이터를 텍스트로 변환한 후 그 데이터를 서버에 저장한다.  
 
 -  서버에 저장된 텍스트 데이터를 요약 알고리즘을 적용하여 핵심 문장으로만 요약되도록 데이터를 가공한다.
 
@@ -21,11 +23,11 @@
 
 ### Abstract
 
-It is difficult for people to absorb and understand many long and long contents through speeches, presentations, official announcements, etc. Because the amount of content is getting longer and larger, there is a limit to the amount of time people concentrate on, which can miss important parts. But, It is significant or important. Because of this, the contents are backed up in various ways, such as viewing again via broadcast, recording video, recording audio, etc., and reuse it later. We focused on this part and planned a project that converts voice data to text according to the use purpose and extracts the sentence converted into the text by important sentence unit.
+It is difficult for people to understand the professional and long contents of English lectures like TED* at once. These lectures are long, so people have a limited concentration and miss the important part. Therefore, they try to understand the content again, such as re-viewing the lecture or recording a voice. In this process, we have planned a project that converts voice data into text and extracts it in units of import agreements.
 
 The overall structure and development of this project are divided into three main categories.
 
--  For voice recognition, we use external API (Google Speech API) to convert voice data to text and store the data in server.
+-  For voice recognition, we use external API (Google Speech-to-Text API) to convert voice data to text and store the data in server.
 
 -  Apply the summarization algorithm to the text data stored on the server to process the data so that it is summarized as a core sentence only.
 
@@ -38,7 +40,7 @@ The overall structure and development of this project are divided into three mai
 
 ### 2. 소개 영상
 
-[![Video Label](https://img.youtube.com/vi/UIbcKwdViQM/0.jpg)](https://youtu.be/UIbcKwdViQM)
+[![Video Label](https://img.youtube.com/vi/hhs1IOTSo3Y/0.jpg)](https://youtu.be/hhs1IOTSo3Y)
 
 ---------------------------------------
 
@@ -95,17 +97,8 @@ The overall structure and development of this project are divided into three mai
 
 ---------------------------------------
 
-### 4. 사용법
+### 4. 사용자 메뉴얼
 
+<img src="https://github.com/kookmin-sw/2019-cap1-2019_17/blob/master/img/사용자매뉴얼.png" width="100%"></img>
 
-1) 사용자는 음성파일(flac포맷)을 업로드 버튼 클릭 또는 파일 드래그 & 드랍을 하여서 불러온다.
-2) 파일이 불러와진다면 바로 요약 작업이 시작되고 완료될때까지 로딩창이 나타나는데 다음창으로 넘어갈때까지 기다린다.
-3) 로딩창이 끝나고 다음 창으로 넘어가서 요약된 문장을 modal view형태로 보여주고 점선 버튼을 누르면 전체 텍스트 내용을 확인할 수 있다.
-4) 특정 단어를 search bar에 타이핑한다면 어느 파일에 어느 시간대에 그 단어가 등장했는지에 대한 정보를 확인할 수 있다.
-5) 파일 리스트 우측에 키워드태깅을 통해 그 파일에 대한 내용이 무슨내용인지 대략적으로 파악할 수 있다.
-
-
----------------------------------------
-
-### 5. 기타
 
