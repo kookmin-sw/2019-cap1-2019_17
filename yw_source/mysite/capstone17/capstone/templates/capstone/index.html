@@ -218,7 +218,7 @@
 					{% csrf_token %}
 					<div class="filebox">
 						<input class="upload-name" value="select file" disabled="disabled">
-						<label for="ex_file">file select</label>
+						<label for="ex_file">FILE SELECT</label>
 						<input type="file" id="ex_file" accept=".flac" class="upload-hidden" name="file" style=" padding: .5em .75em; color: #999; font-size: inherit; line-height: normal; border-radius: .25em; " required>
 
 						&emsp;&emsp;&emsp;
@@ -236,9 +236,35 @@
 			<div style="justify-content:center; flex-direction: row; width: 100%; display: flex; cursor: pointer; ">
 				<form method="get">
 					{% csrf_token %}
-					<input type="text" name="save_name" value="File Name" onclick="this.value='';" style="text-align:center; border: solid 2px #609fa4; border-radius: 8px;" required>
+					<input type="text" name="save_name" value="File Name" onclick="this.value='';" style="    display: inline-block;
+    /* padding: .5em .75em; */
+    color: #6c757d;
+    font-size: larger;
+    font-family: inherit;
+    line-height: normal;
+    vertical-align: middle;
+    background-color: #609fa42e;
+    border: 2px bold #609fa42e;
+    /* border-bottom: solid 2px #609fa4; */
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    text-align: center;" required>
 					&emsp;
-					<input type="url" name="url_input" value="URL" onclick="this.value='';" style="text-align:center; border: solid 2px #609fa4; border-radius: 8px" required>
+					<input type="url" name="url_input" value="URL" onclick="this.value='';" style="    display: inline-block;
+    /* padding: .5em .75em; */
+    color: #6c757d;
+    font-size: larger;
+    font-family: inherit;
+    line-height: normal;
+    vertical-align: middle;
+    background-color: #609fa42e;
+    border: 2px bold #609fa42e;
+    /* border-bottom: solid 2px #609fa4; */
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    text-align: center;" required>
 					<input type="submit" class="btn btn-light" value="Upload" style="border-radius:5px 5px 5px 5px; cursor: pointer;">
 				</form>
 			</div>
@@ -251,15 +277,21 @@
 			</script>
 			{% endif %}
 			<div style="justify-content:center; flex-direction: row; width: 100%; display: flex; padding: 10px">
-				<div class="summaryform" style=" margin: auto; width: 50%; color: #212529; padding: 10px; border-radius: 10px;     background-color: #75b9be;">
-					<label>Uploaded file: </label>
+				<div class="summaryform" style=" 
+    margin: auto;
+    width: 60%;
+    color: #212529;
+    padding: 10px;
+    border-radius: 10px;
+    background-color: #dbe7e8;">
+					<label>uploaded file: </label>
 					{% if html_name %}
 					{{ html_name.name }}
 					{% endif %}
 					&emsp;
 					<form method="get">
 						{% csrf_token %}
-						<label>Sentence: </label>
+						<label>sentence: </label>
 						<select name="sentence">
 							<option value="0.5">50%</option>
 							<option value="0.45">45%</option>
@@ -273,11 +305,16 @@
 							<option value="0.05">5%</option>
 						</select>
 						&emsp;
-						<input type="submit" class="btn btn-light" value="Summary" id="submit" style="border-radius:5px 5px 5px 5px; cursor: pointer;  background-color: #75b9be; border-color: #75b9be; ">
-
+						<input type="submit" class="btn btn-light" value="Summary" id="submit" style="    border-radius: 5px 5px 5px 5px;
+    width: 70%;
+    color: white;
+    cursor: pointer;
+    background-color: #609fa4;
+    border-color: #609fa4; ">
+</div>
 					</form>
 				</div>
-			</div>
+			
 			<style>
 				.e {
 					font-family: verdana;
@@ -296,25 +333,25 @@
 
 			<div style="justify-content:center; flex-direction: row; width: 100%; display: flex; cursor: default;">
 				<table>
-					<tr>
+					<tr style="border-bottom:  3px solid #153844;">
 						<th>
-							<h3>Files</h3>
+							<h3>files</h3>
 						</th>
 						<th>
-							<h3>Duration</h3>
+							<h3>duration</h3>
 						</th>
 						<th>
-							<h3>Uploaded</h3>
+							<h3>upload date</h3>
 						</th>
 						<th>
-							<h3>KeyWords</h3>
+							<h3>keyWords</h3>
 						</th>
 					</tr>
 
 					{% for result in res_results %}
 					<tr>
 						<td style="text-align:center">
-							<a data-toggle="modal" data-target="#{{result.filename}}Summary" class="cursor" style="cursor: pointer;">
+							<a data-toggle="modal" data-target="#{{result.filename}}Summary" class="btn btn-light" style="border-radius:5px 5px 5px 5px;cursor: pointer;">
 								{{result.filename}}
 							</a>
 						</td>
@@ -327,7 +364,8 @@
 						<td style="text-align:center; flex-direction: row; ">
 							<div style="font-weight: bold; text-transform: uppercase">
 								{% for i in result.keyword %}
-								<span style="background:cornflowerblue; border: solid cornflowerblue; border-radius: 15px 15px 15px 15px">
+								<span style="background: #f8f9fa;
+    border: solid #609fa4;">
 									{{i}}
 								</span>
 								&emsp;

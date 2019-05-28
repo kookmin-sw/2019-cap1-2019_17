@@ -23,31 +23,33 @@ body {margin: 10px}
 .filebox label {
     display: inline-block;
     padding: .5em .75em;
-    color: #495057;
-    font-size: smaller;
+    color: #f8f9fa;
+     font-size: smaller; 
     vertical-align: baseline;
-    background-color: #ffffff;
+    background-color: #609fa4;
     cursor: pointer;
-    border: 2px solid #609fa4;
-    border-radius: .25em;
+    /* border: 2px solid #609fa4; */
+    border-radius: .2em;
+    /* height: 30px; */
+    text-align: center;
 }
 
 /* named upload */
 .filebox .upload-name {
     display: inline-block;
-    /*padding: .5em .75em;*/
-    color: #9b9c9e;
-    font-size: inherit;
+    /* padding: .5em .75em; */
+    color: #6c757d;
+    font-size: larger;
     font-family: inherit;
     line-height: normal;
     vertical-align: middle;
-    background-color: #f5f5f5;
-  border: none;
-  border-bottom: solid 2px #609fa4;
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  appearance: none;
-  text-align: center;
+    background-color: #609fa42e;
+    border: 2px bold #609fa42e;
+    /* border-bottom: solid 2px #609fa4; */
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    text-align: center;
 }
 
 .filebox.bs3-primary label {

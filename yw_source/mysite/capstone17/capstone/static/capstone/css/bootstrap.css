@@ -73,7 +73,7 @@ body {
 	font-family: 'Noto Sans KR', sans-serif, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
 	font-size: 1rem;
 	font-weight: 400;
-	line-height: 1;
+	line-height: 1.5;
 	color: #212529;
 	text-align: center;
 	background-color: #f7f7f7;
@@ -231,11 +231,36 @@ svg:not(:root) {
 	overflow: hidden
 }
 
-table {
-	border-collapse: collapse
-	width: max-content;
+table, th, td{
+	border: 1px black;
 }
 
+table {
+	border-collapse: collapse;
+	width: max-content;
+	/*border-top:  3px solid #153844;*/
+}
+table th{
+	color: #168;
+	background: #75b9be2b;
+     text-align: center;
+}
+
+table th, table td{
+	padding: 5px;
+	border: 1px solid #ddd;
+}
+
+table th:first-child, table td:first-child{
+	border-left: 0;
+}
+
+table th:last-child, table td:last-child {
+      border-right: 0;
+    }
+table tr td:first-child{
+     text-align: center;
+    }
 caption {
 	padding-top: .75rem;
 	padding-bottom: .75rem;
@@ -414,8 +439,8 @@ h2 {
 /* applied for content title: Entertainment Platform ... Blockchain */
 .h3,
 h3 {
-	font-size: 1.3rem;
-    font-weight: 700;
+	font-size: 1.1rem;
+    font-weight: 500;
     line-height: inherit;
     color:#000000;
 }
@@ -445,6 +470,8 @@ h6 {
 	font-size: 1.25rem;
 	font-weight: 300;
 }
+
+
 
 .display-1 {
 	font-size: 6rem;
@@ -2667,7 +2694,7 @@ select.form-control-lg:not([size]):not([multiple]) {
 	user-select: none;
 	border: 1px solid transparent;
 	padding: .375rem .75rem;
-	font-size: 1rem;
+	font-size: 1.3rem;
 	line-height: 1.5;
 	border-radius: .25rem;
 	transition: color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out, box-shadow .15s ease-in-out
