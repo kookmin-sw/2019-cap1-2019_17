@@ -259,7 +259,7 @@ table th:last-child, table td:last-child {
       border-right: 0;
     }
 table tr td:first-child{
-     text-align: center;
+     text-align: left;
     }
 caption {
 	padding-top: .75rem;
