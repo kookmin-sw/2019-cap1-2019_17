@@ -99,7 +99,7 @@ The overall structure and development of this project are divided into three mai
 
 ### 4. 사용자 메뉴얼
 
-![사용자매뉴얼].(./img/사용자매뉴얼.png)
+<img src="https://github.com/kookmin-sw/2019-cap1-2019_17/blob/master/img/사용자매뉴얼.png" width="60%"></img>
 
 
 
