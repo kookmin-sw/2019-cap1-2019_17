@@ -1,0 +1,585 @@
+<html lang="ko">
+
+<head>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+	<title>Summer</title>
+	<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,400i,600,600i,700,700i,800&amp;subset=latin-ext"
+		rel="stylesheet" crossorigin="anonymous">
+	<link rel="stylesheet" href="app.css">
+
+	<script type="text/javascript" async="" src="https://www.google-analytics.com/analytics.js"></script>
+	<script type="text/javascript" async="" src="https://www.google-analytics.com/analytics.js"></script>
+	<script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-55374714-1"></script>
+	<script>
+		window.dataLayer = window.dataLayer || [];
+		function gtag() { dataLayer.push(arguments); }
+		gtag('js', new Date());
+		gtag('config', 'UA-55374714-1');
+	</script>
+
+	<script>
+		window.onerror = function (msg, url, line, column, errorObj) {
+			var req = new XMLHttpRequest();
+			var params = "msg=" + encodeURIComponent(msg) + '&url=' + encodeURIComponent(url) + "&line=" + line + "&column=" + column + "&err_obj=" + errorObj;
+			req.open("GET", "/js/track?" + params);
+			req.send(null);
+		};
+	</script>
+
+	<style type="text/css">
+		@-webkit-keyframes rotate {
+			from {
+				-webkit-transform: rotate(0deg);
+			}
+
+			to {
+				-webkit-transform: rotate(360deg);
+			}
+		}
+
+		@keyframes rotate {
+			from {
+				transform: rotate(0deg);
+			}
+
+			to {
+				transform: rotate(360deg);
+			}
+		}
+	</style>
+	<style>
+		.picker-dialog-frame {
+			width: 100%;
+			height: 100%;
+			border: 0;
+			overflow: hidden
+		}
+
+		.picker-dialog-bg {
+			position: absolute;
+			top: 0;
+			left: 0;
+			background-color: #fff;
+			z-index: 1000
+		}
+
+		.picker-dialog {
+			position: absolute;
+			top: 0;
+			left: 0;
+			background-color: #fff;
+			border: 1px solid #acacac;
+			width: auto;
+			padding: 0;
+			z-index: 1001;
+			overflow: auto;
+			-moz-box-shadow: rgba(0, 0, 0, .2) 0 4px 16px;
+			-webkit-box-shadow: rgba(0, 0, 0, .2) 0 4px 16px;
+			box-shadow: rgba(0, 0, 0, .2) 0 4px 16px
+		}
+
+		.picker-dialog-content {
+			font-size: 0;
+			padding: 0
+		}
+
+		.picker-dialog-title,
+		.picker-dialog-buttons {
+			display: none
+		}
+	</style>
+	<style type="text/css">
+		.fb_hidden {
+			position: absolute;
+			top: -10000px;
+			z-index: 10001
+		}
+
+		.fb_reposition {
+			overflow: hidden;
+			position: relative
+		}
+
+		.fb_invisible {
+			display: none
+		}
+
+		.fb_reset {
+			background: none;
+			border: 0;
+			border-spacing: 0;
+			color: #000;
+			cursor: auto;
+			direction: ltr;
+			font-family: "lucida grande", tahoma, verdana, arial, sans-serif;
+			font-size: 11px;
+			font-style: normal;
+			font-variant: normal;
+			font-weight: normal;
+			letter-spacing: normal;
+			line-height: 1;
+			margin: 0;
+			overflow: visible;
+			padding: 0;
+			text-align: left;
+			text-decoration: none;
+			text-indent: 0;
+			text-shadow: none;
+			text-transform: none;
+			visibility: visible;
+			white-space: normal;
+			word-spacing: normal
+		}
+
+		.fb_reset>div {
+			overflow: hidden
+		}
+
+		@keyframes fb_transform {
+			from {
+				opacity: 0;
+				transform: scale(.95)
+			}
+
+			to {
+				opacity: 1;
+				transform: scale(1)
+			}
+		}
+
+		.fb_animate {
+			animation: fb_transform .3s forwards
+		}
+
+		.fb_dialog {
+			background: rgba(82, 82, 82, .7);
+			position: absolute;
+			top: -10000px;
+			z-index: 10001
+		}
+
+		.fb_dialog_advanced {
+			border-radius: 8px;
+			padding: 10px
+		}
+
+		.fb_dialog_content {
+			background: #fff;
+			color: #373737
+		}
+
+		.fb_dialog_close_icon {
+			background: url(https://static.xx.fbcdn.net/rsrc.php/v3/yq/r/IE9JII6Z1Ys.png) no-repeat scroll 0 0 transparent;
+			cursor: pointer;
+			display: block;
+			height: 15px;
+			position: absolute;
+			right: 18px;
+			top: 17px;
+			width: 15px
+		}
+
+		.fb_dialog_mobile .fb_dialog_close_icon {
+			left: 5px;
+			right: auto;
+			top: 5px
+		}
+
+		.fb_dialog_padding {
+			background-color: transparent;
+			position: absolute;
+			width: 1px;
+			z-index: -1
+		}
+
+		.fb_dialog_close_icon:hover {
+			background: url(https://static.xx.fbcdn.net/rsrc.php/v3/yq/r/IE9JII6Z1Ys.png) no-repeat scroll 0 -15px transparent
+		}
+
+		.fb_dialog_close_icon:active {
+			background: url(https://static.xx.fbcdn.net/rsrc.php/v3/yq/r/IE9JII6Z1Ys.png) no-repeat scroll 0 -30px transparent
+		}
+
+		.fb_dialog_iframe {
+			line-height: 0
+		}
+
+		.fb_dialog_content .dialog_title {
+			background: #6d84b4;
+			border: 1px solid #365899;
+			color: #fff;
+			font-size: 14px;
+			font-weight: bold;
+			margin: 0
+		}
+
+		.fb_dialog_content .dialog_title>span {
+			background: url(https://static.xx.fbcdn.net/rsrc.php/v3/yd/r/Cou7n-nqK52.gif) no-repeat 5px 50%;
+			float: left;
+			padding: 5px 0 7px 26px
+		}
+
+		body.fb_hidden {
+			height: 100%;
+			left: 0;
+			margin: 0;
+			overflow: visible;
+			position: absolute;
+			top: -10000px;
+			transform: none;
+			width: 100%
+		}
+
+		.fb_dialog.fb_dialog_mobile.loading {
+			background: url(https://static.xx.fbcdn.net/rsrc.php/v3/ya/r/3rhSv5V8j3o.gif) white no-repeat 50% 50%;
+			min-height: 100%;
+			min-width: 100%;
+			overflow: hidden;
+			position: absolute;
+			top: 0;
+			z-index: 10001
+		}
+
+		.fb_dialog.fb_dialog_mobile.loading.centered {
+			background: none;
+			height: auto;
+			min-height: initial;
+			min-width: initial;
+			width: auto
+		}
+
+		.fb_dialog.fb_dialog_mobile.loading.centered #fb_dialog_loader_spinner {
+			width: 100%
+		}
+
+		.fb_dialog.fb_dialog_mobile.loading.centered .fb_dialog_content {
+			background: none
+		}
+
+		.loading.centered #fb_dialog_loader_close {
+			clear: both;
+			color: #fff;
+			display: block;
+			font-size: 18px;
+			padding-top: 20px
+		}
+
+		#fb-root #fb_dialog_ipad_overlay {
+			background: rgba(0, 0, 0, .4);
+			bottom: 0;
+			left: 0;
+			min-height: 100%;
+			position: absolute;
+			right: 0;
+			top: 0;
+			width: 100%;
+			z-index: 10000
+		}
+
+		#fb-root #fb_dialog_ipad_overlay.hidden {
+			display: none
+		}
+
+		.fb_dialog.fb_dialog_mobile.loading iframe {
+			visibility: hidden
+		}
+
+		.fb_dialog_mobile .fb_dialog_iframe {
+			position: sticky;
+			top: 0
+		}
+
+		.fb_dialog_content .dialog_header {
+			background: linear-gradient(from(#738aba), to(#2c4987));
+			border-bottom: 1px solid;
+			border-color: #1d3c78;
+			box-shadow: white 0 1px 1px -1px inset;
+			color: #fff;
+			font: bold 14px Helvetica, sans-serif;
+			text-overflow: ellipsis;
+			text-shadow: rgba(0, 30, 84, .296875) 0 -1px 0;
+			vertical-align: middle;
+			white-space: nowrap
+		}
+
+		.fb_dialog_content .dialog_header table {
+			height: 43px;
+			width: 100%
+		}
+
+		.fb_dialog_content .dialog_header td.header_left {
+			font-size: 12px;
+			padding-left: 5px;
+			vertical-align: middle;
+			width: 60px
+		}
+
+		.fb_dialog_content .dialog_header td.header_right {
+			font-size: 12px;
+			padding-right: 5px;
+			vertical-align: middle;
+			width: 60px
+		}
+
+		.fb_dialog_content .touchable_button {
+			background: linear-gradient(from(#4267B2), to(#2a4887));
+			background-clip: padding-box;
+			border: 1px solid #29487d;
+			border-radius: 3px;
+			display: inline-block;
+			line-height: 18px;
+			margin-top: 3px;
+			max-width: 85px;
+			padding: 4px 12px;
+			position: relative
+		}
+
+		.fb_dialog_content .dialog_header .touchable_button input {
+			background: none;
+			border: none;
+			color: #fff;
+			font: bold 12px Helvetica, sans-serif;
+			margin: 2px -12px;
+			padding: 2px 6px 3px 6px;
+			text-shadow: rgba(0, 30, 84, .296875) 0 -1px 0
+		}
+
+		.fb_dialog_content .dialog_header .header_center {
+			color: #fff;
+			font-size: 16px;
+			font-weight: bold;
+			line-height: 18px;
+			text-align: center;
+			vertical-align: middle
+		}
+
+		.fb_dialog_content .dialog_content {
+			background: url(https://static.xx.fbcdn.net/rsrc.php/v3/y9/r/jKEcVPZFk-2.gif) no-repeat 50% 50%;
+			border: 1px solid #4a4a4a;
+			border-bottom: 0;
+			border-top: 0;
+			height: 150px
+		}
+
+		.fb_dialog_content .dialog_footer {
+			background: #f5f6f7;
+			border: 1px solid #4a4a4a;
+			border-top-color: #ccc;
+			height: 40px
+		}
+
+		#fb_dialog_loader_close {
+			float: left
+		}
+
+		.fb_dialog.fb_dialog_mobile .fb_dialog_close_button {
+			text-shadow: rgba(0, 30, 84, .296875) 0 -1px 0
+		}
+
+		.fb_dialog.fb_dialog_mobile .fb_dialog_close_icon {
+			visibility: hidden
+		}
+
+		#fb_dialog_loader_spinner {
+			animation: rotateSpinner 1.2s linear infinite;
+			background-color: transparent;
+			background-image: url(https://static.xx.fbcdn.net/rsrc.php/v3/yD/r/t-wz8gw1xG1.png);
+			background-position: 50% 50%;
+			background-repeat: no-repeat;
+			height: 24px;
+			width: 24px
+		}
+
+		@keyframes rotateSpinner {
+			0% {
+				transform: rotate(0deg)
+			}
+
+			100% {
+				transform: rotate(360deg)
+			}
+		}
+
+		.fb_iframe_widget {
+			display: inline-block;
+			position: relative
+		}
+
+		.fb_iframe_widget span {
+			display: inline-block;
+			position: relative;
+			text-align: justify
+		}
+
+		.fb_iframe_widget iframe {
+			position: absolute
+		}
+
+		.fb_iframe_widget_fluid_desktop,
+		.fb_iframe_widget_fluid_desktop span,
+		.fb_iframe_widget_fluid_desktop iframe {
+			max-width: 100%
+		}
+
+		.fb_iframe_widget_fluid_desktop iframe {
+			min-width: 220px;
+			position: relative
+		}
+
+		.fb_iframe_widget_lift {
+			z-index: 1
+		}
+
+		.fb_iframe_widget_fluid {
+			display: inline
+		}
+
+		.fb_iframe_widget_fluid span {
+			width: 100%
+		}
+	</style>
+</head>
+
+<body class="">
+
+	<svg style="display: none;">
+		<symbol id="from-pc" viewBox="0 0 29 20">
+			<path d="M3,0h23v16H3V0z M5,2v12h19V2H5z M1,18h27v2H1V18z"></path>
+		</symbol>
+
+		<symbol id="from-url" viewBox="0 0 24 24">
+			<path
+				d="M13.485 15.49c.444.445.487 1.13.093 1.525l-6.59 6.59c-.393.393-1.08.351-1.524-.093l-5.1-5.1c-.445-.446-.487-1.131-.093-1.526l6.59-6.589c.394-.394 1.08-.352 1.524.093.444.443.487 1.13.092 1.524L3.32 17.071c-.393.394-.352 1.08.093 1.525l1.865 1.865c.444.445 1.13.486 1.524.092l5.157-5.156c.394-.395 1.08-.353 1.525.092l.001.002zM23.513 5.465c.444.443.486 1.13.092 1.524l-6.59 6.59c-.393.393-1.08.351-1.524-.093-.444-.445-.487-1.13-.092-1.525l5.156-5.157c.395-.395.353-1.08-.092-1.525l-1.865-1.865c-.445-.444-1.13-.486-1.525-.092l-5.157 5.157c-.393.393-1.08.351-1.524-.093-.445-.444-.486-1.13-.092-1.524L16.889.27c.394-.393 1.08-.352 1.524.093l5.1 5.1zm-6.92 1.818c.445.445.486 1.13.092 1.524l-7.879 7.879c-.394.393-1.08.353-1.524-.092-.445-.445-.486-1.13-.092-1.525l7.879-7.878c.394-.395 1.08-.353 1.524.092z">
+			</path>
+		</symbol>
+		<symbol id="svg-icon-star" viewBox="0 0 12 12">
+			<path
+				d="M6,0L4.375,4.063L0,4.359l3.36,2.813l-1.063,4.234L6,9.078l3.703,2.328L8.641,7.172L12,4.359 L7.625,4.063L6,0z">
+			</path>
+		</symbol>
+		<symbol id="svg-icon-close" viewBox="0 0 16 16">
+			<path
+				d="M.724.118L.118.724 7.395 8 .118 15.276l.606.606L8 8.605l7.276 7.277.606-.606L8.605 8 15.882.724l-.606-.606L8 7.395z">
+			</path>
+		</symbol>
+		<symbol id="svg-icon-process" viewBox="0 0 18 18">
+			<path
+				d="M12.858,10h2.052c-0.478,2.836-2.938,5-5.91,5c-1.657,0-3.152-0.676-4.236-1.764L3,15v-5h5l-1.817,1.817C6.902,12.545,7.895,13,9,13C10.861,13,12.412,11.722,12.858,10z M13.236,4.764C12.152,3.676,10.657,3,9,3C6.028,3,3.567,5.164,3.09,8h2.052C5.588,6.278,7.139,5,9,5c1.106,0,2.098,0.455,2.817,1.183L10,8h5V3L13.236,4.764z">
+			</path>
+		</symbol>
+		<symbol id="svg-arrow-d" viewBox="0 0 13 13">
+			<path d="M6 11.212V1h1v10.212L10.514 7l.486.608L6.5 13 2 7.608 2.486 7 6 11.212z"></path>
+		</symbol>
+		<symbol id="svg-arrow-split" viewBox="0 0 17 13">
+			<path
+				d="M8,0h1v13H8V0z M4.493,2L0,7l4.493,5L5,11.46L0.99,7L5,2.54L4.493,2z M12.507,2L12,2.54L16.01,7L12,11.46L12.507,12L17,7L12.507,2z">
+			</path>
+		</symbol>
+		<symbol id="svg-plus" viewBox="0 0 13 13">
+			<path d="M6 0v6H0v1h6v6h1V7h6V6H7V0z"></path>
+		</symbol>
+		<symbol id="svg-submit-arrow" viewBox="0 0 20 22">
+			<path
+				d="M0,11.959V10.05h16.343l-7.81-7.926c-0.279-0.273-0.359-0.69-0.202-1.047C8.563,0.579,9.152,0.362,9.65,0.593c0.111,0.052,0.213,0.124,0.298,0.212L20,11.005L9.948,21.204c-0.378,0.382-0.991,0.396-1.384,0.03c-0.381-0.352-0.406-0.943-0.055-1.324c0.008-0.009,0.016-0.018,0.024-0.026l7.81-7.925H0L0,11.959z">
+			</path>
+		</symbol>
+		<symbol id="svg-plus2" viewBox="0 0 14 14">
+			<path d="M14,8H8v6H6V8H0V6h6V0h2v6h6V8z"></path>
+		</symbol>
+		<symbol id="svg-download" viewBox="0 0 14 14">
+			<path
+				d="M7,11.147L1.865,5.609l0.674-0.758l0.075,0.081l3.73,4.025V1h1.313v7.957l3.805-4.106l0.673,0.758L7,11.147z M0,13v1h14v-1H0z">
+			</path>
+		</symbol>
+		<symbol id="svg-settings" viewBox="0 0 14 14">
+			<path
+				d="M6.11 0l-.335 2.063a5.08 5.08 0 0 0-1.392.567L2.681 1.418 1.444 2.656 2.63 4.357a5.245 5.245 0 0 0-.567 1.418L0 6.11v1.754l2.063.36c.122.5.306.964.567 1.393l-1.212 1.702 1.238 1.237 1.727-1.186c.429.258.896.445 1.392.567L6.11 14h1.754l.36-2.063a5.139 5.139 0 0 0 1.393-.593l1.727 1.212 1.238-1.237-1.238-1.702c.255-.425.47-.896.593-1.392L14 7.864V6.11l-2.063-.335a5.182 5.182 0 0 0-.593-1.392l1.238-1.727-1.263-1.238-1.702 1.238a5.082 5.082 0 0 0-1.392-.593L7.864 0H6.11zm.903 4.564a2.409 2.409 0 0 1 2.423 2.423c0 1.35-1.073 2.45-2.423 2.45a2.452 2.452 0 0 1-2.45-2.45c0-1.35 1.1-2.423 2.45-2.423z">
+			</path>
+		</symbol>
+		<symbol id="svg-icon-page" viewBox="0 0 11 13">
+			<path d="M1 1v11h9V1H1zM0 0h11v13H0V0zm2 3v1h7V3H2zm0 3v1h7V6H2zm0 3v1h7V9H2z"></path>
+		</symbol>
+		<symbol id="svg-icon-a" viewBox="0 0 13 13">
+			<path
+				d="M8.007 8.465h-5.22L.992 13H0L5.168.098h.571L10.802 13H9.79L8.007 8.465zM3.11 7.656h4.597L5.959 3.024a22.5 22.5 0 0 1-.527-1.511 14.094 14.094 0 0 1-.519 1.529L3.111 7.656z">
+			</path>
+		</symbol>
+	</svg>
+
+	<div class="main-container full-height ">
+
+		<header class="header">
+
+			<div class="softobar">
+				<div class="softobar-container">
+					<div class="softobar-logo">
+					</div>캡스톤 프로젝트 17조 Summer - 음성 데이터를 텍스트로 변환한 뒤 요약해주는 웹 서비스
+				</div>
+			</div>
+
+			<div class="sticky-wrapper" style="min-height: 70px;">
+				<div class="sticky-wrapper" style="min-height: 75px;">
+					<div class="header-main sticky-header">
+						<div class="container">
+							<div class="header-wrapper">
+
+								<div class="logo">
+									<!-- <a herf="convert3.html">
+                    <img src="icon.png">
+                  
+                  </a> -->
+									<a herf="convert3.html">
+										<img src="logo2.png" width="150px">
+									</a>
+
+
+
+
+
+								</div>
+
+
+
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+		</header>
+		<div class="main-content">
+			<div class="container">
+				<div class="content-area">
+					<div class="hero-wrapper">
+						<div class="hero text-center" style="height: 797px;">
+							<h1>음성 데이터 요약</h1>
+							<div class="converter-container">
+									<div class="file-source-button-wrapper file-source-button-resizable">
+											<div class="file-source-title d-none d-md-block">
+													Select files to convert or drag &amp; drop                            </div>
+											<div class="file-source-button"><label for="pc-upload-add" class="action-label"><span>From Computer</span></label> <div class="menu-wrapper"><label for="pc-upload-add" class="file-source-btn"><span>Select files</span> <i data-toggle-widget=".file-source-nav" data-toggle="dropdown"></i></label> <div class="dropdown-menu file-source-nav"><input type="file" id="pc-upload-add" name="pc-upload" multiple="multiple" class="file-input"> <label for="pc-upload-add" data-action-label="From Computer" class="nav-item from-pc"><i><svg width="28" height="19"><use xlink:href="#from-pc"></use></svg></i></label> <!----> <!----> <!----><!----> <span data-action-label="From Dropbox" class="nav-item from-dropbox"><i><svg width="26" height="24"><use xlink:href="#from-dropbox"></use></svg></i></span> <!----> <!----><!----> <!----> <span data-action-label="From Google Drive" class="nav-item from-drive"><i><svg width="24" height="21"><use xlink:href="#from-gdrive"></use></svg></i></span> <!----><!----> <!----> <!----> <span data-action-label="URL" class="nav-item from-url"><i><svg width="24" height="24"><use xlink:href="#from-url"></use></svg></i></span></div></div></div>
+	
+	
+									</div><!----><!---->
+							</div>
+						</div>
+					</div>
+
+
+
+				</div>
+			</div>
+
+		</div>
+		<script src="https://static.convertio.co/js/app.js" crossorigin="anonymous" gapi_processed="true"></script>
+
+	</div>
+	<div></div>
+	</div>
+	</div>
+</body>
+
+</html>

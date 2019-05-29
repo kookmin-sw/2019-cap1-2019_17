@@ -1,0 +1,41 @@
+{% extends "elections/layout.html" %}
+{% block title %}
+{{area}}
+{% endblock %}
+
+{% block content %}
+<div class="container">
+<h1>{{area}}</h1>
+<br>
+   {% if poll %}
+    <table class="table table-striped">
+        <thead>
+        <tr>
+            <td><B>이름</B></td>
+            <td><B>소개</B></td>
+            <td><B>기호</B></td>
+            <td><B>지지하기</B></td>
+        </tr>
+        </thead>
+        <tbody>
+        {% for candidate in candidates %}
+        <tr>
+            <td> {{candidate.name}}</td>
+            <td> {{candidate.introduction}} </td>
+            <td> 기호{{candidate.party_number}}번 </td>
+            <td>
+                <form action = "/polls/{{poll.id}}/" method="post">
+                   {% csrf_token %}
+                    <button name="choice" value="{{candidate.id}}">선택</button>
+                </form>
+            </td>
+        </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+    {% else %}
+    여론조사가 없습니다.
+    {% endif %}
+    
+</div>
+{% endblock %}

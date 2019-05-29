@@ -1,0 +1,31 @@
+{% extends "elections/layout.html" %}
+{% block title %}
+{{area}} 여론조사 결과
+{% endblock %}
+
+{% block content %}
+<div class="container">
+<h1>지역구</h1>
+<br>
+<table class="table table-striped">
+    <thead>
+    <tr>
+        <td><B>기간</B></td>
+        {% for candidate in candidates %}
+        <td><B>{{candidate.name}}</B></td>
+        {% endfor %}
+    </tr>
+    </thead>
+    <tbody>
+    {% for result in poll_results %}
+    <tr>
+        <td> {{result.start_date.year}}/{{result.start_date.month}}/{{result.start_date.day}}~{{result.end_date.year}}/{{result.end_date.month}}/{{result.end_date.day}} </td>
+        {% for rate in result.rates %}
+        <td> {{rate}}%</td>
+        {% endfor %}
+    </tr>
+    {% endfor %}
+    <tbody>
+</table>
+</div>
+{% endblock %}

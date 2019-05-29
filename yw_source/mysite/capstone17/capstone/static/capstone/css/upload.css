@@ -1,0 +1,59 @@
+body {margin: 10px}
+.where {
+  display: block;
+  margin: 25px 15px;
+  font-size: 11px;
+  color: #000;
+  text-decoration: none;
+  font-family: verdana;
+  font-style: italic;
+}
+
+.filebox input[type="file"] {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip:rect(0,0,0,0);
+    border: 0;
+}
+
+.filebox label {
+    display: inline-block;
+    padding: .5em .75em;
+    color: #f8f9fa;
+     font-size: smaller; 
+    vertical-align: baseline;
+    background-color: #609fa4;
+    cursor: pointer;
+    /* border: 2px solid #609fa4; */
+    border-radius: .2em;
+    /* height: 30px; */
+    text-align: center;
+}
+
+/* named upload */
+.filebox .upload-name {
+    display: inline-block;
+    /* padding: .5em .75em; */
+    color: #6c757d;
+    font-size: larger;
+    font-family: inherit;
+    line-height: normal;
+    vertical-align: middle;
+    background-color: #609fa42e;
+    border: 2px bold #609fa42e;
+    /* border-bottom: solid 2px #609fa4; */
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    text-align: center;
+}
+
+.filebox.bs3-primary label {
+  color: #fff;
+    background-color: #337ab7;
+    border-color: #2e6da4;
+}
