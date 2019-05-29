@@ -114,7 +114,7 @@ def index(request):
 		if cnt == 2:
 			print(input_name['name'])
 			print('file_sh')
-			messages.success(request, 'Start a File Summary!')
+			messages.success(request, 'Completed a File Summary!')
 			os.system("sh ../file.sh " + input_name['name'] + " " + sentence )
 			cnt = 1
 			
@@ -123,7 +123,7 @@ def index(request):
 #			print(input_name['name'])
 #			print(save_name['name'])
 #			print('url_sh')
-			messages.success(request, 'Start a URL Summary!')
+			messages.success(request, 'Completed a URL Summary!')
 			print('\"' +input_name['name']+'\"' + " " + sentence +" " + save_name['name'])
 			os.system("sh ../url.sh " +"\""+ input_name['name'] + "\"" +" " + sentence +" " + save_name['name'])
 			cnt = 1
