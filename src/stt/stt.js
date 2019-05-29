@@ -18,16 +18,7 @@ async function main() {
 
     // Creates a client
     const client = new speech.SpeechClient();
-  
-    // The name of the audio file to transcribe
-    //const fileName = 'test/kks.flac';
-  
-    // Reads a local audio file and converts it to base64
-    //const file = fs.readFileSync(fileName);
-    //const audioBytes = file.toString('base64');
-  
-    // The audio file's encoding, sample rate in hertz, and BCP-47 language code LINEAR16
-    // ko-KR, en-US
+
     const audio = {
       //content: audioBytes,
       uri : `gs://speech-ysh/${inputArg[2]}`
@@ -37,13 +28,9 @@ async function main() {
      enableWordTimeOffsets: true,       // 타임스탬프
      enableAutomaticPunctuation: true,  // 문단 띄어주는 기능.
      encoding: 'FLAC',
-  // sampleRateHertz: 44100,
      languageCode: 'en-US',
-  // model: "default",
      audioChannelCount: 2,
      useEnhanced: true,   // 데이터 로깅을 이용해 향상된 모델 사용
-  // enableSeparateRecognitionPerChannel: true,
-  // LINEAR16, FLAC
      "speechContexts": [{
      "phrases": phrase
       }]
@@ -60,22 +47,20 @@ async function main() {
     .longRunningRecognize(request)
     .then(data => {
       const operation = data[0];
+      
       // Get a Promise representation of the final result of the job
       return operation.promise();
     })
     .then(data => {
       const response = data[0];
       response.results.forEach(result => {
-        // console.log(`Transcription: ${result.alternatives[0].transcript}`);
 
         var second = result.alternatives[0].words[0].startTime.seconds;
         var minute = parseInt(second / 60);
         var viewSecond = second % 60;
         var nanosecond = (result.alternatives[0].words[0].startTime.nanos)/100000000
-        //console.log(`${minute + `:` + viewSecond + `.` + nanosecond}`);
 
         var timestamp = sf("{0:0#}:{1:0#}.{2:0#}", minute, viewSecond, nanosecond);
-        //console.log(`${timestamp}`);
         var obj = {
             time: timestamp,
             transcript: `${result.alternatives[0].transcript}`,
@@ -87,7 +72,6 @@ async function main() {
             console.error(err);
             return;
           };
-          //console.log('complete');
         });
       });
       const transcription = response.results
