@@ -30,7 +30,7 @@ class CoreferenceResolution(object):
 class SentenceTokenizer(object):
     def __init__(self):
         self.retokenize = RegexpTokenizer("[\w]+")
-        textfile = open("en_stopward.txt", "r") #불용어처리를 배열로 담아서 처리
+        textfile = open("en_stopword.txt", "r") #불용어처리를 배열로 담아서 처리
         self.stopwords = []
         while True:
             line = textfile.read().splitlines()
