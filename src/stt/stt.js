@@ -76,7 +76,7 @@ async function main() {
       });
       const transcription = response.results
         .map(result => result.alternatives[0].transcript)
-        .join('\n');
+        .join('.' + '\n');
       fs.writeFile(inputArg[3], transcription, 'utf8', function(err) {
         console.log(`${inputArg[3]} is created.`);
         console.log(`${inputArg[4]} is created.`);
