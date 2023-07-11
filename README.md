@@ -74,7 +74,7 @@ The overall structure and development of this project are divided into three mai
 
 - 역할 : UI설계 및 구현, Google Speech API 호출 및 Time Stamp 와 Hash Tag 기능을 구현. Django와 MongoDB를 이용해 서버를 구축하고 데이터를 관리.
 
-- E-mail : ysh827@kookmin.ac.kr 
+
 
 
 #### 4. 팀원 : 정경진
